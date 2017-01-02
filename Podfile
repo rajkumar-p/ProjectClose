@@ -4,7 +4,8 @@ target 'ProjectClose' do
   use_frameworks!
 
   # Pods for ProjectClose
-  pod 'RealmSwift', '2.1.2' 
+  pod 'RealmSwift', '2.1.2'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   target 'ProjectCloseTests' do
     inherit! :search_paths

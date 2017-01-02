@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class LoginViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    let backgroundGradientColors = [UIColor(hexString: "#2C3541"), UIColor(hexString: "#353F4E")]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +24,7 @@ class LoginViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = UIColor(gradientStyle: .radial, withFrame: self.view.bounds, andColors: backgroundGradientColors as! [UIColor])
     }
 
     override func didReceiveMemoryWarning() {
