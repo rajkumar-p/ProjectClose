@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
+		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
+		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
+		359EC9E71E1B78E900083309 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E21E1B78E900083309 /* Lato-Light.ttf */; };
+		359EC9E81E1B78E900083309 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E31E1B78E900083309 /* Lato-Regular.ttf */; };
+		359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EA1E1B7ADE00083309 /* Utilities.swift */; };
+		359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EC1E1B7AF300083309 /* ProjectCloseColors.swift */; };
+		359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */; };
+		359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */; };
 		35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */; };
 		35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */; };
 		35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AF1E1A26C8007CE4CD /* LaunchScreen.storyboard */; };
@@ -37,6 +46,15 @@
 
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		359EC9E21E1B78E900083309 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		359EC9E31E1B78E900083309 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		359EC9EA1E1B7ADE00083309 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		359EC9EC1E1B7AF300083309 /* ProjectCloseColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseColors.swift; sourceTree = "<group>"; };
+		359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseFonts.swift; sourceTree = "<group>"; };
+		359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseStrings.swift; sourceTree = "<group>"; };
 		35CEC2A31E1A26C8007CE4CD /* ProjectClose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectClose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +115,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		359EC9DE1E1B789E00083309 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				359EC9DF1E1B78E900083309 /* Lato-Black.ttf */,
+				359EC9E01E1B78E900083309 /* Lato-Bold.ttf */,
+				359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */,
+				359EC9E21E1B78E900083309 /* Lato-Light.ttf */,
+				359EC9E31E1B78E900083309 /* Lato-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		359EC9E91E1B7AB700083309 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				359EC9EA1E1B7ADE00083309 /* Utilities.swift */,
+				359EC9EC1E1B7AF300083309 /* ProjectCloseColors.swift */,
+				359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */,
+				359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		35CEC29A1E1A26C7007CE4CD = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +163,8 @@
 		35CEC2A51E1A26C8007CE4CD /* ProjectClose */ = {
 			isa = PBXGroup;
 			children = (
+				359EC9E91E1B7AB700083309 /* Helpers */,
+				359EC9DE1E1B789E00083309 /* Fonts */,
 				35CEC2D41E1A26ED007CE4CD /* ViewControllers */,
 				35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */,
 				35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */,
@@ -290,7 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */,
+				359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */,
+				359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */,
+				359EC9E71E1B78E900083309 /* Lato-Light.ttf in Resources */,
+				359EC9E81E1B78E900083309 /* Lato-Regular.ttf in Resources */,
 				35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */,
+				359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +501,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
+				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
+				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
+				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
