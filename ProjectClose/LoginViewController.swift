@@ -23,6 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var loginButton: UIButton!
     var forgotPasswordButton: UIButton!
 
+    var signupButton: UIButton!
+    var helpButton: UIButton!
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -38,6 +41,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupPasswordTextField()
         setupLoginButton()
         setupForgotPasswordButton()
+
+        setupSignupButton()
+        setupHelpButton()
     }
 
     func setupView() {
@@ -124,6 +130,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-100-[loginButton(>=50)]-100-|", metrics: nil, views: ["loginButton" : loginButton]))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[passwordTextField]-75-[loginButton(==40)]", metrics: nil, views: ["loginButton" : loginButton, "passwordTextField" : passwordTextField]))
+
+        loginButton.addTarget(self, action: #selector(LoginViewController.loginButtonPressed(_:)), for: .touchUpInside)
     }
 
     func setupForgotPasswordButton() {
@@ -141,6 +149,41 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.addConstraint(forgotPasswordButton.heightAnchor.constraint(equalToConstant: 40.0))
         self.view.addConstraint(forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20.0))
         self.view.addConstraint(forgotPasswordButton.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor))
+    }
+
+    func setupSignupButton() {
+        signupButton = UIButton()
+        signupButton.translatesAutoresizingMaskIntoConstraints = false
+
+        signupButton.sizeToFit()
+        signupButton.setTitle(NSLocalizedString("login_vc_signup_button_title", value: "SIGN UP", comment: "Login VC signup button title"), for: .normal)
+        signupButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerSignupButtonTitleColor), for: .normal)
+
+        signupButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.loginViewControllerSignupButtonTitleFont, size: 18.0)
+
+        self.view.addSubview(signupButton)
+
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-9-[signupButton]", metrics: nil, views: ["signupButton" : signupButton]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[signupButton]-5-|", metrics: nil, views: ["signupButton" : signupButton]))
+    }
+
+    func setupHelpButton() {
+        helpButton = UIButton()
+        helpButton.translatesAutoresizingMaskIntoConstraints = false
+
+        helpButton.sizeToFit()
+        helpButton.setTitle(NSLocalizedString("login_vc_help_button_title", value: "HELP", comment: "Login VC help button title"), for: .normal)
+        helpButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerHelpButtonTitleColor), for: .normal)
+
+        helpButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.loginViewControllerHelpButtonTitleFont, size: 18.0)
+
+        self.view.addSubview(helpButton)
+
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[helpButton]-9-|", metrics: nil, views: ["helpButton" : helpButton]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[helpButton]-5-|", metrics: nil, views: ["helpButton" : helpButton]))
+    }
+
+    func loginButtonPressed(_ sender: UIButton) {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

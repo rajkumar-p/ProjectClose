@@ -25,4 +25,7 @@ class ProjectCloseColors {
     static let loginViewControllerLoginButtonBackgroundColor = "47BB7F"
 
     static let loginViewControllerForgotPasswordButtonTitleColor = "47BB7F"
+
+    static let loginViewControllerSignupButtonTitleColor = "47BB7F"
+    static let loginViewControllerHelpButtonTitleColor = "47BB7F"
 }

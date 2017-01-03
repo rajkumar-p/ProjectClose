@@ -16,4 +16,7 @@ class ProjectCloseFonts {
 
     static let loginViewControllerLoginButtonTitleFont = "Lato-Regular"
     static let loginViewControllerForgotPasswordButtonTitleFont = "Lato-Regular"
+
+    static let loginViewControllerSignupButtonTitleFont = "Lato-Regular"
+    static let loginViewControllerHelpButtonTitleFont = "Lato-Regular"
 }
