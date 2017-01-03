@@ -16,6 +16,7 @@
 		359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EC1E1B7AF300083309 /* ProjectCloseColors.swift */; };
 		359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */; };
 		359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */; };
+		359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */; };
 		35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */; };
 		35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */; };
 		35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AF1E1A26C8007CE4CD /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		359EC9EC1E1B7AF300083309 /* ProjectCloseColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseColors.swift; sourceTree = "<group>"; };
 		359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseFonts.swift; sourceTree = "<group>"; };
 		359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseStrings.swift; sourceTree = "<group>"; };
+		359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOffsetUITextField.swift; sourceTree = "<group>"; };
 		35CEC2A31E1A26C8007CE4CD /* ProjectClose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectClose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		359EC9F21E1B8EB800083309 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		35CEC29A1E1A26C7007CE4CD = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 		35CEC2A51E1A26C8007CE4CD /* ProjectClose */ = {
 			isa = PBXGroup;
 			children = (
+				359EC9F21E1B8EB800083309 /* Views */,
 				359EC9E91E1B7AB700083309 /* Helpers */,
 				359EC9DE1E1B789E00083309 /* Fonts */,
 				35CEC2D41E1A26ED007CE4CD /* ViewControllers */,
@@ -503,6 +514,7 @@
 			files = (
 				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
 				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
+				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
