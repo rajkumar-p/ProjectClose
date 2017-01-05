@@ -7,16 +7,16 @@
 //
 
 class ProjectCloseFonts {
-    static let loginViewControllerLogoFont = "Lato-Light"
+    static let loginViewControllerLogoFont = "Lato-Bold"
 
     static let loginViewControllerEmailTextFieldFont = "Lato-Regular"
     static let loginViewControllerEmailTextFieldPlaceholderFont = "Lato-Hairline"
     static let loginViewControllerPasswordTextFieldFont = "Lato-Regular"
     static let loginViewControllerPasswordTextFieldPlaceholderFont = "Lato-Hairline"
 
-    static let loginViewControllerLoginButtonTitleFont = "Lato-Regular"
-    static let loginViewControllerForgotPasswordButtonTitleFont = "Lato-Regular"
+    static let loginViewControllerLoginButtonTitleFont = "Lato-Bold"
+    static let loginViewControllerForgotPasswordButtonTitleFont = "Lato-Bold"
 
-    static let loginViewControllerSignupButtonTitleFont = "Lato-Regular"
-    static let loginViewControllerHelpButtonTitleFont = "Lato-Regular"
+    static let loginViewControllerSignupButtonTitleFont = "Lato-Bold"
+    static let loginViewControllerHelpButtonTitleFont = "Lato-Bold"
 }

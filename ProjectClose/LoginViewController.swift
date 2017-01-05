@@ -13,7 +13,8 @@ import ChameleonFramework
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    let backgroundGradientColors = [UIColor(hexString: ProjectCloseColors.loginViewControllerBackgroundColor1), UIColor(hexString: ProjectCloseColors.loginViewControllerBackgroundColor2)]
+    var backgroundImageView: UIImageView!
+    var backgroundImageOverlayView: UIView!
 
     var logoLabel: UILabel!
 
@@ -33,7 +34,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        setupBackgroundImage()
+        setupBackgroundImageOverlayView()
         setupView()
 
         setupLogo()
@@ -47,7 +50,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func setupView() {
-        self.view.backgroundColor = UIColor(gradientStyle: .radial, withFrame: self.view.bounds, andColors: backgroundGradientColors as! [UIColor])
+    }
+
+    func setupBackgroundImage() {
+        backgroundImageView = UIImageView(image: UIImage(named: "close-background.jpg"))
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundImageView.contentMode = .scaleAspectFill
+
+        self.view.addSubview(backgroundImageView)
+
+        self.view.addConstraint(backgroundImageView.heightAnchor.constraint(equalTo: (backgroundImageView.superview?.heightAnchor)!))
+        self.view.addConstraint(backgroundImageView.widthAnchor.constraint(equalTo: (backgroundImageView.superview?.widthAnchor)!))
+    }
+
+    func setupBackgroundImageOverlayView() {
+        backgroundImageOverlayView = UIView()
+        backgroundImageOverlayView.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundImageOverlayView.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor, withAlpha: 0.9)
+//        backgroundImageOverlayView.backgroundColor = UIColor(hexString: "FFFFFF", withAlpha: 0.6)
+
+        backgroundImageView.addSubview(backgroundImageOverlayView)
+
+        backgroundImageView.addConstraint(backgroundImageOverlayView.heightAnchor.constraint(equalTo: (backgroundImageOverlayView.superview?.heightAnchor)!))
+        backgroundImageView.addConstraint(backgroundImageOverlayView.widthAnchor.constraint(equalTo: (backgroundImageOverlayView.superview?.widthAnchor)!))
     }
 
     func setupLogo() {
@@ -59,12 +86,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         logoLabel.textColor = UIColor(hexString: ProjectCloseColors.loginViewControllerLogoTitleColor)
         logoLabel.textAlignment = .center
 
-        logoLabel.layer.borderWidth = 2.0
+        logoLabel.layer.borderWidth = 4.0
         logoLabel.layer.borderColor = UIColor(hexString: ProjectCloseColors.loginViewControllerLogoBorderColor)?.cgColor
 
         self.view.addSubview(logoLabel)
 
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-60-[logoLabel(>=100)]-60-|", metrics: nil, views: ["logoLabel" : logoLabel]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[logoLabel(>=100)]-80-|", metrics: nil, views: ["logoLabel" : logoLabel]))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[logoLabel(==50)]", metrics: nil, views: ["logoLabel" : logoLabel]))
     }
 
@@ -184,9 +211,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loginButtonPressed(_ sender: UIButton) {
+        let mainTabBarController = MainTabBarController()
+
+        self.present(mainTabBarController, animated: true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		358185C91E1E18F30092BAEA /* close-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 358185BC1E1E18F30092BAEA /* close-background.jpg */; };
+		358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DA1E1E5D650092BAEA /* MainTabBarController.swift */; };
 		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
 		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
 		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		358185BC1E1E18F30092BAEA /* close-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "close-background.jpg"; sourceTree = "<group>"; };
+		358185DA1E1E5D650092BAEA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		358185B11E1E06C40092BAEA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				358185BC1E1E18F30092BAEA /* close-background.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		359EC9DE1E1B789E00083309 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,7 @@
 		35CEC2A51E1A26C8007CE4CD /* ProjectClose */ = {
 			isa = PBXGroup;
 			children = (
+				358185B11E1E06C40092BAEA /* Images */,
 				359EC9F21E1B8EB800083309 /* Views */,
 				359EC9E91E1B7AB700083309 /* Helpers */,
 				359EC9DE1E1B789E00083309 /* Fonts */,
@@ -207,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */,
+				358185DA1E1E5D650092BAEA /* MainTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -349,6 +363,7 @@
 				359EC9E71E1B78E900083309 /* Lato-Light.ttf in Resources */,
 				359EC9E81E1B78E900083309 /* Lato-Regular.ttf in Resources */,
 				35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */,
+				358185C91E1E18F30092BAEA /* close-background.jpg in Resources */,
 				359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +529,7 @@
 			files = (
 				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
 				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
+				358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
@@ -586,6 +602,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -605,7 +622,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -636,6 +653,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -649,7 +667,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -663,6 +681,8 @@
 			baseConfigurationReference = 6ECAE13BDA4955B49286C340 /* Pods-ProjectClose.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectClose/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -685,6 +705,8 @@
 			baseConfigurationReference = 79B0DBDFB01DA63D6867F237 /* Pods-ProjectClose.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectClose/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -708,6 +730,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectCloseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -726,6 +750,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectCloseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -743,6 +769,8 @@
 			baseConfigurationReference = 37C923CCB9F5D096F31FBB7F /* Pods-ProjectCloseUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectCloseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -759,6 +787,8 @@
 			baseConfigurationReference = D7517B93CB45629F7DF06CB9 /* Pods-ProjectCloseUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rajkumar P (JMELG32LSG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 475LD5C37J;
 				INFOPLIST_FILE = ProjectCloseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
