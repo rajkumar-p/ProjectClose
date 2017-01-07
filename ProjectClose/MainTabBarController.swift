@@ -14,11 +14,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupView()
-    }
-
-    func setupView() {
-        self.view.backgroundColor = .green
     }
 
     override func didReceiveMemoryWarning() {
