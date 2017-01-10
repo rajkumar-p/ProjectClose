@@ -36,7 +36,7 @@ class InboxViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {

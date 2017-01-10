@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Trophy@1x.png",
+      "filename" : "Oppor@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Trophy@2x.png",
+      "filename" : "Oppor@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Trophy@3x.png",
+      "filename" : "Oppor@3x.png",
       "scale" : "3x"
     }
   ],

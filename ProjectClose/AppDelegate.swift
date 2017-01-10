@@ -22,7 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = loginViewController
         window?.makeKeyAndVisible()
 
+        styleTabBarTitleTextAttributes()
+
         return true
+    }
+
+    func styleTabBarTitleTextAttributes() {
+        UITabBarItem.appearance().setTitleTextAttributes(
+                        [
+                                NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersTabBarSelectedTitleColor)!,
+                                NSFontAttributeName: UIFont(name: ProjectCloseFonts.loginViewControllerLoginButtonTitleFont, size: 14.0)!
+                        ], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes(
+                        [
+                                NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersTabBarUnSelectedTitleColor)!,
+                                NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersTabBarTitleFont, size: 14.0)!
+                        ], for: .normal)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

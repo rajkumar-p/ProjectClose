@@ -14,6 +14,12 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        styleTabBar()
+    }
+
+    func styleTabBar() {
+        self.tabBar.backgroundImage = UIImage(color: UIColor(hexString: ProjectCloseColors.allViewControllersTabBarBackgroundColor)!)
+        self.tabBar.tintColor = UIColor(hexString: ProjectCloseColors.allViewControllersTabBarSelectedTintColor)
     }
 
     override func didReceiveMemoryWarning() {

@@ -36,7 +36,7 @@ class ReportsViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {

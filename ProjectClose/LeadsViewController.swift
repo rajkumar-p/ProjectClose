@@ -36,7 +36,7 @@ class LeadsViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {

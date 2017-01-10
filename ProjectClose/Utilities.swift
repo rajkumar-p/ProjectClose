@@ -20,23 +20,19 @@ class ProjectCloseUtilities {
     }
 
     static func styleTabBarItem(tabBarItem: UITabBarItem, imageName: String) {
-        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: imageName)
 
-        tabBarItem.image = ProjectCloseUtilities.resizeImage(img: image!, to: CGSize(width: 30.0, height: 30.0))
-        tabBarItem.setTitleTextAttributes(
-                [
-                        NSForegroundColorAttributeName: UIColor.red,
-                        NSFontAttributeName: UIFont(name: "Lato-Regular", size: 21.0)!
-                ], for: .selected)
-        tabBarItem.setTitleTextAttributes(
-                [
-                        NSForegroundColorAttributeName: UIColor.red,
-                        NSFontAttributeName: UIFont(name: "Lato-Regular", size: 11.0)!
-                ], for: .normal)
+        tabBarItem.image = ProjectCloseUtilities.resizeImage(img: image!, to: CGSize(width: 30.0, height: 30.0)).withRenderingMode(.alwaysOriginal)
+        tabBarItem.selectedImage = ProjectCloseUtilities.resizeImage(img: image!, to: CGSize(width: 30.0, height: 30.0))
     }
 
     static func styleNavigationBar(navigationBar: UINavigationBar, colorHexString: String) {
         navigationBar.setBackgroundImage(UIImage(color: UIColor(hexString: colorHexString)!), for: .default)
         navigationBar.shadowImage = UIImage(color: UIColor(hexString: colorHexString)!)
+
+        navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarTitleColor)!,
+                NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersNavigationBarTitleFont, size: 22.0)!
+        ]
     }
 }

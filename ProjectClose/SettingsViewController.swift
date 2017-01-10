@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .brown
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {

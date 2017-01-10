@@ -27,4 +27,14 @@ class ProjectCloseColors {
 
     static let loginViewControllerSignupButtonTitleColor = "47BB7F"
     static let loginViewControllerHelpButtonTitleColor = "47BB7F"
+
+    static let allViewControllersNavigationBarTitleColor = "FFFFFF"
+    static let allViewControllersTabBarBackgroundColor = "2C3541"
+    static let allViewControllersTabBarSelectedTitleColor = "47BB7F"
+    static let allViewControllersTabBarUnSelectedTitleColor = "FFFFFF"
+    static let allViewControllersTabBarSelectedTintColor = "47BB7F"
+
+    static let pagingInboxViewControllerPageMenuTitleColor = "2C3541"
+    static let pagingInboxViewControllerSelectedPageMenuTitleColor = "47BB7F"
+    static let pagingInboxViewControllerSelectedPageMenuUnderlineColor = "47BB7F"
 }

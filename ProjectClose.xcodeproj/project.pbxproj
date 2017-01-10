@@ -21,6 +21,9 @@
 		358185EE1E1FA7C10092BAEA /* LeadsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */; };
 		358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */; };
 		358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */; };
+		3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */; };
+		3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */; };
+		3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */; };
 		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
 		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
 		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
@@ -75,6 +78,9 @@
 		358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadsNavigationController.swift; sourceTree = "<group>"; };
 		358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsNavigationController.swift; sourceTree = "<group>"; };
 		358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllInboxViewController.swift; sourceTree = "<group>"; };
+		3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureInboxViewController.swift; sourceTree = "<group>"; };
+		3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxViewController.swift; sourceTree = "<group>"; };
 		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -265,6 +271,9 @@
 				358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */,
 				358185E91E1FA76F0092BAEA /* SettingsViewController.swift */,
 				352E75271E20EF3A00A1F48F /* MainNavigationController.swift */,
+				3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */,
+				3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */,
+				3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -583,9 +592,12 @@
 				358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */,
 				352E75281E20EF3A00A1F48F /* MainNavigationController.swift in Sources */,
 				358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */,
+				3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */,
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
+				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
+				3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,

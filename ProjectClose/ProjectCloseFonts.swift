@@ -19,4 +19,10 @@ class ProjectCloseFonts {
 
     static let loginViewControllerSignupButtonTitleFont = "Lato-Bold"
     static let loginViewControllerHelpButtonTitleFont = "Lato-Bold"
+
+    static let allViewControllersNavigationBarTitleFont = "Lato-Regular"
+    static let allViewControllersTabBarTitleFont = "Lato-Regular"
+
+    static let pagingInboxViewControllerPageMenuTitleFont = "Lato-Regular"
+    static let pagingInboxViewControllerSelectedPageMenuTitleFont = "Lato-Bold"
 }

@@ -36,7 +36,7 @@ class OpportunitiesViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .blue
+        self.view.backgroundColor = .white
     }
 
     override func didReceiveMemoryWarning() {

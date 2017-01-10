@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import PagingMenuController
 import ChameleonFramework
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -30,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -210,6 +211,79 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[helpButton]-5-|", metrics: nil, views: ["helpButton" : helpButton]))
     }
 
+    fileprivate struct PageMenuItemAll: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("pagingmenu_vc_all_inbox_menu_title", value: "ALL", comment: "Paging Menu VC All Inbox Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerPageMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerSelectedPageMenuTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerPageMenuTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerSelectedPageMenuTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemFuture: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("pagingmenu_vc_future_inbox_menu_title", value: "FUTURE", comment: "Paging Menu VC Future Inbox Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerPageMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerSelectedPageMenuTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerPageMenuTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerSelectedPageMenuTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemDone: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("pagingmenu_vc_done_inbox_menu_title", value: "DONE", comment: "Paging Menu VC Done Inbox Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerPageMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerSelectedPageMenuTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerPageMenuTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.pagingInboxViewControllerSelectedPageMenuTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct MenuOptions: MenuViewCustomizable {
+        var displayMode: MenuDisplayMode {
+            return .segmentedControl
+        }
+
+        var focusMode: MenuFocusMode {
+            return .underline(height: 3.0, color: UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerSelectedPageMenuUnderlineColor)!, horizontalPadding: 10.0, verticalPadding: 0.0)
+        }
+
+        var itemsOptions: [MenuItemViewCustomizable] {
+            return [PageMenuItemAll(), PageMenuItemFuture(), PageMenuItemDone()]
+        }
+    }
+
+    fileprivate struct PagingMenuOptions: PagingMenuControllerCustomizable {
+        let allInboxViewController = AllInboxViewController()
+        let futureInboxViewController = FutureInboxViewController()
+        let doneInboxViewController = DoneInboxViewController()
+
+        var componentType: ComponentType {
+            return .all(menuOptions: MenuOptions(), pagingControllers: [allInboxViewController, futureInboxViewController, doneInboxViewController])
+        }
+
+        var lazyLoadingPage: LazyLoadingPage {
+            return .all
+        }
+    }
+
     func loginButtonPressed(_ sender: UIButton) {
 //        let inboxNavigationController = InboxNavigationController()
 //        inboxNavigationController.pushViewController(InboxViewController(), animated: false)
@@ -231,7 +305,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //
 //        self.present(mainTabBarController, animated: true)
 
-        let inboxViewController = InboxViewController()
+        let pagingInboxMenuController = PagingMenuController(options: PagingMenuOptions())
+
         let opportunitiesViewController = OpportunitiesViewController()
         let leadsViewController = LeadsViewController()
         let reportsViewController = ReportsViewController()
@@ -243,7 +318,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let reportsNavigationController = ReportsNavigationController()
         let settingsNavigationController = SettingsNavigationController()
 
-        inboxNavigationController.pushViewController(inboxViewController, animated: false)
+        inboxNavigationController.pushViewController(pagingInboxMenuController, animated: false)
         opportunitiesNavigationController.pushViewController(opportunitiesViewController, animated: false)
         leadsNavigationController.pushViewController(leadsViewController, animated: false)
         reportsNavigationController.pushViewController(reportsViewController, animated: false)
@@ -255,6 +330,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(mainTabBarController, animated: true)
     }
 
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
