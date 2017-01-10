@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         styleTabBarTitleTextAttributes()
+        styleNavigationBar()
 
         return true
     }
@@ -38,6 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersTabBarUnSelectedTitleColor)!,
                                 NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersTabBarTitleFont, size: 14.0)!
                         ], for: .normal)
+    }
+
+    func styleNavigationBar() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(color: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarBackgroundColor)!), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage(color: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarBackgroundColor)!)
+
+        UINavigationBar.appearance().titleTextAttributes = [
+                NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarTitleColor)!,
+                NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersNavigationBarTitleFont, size: 22.0)!
+        ]
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

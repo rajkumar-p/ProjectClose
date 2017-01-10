@@ -17,7 +17,7 @@ class InboxNavigationController: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.inboxNavigationControllerInboxImageName)
-        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
     }
 
     required init?(coder aDecoder: NSCoder) {

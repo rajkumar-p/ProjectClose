@@ -18,7 +18,7 @@ class OpportunitiesNavigationController: UINavigationController {
         super.init(nibName: nil, bundle: nil)
         setTitle()
         ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.opportunitiesNavigationControllerOpportunitiesImageName)
-        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -285,27 +285,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loginButtonPressed(_ sender: UIButton) {
-//        let inboxNavigationController = InboxNavigationController()
-//        inboxNavigationController.pushViewController(InboxViewController(), animated: false)
-//
-//        let opportunitiesNavigationController = OpportunitiesNavigationController()
-//        opportunitiesNavigationController.pushViewController(OpportunitiesViewController(), animated: false)
-//
-//        let leadsNavigationController = LeadsNavigationController()
-//        leadsNavigationController.pushViewController(LeadsViewController(), animated: false)
-//
-//        let reportsNavigationController = ReportsNavigationController()
-//        reportsNavigationController.pushViewController(ReportsViewController(), animated: false)
-//
-//        let settingsNavigationController = SettingsNavigationController()
-//        settingsNavigationController.pushViewController(SettingsViewController(), animated: false)
-//
-//        let mainTabBarController = MainTabBarController()
-//        mainTabBarController.viewControllers = [inboxNavigationController, opportunitiesNavigationController, leadsNavigationController, reportsNavigationController, settingsNavigationController]
-//
-//        self.present(mainTabBarController, animated: true)
-
         let pagingInboxMenuController = PagingMenuController(options: PagingMenuOptions())
+        pagingInboxMenuController.title = NSLocalizedString("pagingmenu_vc_title", value: "Inbox",comment: "PagingMenu VC title")
 
         let opportunitiesViewController = OpportunitiesViewController()
         let leadsViewController = LeadsViewController()
