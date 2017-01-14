@@ -24,6 +24,10 @@
 		3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */; };
 		3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */; };
 		3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */; };
+		3586C0F71E24C50600BDB146 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F61E24C50600BDB146 /* Task.swift */; };
+		3586C0F91E24CBCA00BDB146 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F81E24CBCA00BDB146 /* User.swift */; };
+		3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FA1E24CC8900BDB146 /* Lead.swift */; };
+		3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */; };
 		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
 		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
 		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
@@ -81,6 +85,10 @@
 		3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllInboxViewController.swift; sourceTree = "<group>"; };
 		3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureInboxViewController.swift; sourceTree = "<group>"; };
 		3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxViewController.swift; sourceTree = "<group>"; };
+		3586C0F61E24C50600BDB146 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		3586C0F81E24CBCA00BDB146 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3586C0FA1E24CC8900BDB146 /* Lead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
+		3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverridenPagingMenuController.swift; sourceTree = "<group>"; };
 		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -167,6 +175,16 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		3586C0F51E24C4B700BDB146 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3586C0F61E24C50600BDB146 /* Task.swift */,
+				3586C0F81E24CBCA00BDB146 /* User.swift */,
+				3586C0FA1E24CC8900BDB146 /* Lead.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		359EC9DE1E1B789E00083309 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +241,7 @@
 		35CEC2A51E1A26C8007CE4CD /* ProjectClose */ = {
 			isa = PBXGroup;
 			children = (
+				3586C0F51E24C4B700BDB146 /* Models */,
 				358185DE1E1FA0560092BAEA /* Extensions */,
 				358185B11E1E06C40092BAEA /* Images */,
 				359EC9F21E1B8EB800083309 /* Views */,
@@ -274,6 +293,7 @@
 				3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */,
 				3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */,
 				3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */,
+				3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -583,7 +603,10 @@
 				358185EE1E1FA7C10092BAEA /* LeadsNavigationController.swift in Sources */,
 				358185E81E1FA7610092BAEA /* ReportsViewController.swift in Sources */,
 				358185E61E1FA7530092BAEA /* LeadsViewController.swift in Sources */,
+				3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */,
+				3586C0F91E24CBCA00BDB146 /* User.swift in Sources */,
 				358185E41E1FA7440092BAEA /* OpportunitiesViewController.swift in Sources */,
+				3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */,
 				358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */,
 				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
 				358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */,
@@ -596,6 +619,7 @@
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
+				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
 				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
 				3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,

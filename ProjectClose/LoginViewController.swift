@@ -285,8 +285,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loginButtonPressed(_ sender: UIButton) {
-        let pagingInboxMenuController = PagingMenuController(options: PagingMenuOptions())
-        pagingInboxMenuController.title = NSLocalizedString("pagingmenu_vc_title", value: "Inbox",comment: "PagingMenu VC title")
+        let pagingInboxMenuController = OverridenPagingMenuController(options: PagingMenuOptions())
+//        pagingInboxMenuController.title = NSLocalizedString("pagingmenu_vc_title", value: "Inbox",comment: "PagingMenu VC title")
 
         let opportunitiesViewController = OpportunitiesViewController()
         let leadsViewController = LeadsViewController()

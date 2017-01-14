@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProjectCloseUtilities {
     static func resizeImage(img: UIImage, to: CGSize) -> UIImage {
@@ -34,5 +35,12 @@ class ProjectCloseUtilities {
                 NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarTitleColor)!,
                 NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersNavigationBarTitleFont, size: 22.0)!
         ]
+    }
+
+    static func getRealmConfiguration() -> Realm.Configuration {
+        var realmConfiguration = Realm.Configuration()
+        realmConfiguration.fileURL = realmConfiguration.fileURL!.deletingLastPathComponent().appendingPathComponent("close.realm")
+
+        return realmConfiguration
     }
 }

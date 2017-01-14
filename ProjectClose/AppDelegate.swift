@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupRealm()
+        printRealmFileUrl()
+
         let loginViewController = LoginViewController()
 
         window = UIWindow()
@@ -49,6 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSForegroundColorAttributeName: UIColor(hexString: ProjectCloseColors.allViewControllersNavigationBarTitleColor)!,
                 NSFontAttributeName: UIFont(name: ProjectCloseFonts.allViewControllersNavigationBarTitleFont, size: 22.0)!
         ]
+    }
+
+    func setupRealm() {
+        Realm.Configuration.defaultConfiguration = ProjectCloseUtilities.getRealmConfiguration()
+    }
+
+    func printRealmFileUrl() {
+        print("Realm FileUrl : " + (Realm.Configuration.defaultConfiguration.fileURL?.absoluteString)!)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
