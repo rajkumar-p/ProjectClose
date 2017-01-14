@@ -100,7 +100,7 @@ class SettingsViewController: UIViewController {
         nameLabel.text = "Rajkumar P"
         nameLabel.textColor = UIColor(hexString: ProjectCloseColors.settingsViewControllerNameTitleColor)
         nameLabel.textAlignment = .center
-        nameLabel.font = UIFont(name: ProjectCloseFonts.settingsViewControllerNameFont, size: 30.0)
+        nameLabel.font = UIFont(name: ProjectCloseFonts.settingsViewControllerNameFont, size: 22.0)
         nameLabel.sizeToFit()
 
         self.view.addSubview(nameLabel)
