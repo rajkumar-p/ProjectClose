@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352E75281E20EF3A00A1F48F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E75271E20EF3A00A1F48F /* MainNavigationController.swift */; };
 		358185C91E1E18F30092BAEA /* close-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 358185BC1E1E18F30092BAEA /* close-background.jpg */; };
 		358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DA1E1E5D650092BAEA /* MainTabBarController.swift */; };
 		358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */; };
@@ -45,6 +44,7 @@
 		35CEC2C71E1A26C8007CE4CD /* ProjectCloseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2C61E1A26C8007CE4CD /* ProjectCloseUITests.swift */; };
 		35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */; };
 		35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */; };
+		35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */; };
 		4EAFEA22DF094AAFCFFB7F8A /* Pods_ProjectCloseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */; };
 		839F266250DD004C7090B642 /* Pods_ProjectCloseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D476D2C04CC9BB383AD23579 /* Pods_ProjectCloseUITests.framework */; };
 		A7E89BC35AE668D100ED52F3 /* Pods_ProjectClose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE2880D9FB88671B2CABD2 /* Pods_ProjectClose.framework */; };
@@ -69,7 +69,6 @@
 
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
-		352E75271E20EF3A00A1F48F /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		358185BC1E1E18F30092BAEA /* close-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "close-background.jpg"; sourceTree = "<group>"; };
 		358185DA1E1E5D650092BAEA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxNavigationController.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		35CEC2C81E1A26C8007CE4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
+		35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		37C923CCB9F5D096F31FBB7F /* Pods-ProjectCloseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseUITests/Pods-ProjectCloseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectCloseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECAE13BDA4955B49286C340 /* Pods-ProjectClose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectClose.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectClose/Pods-ProjectClose.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,26 +279,90 @@
 		35CEC2D41E1A26ED007CE4CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */,
-				358185DA1E1E5D650092BAEA /* MainTabBarController.swift */,
-				358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */,
-				358185E11E1FA5350092BAEA /* InboxViewController.swift */,
-				358185EB1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift */,
-				358185E31E1FA7440092BAEA /* OpportunitiesViewController.swift */,
-				358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */,
-				358185E51E1FA7530092BAEA /* LeadsViewController.swift */,
-				358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */,
-				358185E71E1FA7610092BAEA /* ReportsViewController.swift */,
-				358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */,
-				358185E91E1FA76F0092BAEA /* SettingsViewController.swift */,
-				352E75271E20EF3A00A1F48F /* MainNavigationController.swift */,
+				35EB2EF71E2C899D00C4EB19 /* Paging */,
+				35EB2EF31E2C889500C4EB19 /* Reports */,
+				35EB2EF61E2C896D00C4EB19 /* TabBar */,
+				35EB2EF51E2C890400C4EB19 /* Login */,
+				35EB2EF41E2C88A700C4EB19 /* Settings */,
+				35EB2EF21E2C888200C4EB19 /* Leads */,
+				35EB2EF11E2C886F00C4EB19 /* Opportunities */,
+				35EB2EF01E2C885E00C4EB19 /* Inbox */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		35EB2EF01E2C885E00C4EB19 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
 				3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */,
 				3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */,
 				3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */,
-				3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */,
-				35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */,
+				358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */,
+				358185E11E1FA5350092BAEA /* InboxViewController.swift */,
 			);
-			name = ViewControllers;
+			name = Inbox;
+			sourceTree = "<group>";
+		};
+		35EB2EF11E2C886F00C4EB19 /* Opportunities */ = {
+			isa = PBXGroup;
+			children = (
+				358185EB1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift */,
+				358185E31E1FA7440092BAEA /* OpportunitiesViewController.swift */,
+			);
+			name = Opportunities;
+			sourceTree = "<group>";
+		};
+		35EB2EF21E2C888200C4EB19 /* Leads */ = {
+			isa = PBXGroup;
+			children = (
+				358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */,
+				358185E51E1FA7530092BAEA /* LeadsViewController.swift */,
+			);
+			name = Leads;
+			sourceTree = "<group>";
+		};
+		35EB2EF31E2C889500C4EB19 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */,
+				358185E71E1FA7610092BAEA /* ReportsViewController.swift */,
+			);
+			name = Reports;
+			sourceTree = "<group>";
+		};
+		35EB2EF41E2C88A700C4EB19 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */,
+				35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */,
+				358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */,
+				358185E91E1FA76F0092BAEA /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		35EB2EF51E2C890400C4EB19 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		35EB2EF61E2C896D00C4EB19 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				358185DA1E1E5D650092BAEA /* MainTabBarController.swift */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		35EB2EF71E2C899D00C4EB19 /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */,
+			);
+			name = Paging;
 			sourceTree = "<group>";
 		};
 		633E6FB097E56B8348540EB6 /* Pods */ = {
@@ -616,7 +680,6 @@
 				358185E21E1FA5350092BAEA /* InboxViewController.swift in Sources */,
 				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
 				358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */,
-				352E75281E20EF3A00A1F48F /* MainNavigationController.swift in Sources */,
 				358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */,
 				3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */,
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
@@ -630,6 +693,7 @@
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */,
 				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
+				35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */,
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
