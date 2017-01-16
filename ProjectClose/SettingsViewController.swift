@@ -207,6 +207,8 @@ class SettingsViewController: UIViewController {
         self.view.addConstraint(orgUsersSettingButton.topAnchor.constraint(equalTo: orgSettingLabel.bottomAnchor))
         self.view.addConstraint(orgUsersSettingButton.widthAnchor.constraint(equalTo: (orgUsersSettingButton.superview?.widthAnchor)!))
         self.view.addConstraint(orgUsersSettingButton.heightAnchor.constraint(equalToConstant: 35.0))
+
+        orgUsersSettingButton.addTarget(self, action: #selector(SettingsViewController.usersButtonPressed(_:)), for: .touchUpInside)
     }
 
     func setupLogoutButton() {
@@ -223,6 +225,12 @@ class SettingsViewController: UIViewController {
         self.view.addConstraint(logoutButton.bottomAnchor.constraint(equalTo: (logoutButton.superview?.bottomAnchor)!))
         self.view.addConstraint(logoutButton.widthAnchor.constraint(equalTo: (orgUsersSettingButton.superview?.widthAnchor)!))
         self.view.addConstraint(logoutButton.heightAnchor.constraint(equalToConstant: 40.0))
+    }
+
+    func usersButtonPressed(_ sender: UIButton) {
+        let addUserViewController = AddUserViewController()
+
+        self.navigationController?.pushViewController(addUserViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
