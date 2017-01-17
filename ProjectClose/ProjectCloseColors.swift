@@ -53,4 +53,13 @@ class ProjectCloseColors {
 
     static let settingsViewControllerLogoutButtonBackgroundColor = "47BB7F"
     static let settingsViewControllerLogoutButtonTitleColor = "FFFFFF"
+
+    static let addUserViewControllerNameLabelTitleColor = "2C3541"
+    static let addUserViewControllerNameTextFieldTitleColor = "2C3541"
+    static let addUserViewControllerNameTextFieldPlaceholderColor = "2C3541"
+    static let addUserViewControllerEmailLabelTitleColor = "2C3541"
+    static let addUserViewControllerEmailTextFieldTitleColor = "2C3541"
+    static let addUserViewControllerEmailTextFieldPlaceholderColor = "2C3541"
+    static let addUserViewControllerAddUserButtonTitleColor = "FFFFFF"
+    static let addUserViewControllerAddUserButtonBackgroundColor = "47BB7F"
 }

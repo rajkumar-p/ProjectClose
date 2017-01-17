@@ -45,6 +45,8 @@
 		35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */; };
 		35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */; };
 		35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */; };
+		35EB2EF91E2CAB1300C4EB19 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */; };
+		35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */; };
 		4EAFEA22DF094AAFCFFB7F8A /* Pods_ProjectCloseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */; };
 		839F266250DD004C7090B642 /* Pods_ProjectCloseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D476D2C04CC9BB383AD23579 /* Pods_ProjectCloseUITests.framework */; };
 		A7E89BC35AE668D100ED52F3 /* Pods_ProjectClose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE2880D9FB88671B2CABD2 /* Pods_ProjectClose.framework */; };
@@ -113,6 +115,8 @@
 		35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserDelegate.swift; sourceTree = "<group>"; };
 		37C923CCB9F5D096F31FBB7F /* Pods-ProjectCloseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseUITests/Pods-ProjectCloseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectCloseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECAE13BDA4955B49286C340 /* Pods-ProjectClose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectClose.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectClose/Pods-ProjectClose.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
+				35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 		35CEC2A51E1A26C8007CE4CD /* ProjectClose */ = {
 			isa = PBXGroup;
 			children = (
+				35EB2EFA1E2D164900C4EB19 /* Protocols */,
 				3586C0F51E24C4B700BDB146 /* Models */,
 				358185DE1E1FA0560092BAEA /* Extensions */,
 				358185B11E1E06C40092BAEA /* Images */,
@@ -363,6 +369,14 @@
 				3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */,
 			);
 			name = Paging;
+			sourceTree = "<group>";
+		};
+		35EB2EFA1E2D164900C4EB19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		633E6FB097E56B8348540EB6 /* Pods */ = {
@@ -687,8 +701,10 @@
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
 				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
 				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
+				35EB2EF91E2CAB1300C4EB19 /* UserTableViewCell.swift in Sources */,
 				3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
+				35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */,

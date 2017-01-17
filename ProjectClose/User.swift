@@ -13,4 +13,12 @@ class User: Object {
     dynamic var email: String = ""
     dynamic var name: String = ""
     dynamic var createdOn: NSDate!
+
+    override static func indexedProperties() -> [String] {
+        return ["email"]
+    }
+
+    override static func primaryKey() -> String? {
+        return "email"
+    }
 }

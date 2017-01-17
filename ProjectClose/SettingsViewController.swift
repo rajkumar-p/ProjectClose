@@ -228,9 +228,9 @@ class SettingsViewController: UIViewController {
     }
 
     func usersButtonPressed(_ sender: UIButton) {
-        let addUserViewController = AddUserViewController()
+        let usersTableViewController = UsersTableViewController()
 
-        self.navigationController?.pushViewController(addUserViewController, animated: true)
+        self.navigationController?.pushViewController(usersTableViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

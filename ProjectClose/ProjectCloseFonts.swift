@@ -34,5 +34,13 @@ class ProjectCloseFonts {
     static let settingsViewControllerYourAudioSettingsButtonTitleFont = "Lato-Regular"
     static let settingsViewControllerOrgUsersSettingsButtonTitleFont = "Lato-Regular"
 
+    static let addUserViewControllerNameLabelFont = "Lato-Regular"
+    static let addUserViewControllerNameTextFieldFont = "Lato-Regular"
+    static let addUserViewControllerNamePlaceholderFieldFont = "Lato-Hairline"
+    static let addUserViewControllerEmailLabelFont = "Lato-Regular"
+    static let addUserViewControllerEmailTextFieldFont = "Lato-Regular"
+    static let addUserViewControllerEmailPlaceholderFieldFont = "Lato-Hairline"
+    static let addUserViewControllerAddUserButtonTitleFont = "Lato-Bold"
+
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
 }

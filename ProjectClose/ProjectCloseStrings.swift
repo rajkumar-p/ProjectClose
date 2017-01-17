@@ -14,4 +14,5 @@ class ProjectCloseStrings {
     static let settingsNavigationControllerSettingsImageName = "Settings"
 
     static let settingsViewControllerProfileImageName = "Profile"
+    static let allViewControllerBackButtonImageName = "Back"
 }

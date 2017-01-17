@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
-class UsersTableViewController: UITableViewController {
+class UsersTableViewController: UITableViewController, AddUserDelegate {
+    private var realm: Realm!
+    private var usersResultSet: Results<User>!
+
+    private let userTableViewCellReuseIdentifier = "UserCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,34 +23,98 @@ class UsersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        initTitle()
+        setupView()
+        setupTableView()
+        setupLeftBarButton()
+        setupAddUserButton()
+
+        setupRealm()
+        getAllUsers()
+    }
+
+    func initTitle() {
+        self.title = NSLocalizedString("users_vc_title", value: "Users", comment: "Users VC Title")
+    }
+
+    func setupView() {
+        self.view.backgroundColor = .white
+    }
+
+    func setupTableView() {
+        if let tableView = self.tableView {
+            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: userTableViewCellReuseIdentifier)
+            tableView.showsVerticalScrollIndicator = false
+            tableView.separatorStyle = .none
+        }
+    }
+
+    func setupLeftBarButton() {
+        let backButtonImage = UIImage(named: ProjectCloseStrings.allViewControllerBackButtonImageName)?.withRenderingMode(.alwaysOriginal)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(UsersTableViewController.backButtonPressed(_:)))
+    }
+
+    func setupRealm() {
+        realm = try! Realm()
+    }
+
+    func getAllUsers() {
+        usersResultSet = realm.objects(User.self)
+    }
+
+    func backButtonPressed(_ sender: UIButton) {
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+
+    func setupAddUserButton() {
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UsersTableViewController.addUserButtonPressed(_:)))
+        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    func addUserButtonPressed(_ sender: UIBarButtonItem) {
+        let addUserViewController = AddUserViewController()
+        addUserViewController.delegate = self
+
+        self.navigationController?.pushViewController(addUserViewController, animated: true)
+    }
+
+    func didFinishAddingUser(sender: AddUserViewController) {
+        print("UsersTableViewController - Saved data")
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print("Memory warning : UsersTableViewController")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return usersResultSet.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let user = usersResultSet[indexPath.row]
+        
+        let name = user.name
+        let email = user.email
 
-        // Configure the cell...
+        let userCell = tableView.dequeueReusableCell(withIdentifier: userTableViewCellReuseIdentifier, for: indexPath)
 
-        return cell
+        userCell.textLabel?.text = name
+        userCell.detailTextLabel?.text = email
+
+        return userCell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
