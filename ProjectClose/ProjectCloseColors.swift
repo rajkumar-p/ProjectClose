@@ -62,4 +62,7 @@ class ProjectCloseColors {
     static let addUserViewControllerEmailTextFieldPlaceholderColor = "2C3541"
     static let addUserViewControllerAddUserButtonTitleColor = "FFFFFF"
     static let addUserViewControllerAddUserButtonBackgroundColor = "47BB7F"
+
+    static let usersTableViewControllerNameColor = "2C3541"
+    static let usersTableViewControllerEmailColor = "47BB7F"
 }

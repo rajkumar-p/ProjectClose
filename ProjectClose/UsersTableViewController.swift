@@ -46,6 +46,7 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
             tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: userTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
+            tableView.rowHeight = 75.0
         }
     }
 
@@ -108,12 +109,37 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
         let name = user.name
         let email = user.email
 
-        let userCell = tableView.dequeueReusableCell(withIdentifier: userTableViewCellReuseIdentifier, for: indexPath)
+        let userCell = UITableViewCell(style: .subtitle, reuseIdentifier: userTableViewCellReuseIdentifier)
 
         userCell.textLabel?.text = name
+        userCell.textLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerNameFont, size: 20.0)
+        userCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerNameColor)
+
         userCell.detailTextLabel?.text = email
+        userCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerEmailFont, size: 18.0)
+        userCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerEmailColor)
 
         return userCell
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView!.setEditing(editing, animated: animated)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let user = usersResultSet[indexPath.row]
+            try! realm.write {
+                realm.delete(user)
+            }
+
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
     }
 
     /*

@@ -30,6 +30,7 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         setupView()
 
         setupLeftBarButton()
+//        setupRightBarButton()
 
         setupNameLabel()
         setupNameTextField()
@@ -49,6 +50,11 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
     func setupLeftBarButton() {
         let backButtonImage = UIImage(named: ProjectCloseStrings.allViewControllerBackButtonImageName)?.withRenderingMode(.alwaysOriginal)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(AddUserViewController.backButtonPressed(_:)))
+    }
+
+    func setupRightBarButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
     }
 
     func backButtonPressed(_ sender: UIButton) {
