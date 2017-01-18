@@ -88,6 +88,8 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addUserViewControllerNameTextFieldPlaceholderColor)!,
                              NSFontAttributeName : UIFont(name: ProjectCloseFonts.addUserViewControllerNamePlaceholderFieldFont, size: 20.0)!])
 
+        nameTextField.delegate = self
+
         self.view.addSubview(nameTextField)
 
         self.view.addConstraint(nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5.0))
@@ -121,6 +123,8 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_user_vc_email_placeholder", value: "e.g. john.doe@example.com", comment: "Add User VC Email Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addUserViewControllerEmailTextFieldPlaceholderColor)!,
                              NSFontAttributeName : UIFont(name: ProjectCloseFonts.addUserViewControllerEmailPlaceholderFieldFont, size: 20.0)!])
+
+        emailTextField.delegate = self
 
         self.view.addSubview(emailTextField)
 
@@ -168,6 +172,11 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
 
     func setupRealm() {
         realm = try! Realm()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning() {
