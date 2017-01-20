@@ -159,6 +159,7 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         let userToBeWritted = User()
         userToBeWritted.name = nameTextField.text!
         userToBeWritted.email = emailTextField.text!
+        userToBeWritted.createdOn = NSDate()
 
         try! realm.write {
             realm.add(userToBeWritted, update: true)

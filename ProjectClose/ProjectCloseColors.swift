@@ -40,6 +40,15 @@ class ProjectCloseColors {
     static let pagingInboxViewControllerSelectedPageMenuUnderlineColor = "47BB7F"
     static let pagingInboxViewControllerAddTaskButtonColor = "FFFFFF"
 
+    static let settingsTableViewControllerProfileImageBorderColor = "2C3541"
+    static let settingsTableViewControllerNameTitleColor = "2C3541"
+    static let settingsTableViewControllerEmailTitleColor = "2C3541"
+    static let settingsTableViewControllerHeaderBackgroundColor = "2C3541"
+    static let settingsTableViewControllerHeaderTitleColor = "FFFFFF"
+    static let settingsTableViewControllerContentColor = "47BB7F"
+    static let settingsTableViewControllerLogoutButtonBackgroundColor = "47BB7F"
+    static let settingsTableViewControllerLogoutButtonTitleColor = "FFFFFF"
+
     static let settingsViewControllerProfileImageBorderColor = "2C3541"
     static let settingsViewControllerNameTitleColor = "2C3541"
     static let settingsViewControllerEmailTitleColor = "2C3541"

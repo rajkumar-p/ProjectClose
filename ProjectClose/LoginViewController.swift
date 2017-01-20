@@ -291,7 +291,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let opportunitiesViewController = OpportunitiesViewController()
         let leadsViewController = LeadsViewController()
         let reportsViewController = ReportsViewController()
-        let settingsViewController = SettingsViewController()
+//        let settingsViewController = SettingsViewController()
+        let settingsTableViewController = SettingsTableViewController()
 
         let inboxNavigationController = InboxNavigationController()
         let opportunitiesNavigationController = OpportunitiesNavigationController()
@@ -303,7 +304,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         opportunitiesNavigationController.pushViewController(opportunitiesViewController, animated: false)
         leadsNavigationController.pushViewController(leadsViewController, animated: false)
         reportsNavigationController.pushViewController(reportsViewController, animated: false)
-        settingsNavigationController.pushViewController(settingsViewController, animated: false)
+//        settingsNavigationController.pushViewController(settingsViewController, animated: false)
+        settingsNavigationController.pushViewController(settingsTableViewController, animated: false)
 
         let mainTabBarController = MainTabBarController()
         mainTabBarController.viewControllers = [inboxNavigationController, opportunitiesNavigationController, leadsNavigationController, reportsNavigationController, settingsNavigationController]
