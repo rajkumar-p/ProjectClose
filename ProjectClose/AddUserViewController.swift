@@ -22,6 +22,10 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
 
     weak var delegate: AddUserDelegate?
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

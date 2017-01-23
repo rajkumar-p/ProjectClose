@@ -42,6 +42,12 @@ class ProjectCloseColors {
 
     static let leadsTableViewControllerAddLeadButtonColor = "FFFFFF"
 
+    static let addLeadViewControllerCompanyNameTitleColor = "2C3541"
+    static let addLeadViewControllerCompanyDescriptionTitleColor = "2C3541"
+    static let addLeadViewControllerCompanyAddressTitleColor = "2C3541"
+    static let addLeadViewControllerAddLeadButtonBackgroundColor = "47BB7F"
+    static let addLeadViewControllerAddLeadButtonTitleColor = "FFFFFF"
+
     static let settingsTableViewControllerProfileImageBorderColor = "2C3541"
     static let settingsTableViewControllerNameTitleColor = "2C3541"
     static let settingsTableViewControllerEmailTitleColor = "2C3541"
