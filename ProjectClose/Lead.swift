@@ -17,6 +17,8 @@ class Lead: Object {
     dynamic var createdOn: NSDate!
     
     var tasks = List<Task>()
+    dynamic var createdBy: User!
+    dynamic var status: String!
 
     override static func indexedProperties() -> [String] {
         return ["leadId"]

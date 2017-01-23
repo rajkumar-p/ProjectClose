@@ -26,6 +26,9 @@ class ProjectCloseFonts {
     static let pagingInboxViewControllerPageMenuTitleFont = "Lato-Regular"
     static let pagingInboxViewControllerSelectedPageMenuTitleFont = "Lato-Bold"
 
+    static let leadDetailsPagingMenuViewControllerTitleFont = "Lato-Regular"
+    static let leadDetailsPagingMenuViewControllerSelectedTitleFont = "Lato-Bold"
+
     static let settingsTableViewControllerNameFont="Lato-Bold"
     static let settingsTableViewControllerEmailFont="Lato-Regular"
     static let settingsTableViewControllerHeaderFont = "Lato-Bold"
@@ -56,6 +59,9 @@ class ProjectCloseFonts {
 
     static let usersTableViewControllerNameFont = "Lato-Regular"
     static let usersTableViewControllerEmailFont = "Lato-Regular"
+
+    static let leadsTableViewControllerCompanyName = "Lato-Regular"
+    static let leadsTableViewControllerStatus = "Lato-Regular"
 
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
 }

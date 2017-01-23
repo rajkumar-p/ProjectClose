@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import PagingMenuController
 
 class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var realm: Realm!
@@ -197,6 +198,113 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let _ = self.navigationController?.popViewController(animated: true)
     }
 
+    fileprivate struct PageMenuItemLeadTasks: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_tasks_menu_title", value: "TASKS", comment: "Lead Details Paging Menu VC Lead Tasks Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemLeadOpportunities: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_opportunities_menu_title", value: "OPPORTUNITIES", comment: "Lead Details Paging Menu VC Lead Opportunities Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemLeadContacts: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_contants_menu_title", value: "CONTACTS", comment: "Lead Details Paging Menu VC Lead Contacts Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemLeadMessages: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_messages_menu_title", value: "MESSAGES", comment: "Lead Details Paging Menu VC Lead Messages Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct PageMenuItemLeadStatus: MenuItemViewCustomizable {
+        var displayMode: MenuItemDisplayMode {
+            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_status_menu_title", value: "STATUS", comment: "Lead Details Paging Menu VC Lead Status Menu Title"),
+                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
+                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
+                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
+                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
+            ))
+        }
+
+        var horizontalMargin: CGFloat {
+            return 5.0
+        }
+    }
+
+    fileprivate struct MenuOptions: MenuViewCustomizable {
+        var displayMode: MenuDisplayMode {
+//            return .segmentedControl
+//            return .infinite(widthMode: .fixed(width: 100), scrollingMode: .pagingEnabled)
+            return .standard(widthMode: .fixed(width: 150.0), centerItem: false, scrollingMode: .pagingEnabled)
+        }
+
+        var focusMode: MenuFocusMode {
+            return .underline(height: 3.0, color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuUnderlineColor)!, horizontalPadding: 10.0, verticalPadding: 0.0)
+        }
+
+        var itemsOptions: [MenuItemViewCustomizable] {
+            return [PageMenuItemLeadTasks(), PageMenuItemLeadOpportunities(), PageMenuItemLeadContacts(), PageMenuItemLeadMessages(), PageMenuItemLeadStatus()]
+        }
+    }
+
+    fileprivate struct PagingMenuOptions: PagingMenuControllerCustomizable {
+        let leadTasksTableViewController = LeadTasksTableViewController()
+        let leadOpportunitiesTableViewController = LeadOpportunitiesTableViewController()
+        let leadContactsTableViewController = LeadContactsTableViewController()
+        let leadMessagesTableViewController = LeadMessagesTableViewController()
+        let leadStatusTableViewController = LeadStatusTableViewController()
+
+        var componentType: ComponentType {
+            return .all(menuOptions: MenuOptions(), pagingControllers: [leadTasksTableViewController, leadOpportunitiesTableViewController, leadContactsTableViewController, leadMessagesTableViewController, leadStatusTableViewController])
+        }
+
+        var lazyLoadingPage: LazyLoadingPage {
+            return .all
+        }
+    }
+
     func setupRealm() {
         realm = try! Realm()
     }
@@ -209,13 +317,20 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         newLead.companyName = companyNameTextField.text!
         newLead.companyDescription = companyDescriptionTextField.text!
         newLead.companyAddress = companyAddressTextView.text!
+
+        newLead.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
         newLead.createdOn = NSDate()
+        newLead.status = "Potential"
 
         try! realm.write {
             realm.add(newLead, update: true)
         }
 
         print("Lead Saved.")
+
+        let leadDetailsPagingMenuViewController = LeadDetailsPagingMenuViewController(options: PagingMenuOptions(), leadId: newLead.leadId)
+//        self.present(leadDetailsPagingMenuViewController, animated: true)
+        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

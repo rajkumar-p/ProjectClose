@@ -259,6 +259,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     fileprivate struct MenuOptions: MenuViewCustomizable {
         var displayMode: MenuDisplayMode {
             return .segmentedControl
+//            return .standard(widthMode: .flexible, centerItem: false, scrollingMode: .pagingEnabled)
         }
 
         var focusMode: MenuFocusMode {

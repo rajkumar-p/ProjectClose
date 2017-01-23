@@ -1,32 +1,20 @@
 //
-//  LeadsTableViewController.swift
+//  LeadTasksTableViewController.swift
 //  ProjectClose
 //
-//  Created by raj on 20/01/17.
+//  Created by raj on 23/01/17.
 //  Copyright © 2017 diskodev. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class LeadsTableViewController: UITableViewController {
-    let leadTableViewCellReuseIdentifier = "leadCell"
-
-    var realm: Realm!
-    var leadsResultSet: Results<Lead>!
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+class LeadTasksTableViewController: UITableViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        initTitle()
-        
-        setupRealm()
-        loadLeads()
+        setupAddTaskButton()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -39,88 +27,41 @@ class LeadsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        setupView()
-        setupTableView()
-        setupAddLeadButton()
-        
-        reloadTableView()
     }
 
-    func initTitle() {
-        self.title = NSLocalizedString("leads_table_vc_title", value: "Leads", comment: "Leads Table VC title")
-    }
-
-    func setupView() {
-        self.view.backgroundColor = .white
-    }
-
-    func setupTableView() {
-        if let tableView = self.tableView {
-            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leadTableViewCellReuseIdentifier)
-            tableView.showsVerticalScrollIndicator = false
-            tableView.separatorStyle = .none
-            tableView.rowHeight = 75.0
-        }
-    }
-
-    func setupRealm() {
-        realm = try! Realm()
-    }
-
-    func loadLeads() {
-        leadsResultSet = realm.objects(Lead.self)
-    }
-
-    func addLeadButtonPressed(_ sender: UIBarButtonItem) {
-        let addLeadViewController = AddLeadViewController()
-        self.navigationController?.pushViewController(addLeadViewController, animated: true)
-    }
-
-    func setupAddLeadButton() {
-        let addLeadBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(LeadsTableViewController.addLeadButtonPressed(_:)))
-        addLeadBarButton.tintColor = UIColor(hexString: ProjectCloseColors.leadsTableViewControllerAddLeadButtonColor)
-
-        self.navigationItem.rightBarButtonItem = addLeadBarButton
-    }
-    
-    func reloadTableView() {
-        self.tableView.reloadData()
+    func setupAddTaskButton() {
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("Memory warning : LeadsTableViewController")
+        // Dispose of any resources that can be recreated.
+        print("Memory warning : LeadTasksTableViewController")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leadsResultSet.count
+        return 0
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let lead = leadsResultSet[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        let companyName = lead.companyName
-        let status = lead.status
-        
-        let leadCell = UITableViewCell(style: .subtitle, reuseIdentifier: leadTableViewCellReuseIdentifier)
-        leadCell.textLabel?.text = companyName
-        leadCell.textLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerCompanyName, size: 20.0)
-        leadCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadsTableViewControllerCompanyNameColor)
+        // Configure the cell...
 
-        leadCell.detailTextLabel?.text = status
-        leadCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerStatus, size: 18.0)
-        leadCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadsTableViewControllerStatusColor)
-
-        return leadCell
+        return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
