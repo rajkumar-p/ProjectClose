@@ -56,7 +56,7 @@ class LeadDetailsPagingMenuViewController: PagingMenuController {
     }
 
     func initTitle() {
-        self.title = "Lead Details"
+        self.title = lead.companyName
     }
 
     func setupAddTaskButton() {
