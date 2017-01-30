@@ -15,6 +15,9 @@ class LeadDetailsPagingMenuViewController: PagingMenuController {
     var leadResultSet: Results<Lead>!
     var lead: Lead!
     var leadId: String!
+    var mainNavigationController: UINavigationController!
+
+    var changeDelegate: ChangeLeadDelegate!
 
 //    override init(options: PagingMenuControllerCustomizable) {
 //        super.init(options: options)
@@ -22,8 +25,9 @@ class LeadDetailsPagingMenuViewController: PagingMenuController {
 //        setupAddTaskButton()
 //    }
 
-    init(options: PagingMenuControllerCustomizable, leadId: String) {
+    init(options: PagingMenuControllerCustomizable, leadId: String, mainNavigationController: UINavigationController) {
         self.leadId = leadId
+        self.mainNavigationController = mainNavigationController
         super.init(options: options)
 //        setupAddTaskButton()
         setupLeftBarButton()
@@ -67,7 +71,8 @@ class LeadDetailsPagingMenuViewController: PagingMenuController {
     }
 
     func backButtonPressed(_ sender: UIBarButtonItem) {
-        let _ = self.navigationController?.popViewController(animated: true)
+//        let _ = self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popToViewController(changeDelegate as! UIViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

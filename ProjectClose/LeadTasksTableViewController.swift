@@ -9,9 +9,18 @@
 import UIKit
 
 class LeadTasksTableViewController: UITableViewController {
+    let leadTaskTableViewCellReuseIdentifier = "LeadTask"
+    var mainNavigationController: UINavigationController!
 
     init() {
         super.init(nibName: nil, bundle: nil)
+//        setupAddTaskButton()
+    }
+    
+    init(mainNavigationController: UINavigationController) {
+        self.mainNavigationController = mainNavigationController
+        super.init(nibName: nil, bundle: nil)
+        
         setupAddTaskButton()
     }
     
@@ -27,12 +36,24 @@ class LeadTasksTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        setupTableView()
+        setupAddTaskButton()
     }
-
+    
     func setupAddTaskButton() {
         let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        self.mainNavigationController.navigationItem.rightBarButtonItem = rightBarButtonItem
+//        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    func setupTableView() {
+        if let tableView = self.tableView {
+            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leadTaskTableViewCellReuseIdentifier)
+            tableView.showsVerticalScrollIndicator = false
+            tableView.separatorStyle = .none
+            tableView.rowHeight = 75.0
+        }
     }
 
     override func didReceiveMemoryWarning() {

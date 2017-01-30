@@ -20,8 +20,6 @@ class SettingsTableViewController: UITableViewController {
     let settingsSectionDetailTableViewCellReuseIdentifier = "SectionDetailTableViewCell"
     let settingsSectionEmptyTableViewCellReuseIdentifier = "SectionEmptyTableViewCell"
     let settingsButtonTableViewCellReuseIdentifier = "SettingsButtonTableViewCell"
-    
-    var profileImageView: UIImageView!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -100,15 +98,19 @@ class SettingsTableViewController: UITableViewController {
 
     func makeProfileDetailsTableViewCell() -> UITableViewCell {
         let profileDetailsCell = UITableViewCell(style: .subtitle, reuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
+        
+        let resizedProfileImage = ProjectCloseUtilities.resizeImage(img: UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)!, to: CGSize(width: 70.0, height: 70.0))
 
-        profileDetailsCell.imageView?.image = UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)
 //        profileDetailsCell.imageView?.layer.borderWidth = 1.0
 //        profileDetailsCell.imageView?.layer.borderColor = UIColor(hexString: ProjectCloseColors.settingsViewControllerProfileImageBorderColor)?.cgColor
 
-        profileDetailsCell.imageView?.contentMode = .scaleAspectFit
-        profileDetailsCell.imageView?.transform = CGAffineTransform(scaleX: 0.20, y: 0.20)
+//        profileDetailsCell.imageView?.contentMode = .scaleAspectFit
+//        profileDetailsCell.imageView?.transform = CGAffineTransform(scaleX: 0.20, y: 0.20)
         
-        profileImageView = profileDetailsCell.imageView
+        profileDetailsCell.imageView?.contentMode = .scaleAspectFill
+        profileDetailsCell.imageView?.layer.cornerRadius = 35.0
+        profileDetailsCell.imageView?.clipsToBounds = true
+        profileDetailsCell.imageView?.image = resizedProfileImage
 
         profileDetailsCell.textLabel?.text = "Rajkumar P"
         profileDetailsCell.textLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerNameFont, size: 20.0)

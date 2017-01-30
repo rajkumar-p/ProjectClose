@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import PagingMenuController
 
-class LeadsTableViewController: UITableViewController {
+class LeadsTableViewController: UITableViewController, AddLeadDelegate, ChangeLeadDelegate {
     let leadTableViewCellReuseIdentifier = "leadCell"
 
     var realm: Realm!
@@ -42,8 +43,6 @@ class LeadsTableViewController: UITableViewController {
         setupView()
         setupTableView()
         setupAddLeadButton()
-        
-        reloadTableView()
     }
 
     func initTitle() {
@@ -73,6 +72,9 @@ class LeadsTableViewController: UITableViewController {
 
     func addLeadButtonPressed(_ sender: UIBarButtonItem) {
         let addLeadViewController = AddLeadViewController()
+        addLeadViewController.addDelegate = self
+        addLeadViewController.changeDelegate = self
+
         self.navigationController?.pushViewController(addLeadViewController, animated: true)
     }
 
@@ -82,7 +84,7 @@ class LeadsTableViewController: UITableViewController {
 
         self.navigationItem.rightBarButtonItem = addLeadBarButton
     }
-    
+
     func reloadTableView() {
         self.tableView.reloadData()
     }
@@ -91,7 +93,6 @@ class LeadsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         print("Memory warning : LeadsTableViewController")
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,6 +121,26 @@ class LeadsTableViewController: UITableViewController {
         leadCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadsTableViewControllerStatusColor)
 
         return leadCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedLead = leadsResultSet[indexPath.row]
+        
+        let leadDetailsPagingMenuViewController: LeadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: selectedLead.leadId, mainNavigationController: self.navigationController!)
+        leadDetailsPagingMenuViewController.changeDelegate = self
+        //        self.present(leadDetailsPagingMenuViewController, animated: true)
+//        self.navigationController?.addChildViewController(leadDetailsPagingMenuViewController)
+//        self.navigationController?.view.addSubview(leadDetailsPagingMenuViewController.view)
+//        leadDetailsPagingMenuViewController.didMove(toParentViewController: self)
+        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
+    }
+
+    func didFinishAddingLead(sender: AddLeadViewController) {
+        reloadTableView()
+    }
+
+    func didChangeLead(sender: LeadDetailsPagingMenuViewController) {
+        reloadTableView()
     }
 
     /*

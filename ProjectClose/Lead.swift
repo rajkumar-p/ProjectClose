@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Lead: Object {
-    var leadId: String!
+    dynamic var leadId: String = ""
     dynamic var companyName: String = ""
     dynamic var companyDescription: String = ""
     dynamic var companyAddress: String = ""
