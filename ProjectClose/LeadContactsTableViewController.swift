@@ -9,6 +9,7 @@
 import UIKit
 
 class LeadContactsTableViewController: UITableViewController {
+    let leadContactTableViewCellReuseIdentifier = "LeadContactCell"
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -27,12 +28,22 @@ class LeadContactsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        setupTableView()
     }
 
     func setupAddContactButton() {
         let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    func setupTableView() {
+        if let tableView = self.tableView {
+            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leadContactTableViewCellReuseIdentifier)
+            tableView.showsVerticalScrollIndicator = false
+            tableView.separatorStyle = .none
+            tableView.rowHeight = 75.0
+        }
     }
 
     override func didReceiveMemoryWarning() {

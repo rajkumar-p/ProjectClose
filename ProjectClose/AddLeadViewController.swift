@@ -333,11 +333,23 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
         addDelegate.didFinishAddingLead(sender: self)
 
-        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: newLead.leadId, mainNavigationController: self.navigationController!)
-//        let leadDetailsPagingMenuViewController = LeadDetailsPagingMenuViewController(options: PagingMenuOptions(), leadId: newLead.leadId)
-        leadDetailsPagingMenuViewController.changeDelegate = changeDelegate
-//        self.present(leadDetailsPagingMenuViewController, animated: true)
-        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
+//        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: newLead.leadId)
+////        let leadDetailsPagingMenuViewController = LeadDetailsPagingMenuViewController(options: PagingMenuOptions(), leadId: newLead.leadId)
+//        leadDetailsPagingMenuViewController.changeDelegate = changeDelegate
+////        self.present(leadDetailsPagingMenuViewController, animated: true)
+//        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
+
+        let leadDetailsContainerViewController = LeadDetailsContainerViewController(leadId: newLead.leadId)
+        leadDetailsContainerViewController.changeDelegate = changeDelegate
+
+        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: newLead.leadId)
+
+        leadDetailsContainerViewController.addChildViewController(leadDetailsPagingMenuViewController)
+        leadDetailsContainerViewController.view.addSubview(leadDetailsPagingMenuViewController.view)
+
+        leadDetailsPagingMenuViewController.didMove(toParentViewController: self)
+
+        self.navigationController?.pushViewController(leadDetailsContainerViewController, animated: true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

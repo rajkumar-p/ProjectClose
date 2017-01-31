@@ -37,6 +37,7 @@
 		359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */; };
 		359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */; };
 		359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */; };
+		35CA993E1E406D1B00240E53 /* LeadDetailsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */; };
 		35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */; };
 		35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */; };
 		35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AF1E1A26C8007CE4CD /* LaunchScreen.storyboard */; };
@@ -113,6 +114,7 @@
 		359EC9EE1E1B7B0600083309 /* ProjectCloseFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseFonts.swift; sourceTree = "<group>"; };
 		359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseStrings.swift; sourceTree = "<group>"; };
 		359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOffsetUITextField.swift; sourceTree = "<group>"; };
+		35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadDetailsContainerViewController.swift; sourceTree = "<group>"; };
 		35CEC2A31E1A26C8007CE4CD /* ProjectClose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectClose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				35EB2F071E35C48900C4EB19 /* LeadContactsTableViewController.swift */,
 				35EB2F091E35C4A200C4EB19 /* LeadMessagesTableViewController.swift */,
 				35EB2F0D1E365AF600C4EB19 /* LeadStatusTableViewController.swift */,
+				35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				35EB2F041E35C46000C4EB19 /* LeadTasksTableViewController.swift in Sources */,
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 				35EB2F061E35C47400C4EB19 /* LeadOpportunitiesTableViewController.swift in Sources */,
+				35CA993E1E406D1B00240E53 /* LeadDetailsContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

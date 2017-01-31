@@ -7,5 +7,5 @@
 //
 
 protocol ChangeLeadDelegate: class {
-    func didChangeLead(sender: LeadDetailsPagingMenuViewController)
+    func didChangeLead(sender: LeadDetailsContainerViewController)
 }

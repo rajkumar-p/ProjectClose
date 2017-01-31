@@ -126,20 +126,32 @@ class LeadsTableViewController: UITableViewController, AddLeadDelegate, ChangeLe
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedLead = leadsResultSet[indexPath.row]
         
-        let leadDetailsPagingMenuViewController: LeadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: selectedLead.leadId, mainNavigationController: self.navigationController!)
-        leadDetailsPagingMenuViewController.changeDelegate = self
-        //        self.present(leadDetailsPagingMenuViewController, animated: true)
-//        self.navigationController?.addChildViewController(leadDetailsPagingMenuViewController)
-//        self.navigationController?.view.addSubview(leadDetailsPagingMenuViewController.view)
-//        leadDetailsPagingMenuViewController.didMove(toParentViewController: self)
-        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
+//        let leadDetailsPagingMenuViewController: LeadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: selectedLead.leadId, mainNavigationController: self.navigationController!)
+//        leadDetailsPagingMenuViewController.changeDelegate = self
+//        //        self.present(leadDetailsPagingMenuViewController, animated: true)
+////        self.navigationController?.addChildViewController(leadDetailsPagingMenuViewController)
+////        self.navigationController?.view.addSubview(leadDetailsPagingMenuViewController.view)
+////        leadDetailsPagingMenuViewController.didMove(toParentViewController: self)
+//        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
+
+        let leadDetailsContainerViewController = LeadDetailsContainerViewController(leadId: selectedLead.leadId)
+        leadDetailsContainerViewController.changeDelegate = self
+
+        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: selectedLead.leadId)
+
+        leadDetailsContainerViewController.addChildViewController(leadDetailsPagingMenuViewController)
+        leadDetailsContainerViewController.view.addSubview(leadDetailsPagingMenuViewController.view)
+
+        leadDetailsPagingMenuViewController.didMove(toParentViewController: self)
+
+        self.navigationController?.pushViewController(leadDetailsContainerViewController, animated: true)
     }
 
     func didFinishAddingLead(sender: AddLeadViewController) {
         reloadTableView()
     }
 
-    func didChangeLead(sender: LeadDetailsPagingMenuViewController) {
+    func didChangeLead(sender: LeadDetailsContainerViewController) {
         reloadTableView()
     }
 

@@ -17,13 +17,6 @@ class LeadTasksTableViewController: UITableViewController {
 //        setupAddTaskButton()
     }
     
-    init(mainNavigationController: UINavigationController) {
-        self.mainNavigationController = mainNavigationController
-        super.init(nibName: nil, bundle: nil)
-        
-        setupAddTaskButton()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -37,7 +30,7 @@ class LeadTasksTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
-        setupAddTaskButton()
+//        setupAddTaskButton()
     }
     
     func setupAddTaskButton() {

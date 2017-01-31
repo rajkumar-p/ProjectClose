@@ -33,6 +33,13 @@ class LeadDetailsPagingMenuViewController: PagingMenuController {
         setupLeftBarButton()
     }
 
+    init(options: PagingMenuControllerCustomizable, leadId: String) {
+        self.leadId = leadId
+        super.init(options: options)
+//        setupAddTaskButton()
+        setupLeftBarButton()
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
