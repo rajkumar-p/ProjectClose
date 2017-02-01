@@ -15,7 +15,7 @@ class LeadDetailsContainerViewController: UIViewController {
     var lead: Lead!
     var leadId: String!
 
-    var selectedMenuItemViewTitle: String = "TASKS"
+    var selectedViewController: UIViewController!
 
     var changeDelegate: ChangeLeadDelegate!
 
@@ -75,19 +75,23 @@ class LeadDetailsContainerViewController: UIViewController {
 
     func setupPagingMenuMoveHandler() {
         let leadDetailsPagingMenuViewController = self.childViewControllers.first as! LeadDetailsPagingMenuViewController
+        selectedViewController = leadDetailsPagingMenuViewController.childViewControllers.first?.childViewControllers.first
         leadDetailsPagingMenuViewController.onMove = { state in
             switch state {
             case .willMoveController(_, _): break
-            case .didMoveController(_, _): break
+            case let .didMoveController(menuViewController, _):
+                self.selectedViewController = menuViewController
             case .willMoveItem(_, _): break
-            case let .didMoveItem(menuItemView, _):
-                self.selectedMenuItemViewTitle = menuItemView.titleLabel.text!
+            case .didMoveItem(_, _): break
             }
         }
     }
 
     func addButtonPressed(_ sender: UIBarButtonItem) {
-        print("Selected Menu Item Title : " + selectedMenuItemViewTitle)
+        if selectedViewController is LeadTasksTableViewController {
+            let addLeadTaskViewController = AddLeadTaskViewController()
+            self.navigationController?.pushViewController(addLeadTaskViewController, animated: true)
+        }
     }
 
     func setupLeftBarButton() {

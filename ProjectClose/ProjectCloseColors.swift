@@ -52,6 +52,12 @@ class ProjectCloseColors {
     static let addLeadViewControllerAddLeadButtonBackgroundColor = "47BB7F"
     static let addLeadViewControllerAddLeadButtonTitleColor = "FFFFFF"
 
+    static let addLeadTasksViewControllerTaskDescriptionTitleColor = "2C3541"
+    static let addLeadTasksViewControllerAssignedToTitleColor = "2C3541"
+    static let addLeadTasksViewControllerExpiryDateTitleColor = "2C3541"
+    static let addLeadTasksViewControllerAddLeadTaskButtonBackgroundColor = "47BB7F"
+    static let addLeadTasksViewControllerAddLeadTaskButtonTitleColor = "FFFFFF"
+
     static let settingsTableViewControllerProfileImageBorderColor = "2C3541"
     static let settingsTableViewControllerNameTitleColor = "2C3541"
     static let settingsTableViewControllerEmailTitleColor = "2C3541"
@@ -89,4 +95,6 @@ class ProjectCloseColors {
 
     static let leadsTableViewControllerCompanyNameColor = "2C3541"
     static let leadsTableViewControllerStatusColor = "47BB7F"
+
+    static let allTableViewCellTintColor = "47BB7F"
 }

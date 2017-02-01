@@ -38,6 +38,9 @@
 		359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */; };
 		359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */; };
 		35CA993E1E406D1B00240E53 /* LeadDetailsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */; };
+		35CA99401E41CE5F00240E53 /* AddLeadTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA993F1E41CE5F00240E53 /* AddLeadTaskViewController.swift */; };
+		35CA99421E41FBFD00240E53 /* ChooseUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA99411E41FBFD00240E53 /* ChooseUserTableViewController.swift */; };
+		35CA99441E42160200240E53 /* UserChoosenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA99431E42160200240E53 /* UserChoosenDelegate.swift */; };
 		35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */; };
 		35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */; };
 		35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AF1E1A26C8007CE4CD /* LaunchScreen.storyboard */; };
@@ -115,6 +118,9 @@
 		359EC9F01E1B7B1700083309 /* ProjectCloseStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCloseStrings.swift; sourceTree = "<group>"; };
 		359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIOffsetUITextField.swift; sourceTree = "<group>"; };
 		35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadDetailsContainerViewController.swift; sourceTree = "<group>"; };
+		35CA993F1E41CE5F00240E53 /* AddLeadTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadTaskViewController.swift; sourceTree = "<group>"; };
+		35CA99411E41FBFD00240E53 /* ChooseUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserTableViewController.swift; sourceTree = "<group>"; };
+		35CA99431E42160200240E53 /* UserChoosenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChoosenDelegate.swift; sourceTree = "<group>"; };
 		35CEC2A31E1A26C8007CE4CD /* ProjectClose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectClose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CEC2A61E1A26C8007CE4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35CEC2AD1E1A26C8007CE4CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 				35EB2F091E35C4A200C4EB19 /* LeadMessagesTableViewController.swift */,
 				35EB2F0D1E365AF600C4EB19 /* LeadStatusTableViewController.swift */,
 				35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */,
+				35CA993F1E41CE5F00240E53 /* AddLeadTaskViewController.swift */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -379,6 +386,7 @@
 				358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */,
 				358185E91E1FA76F0092BAEA /* SettingsViewController.swift */,
 				35EB2EFD1E2F8C4400C4EB19 /* SettingsTableViewController.swift */,
+				35CA99411E41FBFD00240E53 /* ChooseUserTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 				35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */,
 				35EB2F0F1E36FAF800C4EB19 /* AddLeadDelegate.swift */,
 				35EB2F111E37010900C4EB19 /* ChangeLeadDelegate.swift */,
+				35CA99431E42160200240E53 /* UserChoosenDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -731,6 +740,7 @@
 				3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */,
 				358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */,
 				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
+				35CA99401E41CE5F00240E53 /* AddLeadTaskViewController.swift in Sources */,
 				35EB2F001E31F4AE00C4EB19 /* LeadsTableViewController.swift in Sources */,
 				358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */,
 				358185E21E1FA5350092BAEA /* InboxViewController.swift in Sources */,
@@ -742,7 +752,9 @@
 				35EB2F0C1E35C73400C4EB19 /* LeadDetailsPagingMenuViewController.swift in Sources */,
 				35EB2F0E1E365AF600C4EB19 /* LeadStatusTableViewController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
+				35CA99421E41FBFD00240E53 /* ChooseUserTableViewController.swift in Sources */,
 				35EB2EFE1E2F8C4400C4EB19 /* SettingsTableViewController.swift in Sources */,
+				35CA99441E42160200240E53 /* UserChoosenDelegate.swift in Sources */,
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
 				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
 				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
