@@ -23,7 +23,11 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
 
     var addLeadTaskButton: UIButton!
     
-    var selectedEmail = "raj@diskodev.com"
+    var currentUserEmail = "raj@diskodev.com"
+    var selectedUser: User!
+    var leadId: String!
+
+    var addLeadTaskDelegate: AddLeadTaskDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         setupLeftBarButton()
         
         setupRealm()
+        loadCurrentUser(currentUserEmail: currentUserEmail)
 
         setupTaskDescriptionLabel()
         setupTaskDescriptionTextField()
@@ -62,6 +67,10 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
     
     func setupRealm() {
         realm = try! Realm()
+    }
+    
+    func loadCurrentUser(currentUserEmail: String) {
+        selectedUser = realm.object(ofType: User.self, forPrimaryKey: currentUserEmail)
     }
 
     func setupTaskDescriptionLabel() {
@@ -198,21 +207,40 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
     }
 
     func addLeadTaskButtonPressed(_ sender: UIButton) {
-        print("Add Tasks Pressed.")
+        let newLeadTask = Task()
+        newLeadTask.taskId = leadId + "__" + DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
+        newLeadTask.leadId = leadId
+        newLeadTask.taskDescription = taskDescriptionTextField.text!
+        newLeadTask.closed = false
+        newLeadTask.assignedTo = selectedUser
+        newLeadTask.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
+
+        newLeadTask.createdDate = Date()
+        if let expiryDate = expiryDateTextField.text {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+
+            newLeadTask.expiryDate = dateFormatter.date(from: expiryDate)
+        }
+        
+        try! realm.write {
+            realm.add(newLeadTask)
+        }
+
+        addLeadTaskDelegate.didFinishAddingLeadTask(sender: self)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     func userLabelPressed(_ sender: UILabel) {
-        let chooseUserTableViewController = ChooseUserTableViewController(email: selectedEmail)
+        let chooseUserTableViewController = ChooseUserTableViewController(user: selectedUser)
         chooseUserTableViewController.userChoosenDelegate = self
 
         self.navigationController?.pushViewController(chooseUserTableViewController, animated: true)
     }
     
-    func didChooseUser(sender: ChooseUserTableViewController, selectedUserEmail: String) {
-        let selectedUser = realm.object(ofType: User.self, forPrimaryKey: selectedUserEmail)
-        selectedEmail = (selectedUser?.email)!
-
-        assignedToUserLabel.text = selectedUser?.name
+    func didChooseUser(sender: ChooseUserTableViewController, selectedUser: User) {
+        self.selectedUser = selectedUser
+        assignedToUserLabel.text = self.selectedUser.name
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

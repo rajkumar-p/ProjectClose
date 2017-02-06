@@ -27,6 +27,7 @@
 		3586C0F91E24CBCA00BDB146 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F81E24CBCA00BDB146 /* User.swift */; };
 		3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FA1E24CC8900BDB146 /* Lead.swift */; };
 		3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */; };
+		358D749C1E4456DE0093CC70 /* AddLeadTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */; };
 		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
 		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
 		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
@@ -107,6 +108,7 @@
 		3586C0F81E24CBCA00BDB146 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3586C0FA1E24CC8900BDB146 /* Lead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
 		3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverridenPagingMenuController.swift; sourceTree = "<group>"; };
+		358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadTaskDelegate.swift; sourceTree = "<group>"; };
 		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				35EB2F0F1E36FAF800C4EB19 /* AddLeadDelegate.swift */,
 				35EB2F111E37010900C4EB19 /* ChangeLeadDelegate.swift */,
 				35CA99431E42160200240E53 /* UserChoosenDelegate.swift */,
+				358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
 				35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */,
 				35EB2F081E35C48900C4EB19 /* LeadContactsTableViewController.swift in Sources */,
+				358D749C1E4456DE0093CC70 /* AddLeadTaskDelegate.swift in Sources */,
 				35EB2F041E35C46000C4EB19 /* LeadTasksTableViewController.swift in Sources */,
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 				35EB2F061E35C47400C4EB19 /* LeadOpportunitiesTableViewController.swift in Sources */,

@@ -90,6 +90,8 @@ class LeadDetailsContainerViewController: UIViewController {
     func addButtonPressed(_ sender: UIBarButtonItem) {
         if selectedViewController is LeadTasksTableViewController {
             let addLeadTaskViewController = AddLeadTaskViewController()
+            addLeadTaskViewController.leadId = leadId
+            addLeadTaskViewController.addLeadTaskDelegate = selectedViewController as! LeadTasksTableViewController
             self.navigationController?.pushViewController(addLeadTaskViewController, animated: true)
         }
     }

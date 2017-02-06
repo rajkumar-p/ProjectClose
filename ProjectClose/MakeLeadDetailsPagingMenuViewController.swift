@@ -88,6 +88,7 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         var displayMode: MenuDisplayMode {
             //            return .segmentedControl
             //            return .infinite(widthMode: .fixed(width: 100), scrollingMode: .pagingEnabled)
+//            return .standard(widthMode: .fixed(width: 150.0), centerItem: false, scrollingMode: .scrollEnabledAndBouces)
             return .standard(widthMode: .fixed(width: 150.0), centerItem: false, scrollingMode: .pagingEnabled)
         }
 
@@ -98,6 +99,7 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         var itemsOptions: [MenuItemViewCustomizable] {
             return [PageMenuItemLeadTasks(), PageMenuItemLeadOpportunities(), PageMenuItemLeadContacts(), PageMenuItemLeadMessages(), PageMenuItemLeadStatus()]
         }
+        
     }
 
     struct PagingMenuOptions: PagingMenuControllerCustomizable {
@@ -113,6 +115,10 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
 
         var lazyLoadingPage: LazyLoadingPage {
             return .all
+        }
+        
+        var isScrollEnabled: Bool {
+            return false
         }
     }
 

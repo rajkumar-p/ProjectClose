@@ -125,7 +125,7 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .delete
     }
-    
+
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView!.setEditing(editing, animated: animated)

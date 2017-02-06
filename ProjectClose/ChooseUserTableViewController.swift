@@ -15,15 +15,15 @@ class ChooseUserTableViewController: UITableViewController {
     var realm: Realm!
     var usersResultSet: Results<User>!
 
-    var previousSelectedUserEmail: String!
+    var previousSelectedUser: User!
     var currentSelectedIndexPath: IndexPath!
     
-    var selectedUserEmail: String!
+    var selectedUser: User!
     var userChoosenDelegate: UserChoosenDelegate!
 
-    init(email: String) {
+    init(user: User) {
         super.init(nibName: nil, bundle: nil)
-        previousSelectedUserEmail = email
+        previousSelectedUser = user
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +72,7 @@ class ChooseUserTableViewController: UITableViewController {
     }
 
     func backButtonPressed(_ sender: UIBarButtonItem) {
-        userChoosenDelegate.didChooseUser(sender: self, selectedUserEmail: selectedUserEmail)
+        userChoosenDelegate.didChooseUser(sender: self, selectedUser: selectedUser)
         let _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -124,7 +124,7 @@ class ChooseUserTableViewController: UITableViewController {
         userCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerEmailFont, size: 18.0)
         userCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerEmailColor)
 
-        if user.email == previousSelectedUserEmail {
+        if user.email == previousSelectedUser.email {
             userCell.accessoryType = .checkmark
             currentSelectedIndexPath = indexPath
 //            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
@@ -135,8 +135,10 @@ class ChooseUserTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedUser = usersResultSet[indexPath.row]
-        selectedUserEmail = selectedUser.email
+//        let selectedUser = usersResultSet[indexPath.row]
+//        selectedUserEmail = selectedUser.email
+//
+        selectedUser = usersResultSet[indexPath.row]
 
         self.tableView?.cellForRow(at: currentSelectedIndexPath)?.accessoryType = .none
         self.tableView?.cellForRow(at: indexPath)?.accessoryType = .checkmark

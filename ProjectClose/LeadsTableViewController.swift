@@ -147,6 +147,26 @@ class LeadsTableViewController: UITableViewController, AddLeadDelegate, ChangeLe
         self.navigationController?.pushViewController(leadDetailsContainerViewController, animated: true)
     }
 
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView!.setEditing(editing, animated: animated)
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let lead = leadsResultSet[indexPath.row]
+            try! realm.write {
+                realm.delete(lead)
+            }
+
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
+    }
+
     func didFinishAddingLead(sender: AddLeadViewController) {
         reloadTableView()
     }

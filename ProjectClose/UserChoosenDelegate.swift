@@ -7,5 +7,5 @@
 //
 
 protocol UserChoosenDelegate: class {
-    func didChooseUser(sender: ChooseUserTableViewController, selectedUserEmail: String)
+    func didChooseUser(sender: ChooseUserTableViewController, selectedUser: User)
 }

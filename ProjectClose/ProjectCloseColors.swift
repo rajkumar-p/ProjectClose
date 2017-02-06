@@ -96,5 +96,14 @@ class ProjectCloseColors {
     static let leadsTableViewControllerCompanyNameColor = "2C3541"
     static let leadsTableViewControllerStatusColor = "47BB7F"
 
+    static let leadTasksTableViewControllerTitleColor = "2C3541"
+    static let leadTasksTableViewControllerSubtitleColor = "47BB7F"
+    static let leadTasksTableViewControllerExpiredSubtitleColor = "FF0000"
+    static let leadTasksTableViewControllerTableCellDeleteButtonColor = "FF0000"
+    static let leadTasksTableViewControllerTableCellCloseButtonColor = "47BB7F"
+    static let leadTasksTableViewControllerTableCellReOpenButtonColor = "47BB7F"
+    static let leadTasksTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
+    static let leadTasksTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
+
     static let allTableViewCellTintColor = "47BB7F"
 }

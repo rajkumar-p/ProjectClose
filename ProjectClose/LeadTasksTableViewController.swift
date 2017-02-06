@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
-class LeadTasksTableViewController: UITableViewController {
+class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
     let leadTaskTableViewCellReuseIdentifier = "LeadTaskCell"
-    var mainNavigationController: UINavigationController!
+    var leadId: String!
+
+    var realm: Realm!
+    var leadTasksResultSet: Results<Task>!
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -30,14 +34,9 @@ class LeadTasksTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
-//        setupAddTaskButton()
-    }
-    
-    func setupAddTaskButton() {
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
-        self.mainNavigationController.navigationItem.rightBarButtonItem = rightBarButtonItem
-//        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+
+        setupRealm()
+        loadLeadTasks()
     }
 
     func setupTableView() {
@@ -47,6 +46,16 @@ class LeadTasksTableViewController: UITableViewController {
             tableView.separatorStyle = .none
             tableView.rowHeight = 75.0
         }
+    }
+
+    func setupRealm() {
+        realm = try! Realm()
+    }
+
+    func loadLeadTasks() {
+        let closedDateSortDescriptor = SortDescriptor(property: "closedDate")
+        let createdDateSortDescriptor = SortDescriptor(property: "createdDate", ascending: false)
+        leadTasksResultSet = realm.objects(Task.self).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,12 +68,133 @@ class LeadTasksTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return leadTasksResultSet.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let leadTask = leadTasksResultSet[indexPath.row]
+
+        let leadTaskCell = UITableViewCell(style: .subtitle, reuseIdentifier: leadTaskTableViewCellReuseIdentifier)
+        
+        leadTaskCell.textLabel?.font = UIFont(name:  ProjectCloseFonts.leadTasksTableViewControllerTitleFont, size: 20.0)
+        leadTaskCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTitleColor)
+        
+        leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+
+        var subtitleText = leadTask.assignedTo.name
+        if let expiryDate = leadTask.expiryDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy"
+            subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
+            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
+            switch order {
+            case .orderedAscending:
+                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+            case .orderedDescending:
+                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
+            case .orderedSame:
+                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+            }
+        }
+        
+        leadTaskCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerStatus, size: 18.0)
+        
+        if leadTask.closed {
+            let titleAttributedText = NSAttributedString(string: leadTask.taskDescription, attributes:
+            [
+                NSStrikethroughStyleAttributeName : 2,
+                NSStrikethroughColorAttributeName: UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellTitleStrikeThroughColor)!
+            ])
+            leadTaskCell.textLabel?.attributedText = titleAttributedText
+            
+            let subtitleAttributedText = NSAttributedString(string: subtitleText, attributes:
+            [
+                    NSStrikethroughStyleAttributeName : 2,
+                    NSStrikethroughColorAttributeName: UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellSubtitleStrikeThroughColor)!
+            ])
+            leadTaskCell.detailTextLabel?.attributedText = subtitleAttributedText
+        } else {
+            leadTaskCell.textLabel?.text = leadTask.taskDescription
+            leadTaskCell.detailTextLabel?.text = subtitleText
+        }
+
+        return leadTaskCell
+    }
+
+//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        return .delete
+//    }
+//
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        tableView!.setEditing(editing, animated: animated)
+//    }
+//
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let leadTask = leadTasksResultSet[indexPath.row]
+//            try! realm.write {
+//                realm.delete(leadTask)
+//            }
+//
+//            tableView.deleteRows(at: [indexPath], with: .left)
+//        }
+//    }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let leadTask = leadTasksResultSet[indexPath.row]
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete", handler: { [weak self] action, indexPath in
+            try! self?.realm.write {
+                self?.realm.delete(leadTask)
+            }
+            
+            self?.reloadTableView()
+        })
+        deleteAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellDeleteButtonColor)
+
+        if leadTask.closed {
+            let reOpenAction = UITableViewRowAction(style: .normal, title: "Re-Open", handler: { [weak self] action, indexPath in
+                try! self?.realm.write {
+                    leadTask.closed = false
+                    leadTask.closedDate = nil
+                }
+
+                self?.reloadTableView()
+            })
+            reOpenAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellReOpenButtonColor)
+
+            return [reOpenAction, deleteAction]
+        } else {
+            let closeAction = UITableViewRowAction(style: .normal, title: "Close", handler: { [weak self] action, indexPath in
+                try! self?.realm.write {
+                    leadTask.closed = true
+                    leadTask.closedDate = Date()
+                }
+                
+                self?.reloadTableView()
+            })
+            closeAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellCloseButtonColor)
+
+            return [closeAction, deleteAction]
+        }
+
+    }
+//
+//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        
+//    }
+
+    func didFinishAddingLeadTask(sender: AddLeadTaskViewController) {
+        reloadTableView()
+    }
+
+    func reloadTableView() {
+        self.tableView?.reloadData()
     }
 
     /*

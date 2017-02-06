@@ -10,18 +10,18 @@ import Foundation
 import RealmSwift
 
 class Task: Object {
-    var taskId: String!
+    dynamic var taskId: String!
     dynamic var taskDescription: String = ""
-    var leadId: String!
-    var createdDate: NSDate!
+    dynamic var leadId: String!
+    dynamic var createdDate: Date!
     
-    var createdBy: User!
-    var assignedTo: User!
+    dynamic var createdBy: User!
+    dynamic var assignedTo: User!
 
-    var closed: Bool = false
-    var closedDate: NSDate!
+    dynamic var closed: Bool = false
+    dynamic var closedDate: Date!
 
-    var expiryDate: NSDate!
+    dynamic var expiryDate: Date!
 
     override static func indexedProperties() -> [String] {
         return ["taskId", "leadId"]
