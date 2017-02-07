@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AD1E481BCD00D34DD0 /* Contact.swift */; };
+		354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */; };
+		354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */; };
 		358185C91E1E18F30092BAEA /* close-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 358185BC1E1E18F30092BAEA /* close-background.jpg */; };
 		358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DA1E1E5D650092BAEA /* MainTabBarController.swift */; };
 		358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */; };
@@ -50,7 +53,6 @@
 		35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */; };
 		35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */; };
 		35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */; };
-		35EB2EF91E2CAB1300C4EB19 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */; };
 		35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */; };
 		35EB2EFE1E2F8C4400C4EB19 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EFD1E2F8C4400C4EB19 /* SettingsTableViewController.swift */; };
 		35EB2F001E31F4AE00C4EB19 /* LeadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EFF1E31F4AE00C4EB19 /* LeadsTableViewController.swift */; };
@@ -88,6 +90,9 @@
 
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		354F31AD1E481BCD00D34DD0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactViewController.swift; sourceTree = "<group>"; };
+		354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactDelegate.swift; sourceTree = "<group>"; };
 		358185BC1E1E18F30092BAEA /* close-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "close-background.jpg"; sourceTree = "<group>"; };
 		358185DA1E1E5D650092BAEA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxNavigationController.swift; sourceTree = "<group>"; };
@@ -137,7 +142,6 @@
 		35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
-		35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserDelegate.swift; sourceTree = "<group>"; };
 		35EB2EFD1E2F8C4400C4EB19 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		35EB2EFF1E31F4AE00C4EB19 /* LeadsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadsTableViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 				3586C0F61E24C50600BDB146 /* Task.swift */,
 				3586C0F81E24CBCA00BDB146 /* User.swift */,
 				3586C0FA1E24CC8900BDB146 /* Lead.swift */,
+				354F31AD1E481BCD00D34DD0 /* Contact.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -253,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
-				35EB2EF81E2CAB1300C4EB19 /* UserTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -367,6 +371,7 @@
 				35EB2F0D1E365AF600C4EB19 /* LeadStatusTableViewController.swift */,
 				35CA993D1E406D1B00240E53 /* LeadDetailsContainerViewController.swift */,
 				35CA993F1E41CE5F00240E53 /* AddLeadTaskViewController.swift */,
+				354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				35EB2F111E37010900C4EB19 /* ChangeLeadDelegate.swift */,
 				35CA99431E42160200240E53 /* UserChoosenDelegate.swift */,
 				358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */,
+				354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */,
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
 				35EB2F0C1E35C73400C4EB19 /* LeadDetailsPagingMenuViewController.swift in Sources */,
+				354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */,
 				35EB2F0E1E365AF600C4EB19 /* LeadStatusTableViewController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				35CA99421E41FBFD00240E53 /* ChooseUserTableViewController.swift in Sources */,
@@ -761,13 +768,13 @@
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
 				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
 				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
-				35EB2EF91E2CAB1300C4EB19 /* UserTableViewCell.swift in Sources */,
 				35EB2F101E36FAF800C4EB19 /* AddLeadDelegate.swift in Sources */,
 				3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
 				35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */,
 				35EB2F0A1E35C4A200C4EB19 /* LeadMessagesTableViewController.swift in Sources */,
 				35EB2F141E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift in Sources */,
+				354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */,
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */,
@@ -779,6 +786,7 @@
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 				35EB2F061E35C47400C4EB19 /* LeadOpportunitiesTableViewController.swift in Sources */,
 				35CA993E1E406D1B00240E53 /* LeadDetailsContainerViewController.swift in Sources */,
+				354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

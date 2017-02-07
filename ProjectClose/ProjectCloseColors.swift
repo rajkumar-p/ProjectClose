@@ -58,6 +58,12 @@ class ProjectCloseColors {
     static let addLeadTasksViewControllerAddLeadTaskButtonBackgroundColor = "47BB7F"
     static let addLeadTasksViewControllerAddLeadTaskButtonTitleColor = "FFFFFF"
 
+    static let addLeadContactViewControllerNameTitleColor = "2C3541"
+    static let addLeadContactViewControllerEmailTitleColor = "2C3541"
+    static let addLeadContactViewControllerPhoneTitleColor = "2C3541"
+    static let addLeadContactViewControllerAddLeadContactButtonBackgroundColor = "47BB7F"
+    static let addLeadContactViewControllerAddLeadContactButtonTitleColor = "FFFFFF"
+
     static let settingsTableViewControllerProfileImageBorderColor = "2C3541"
     static let settingsTableViewControllerNameTitleColor = "2C3541"
     static let settingsTableViewControllerEmailTitleColor = "2C3541"
@@ -104,6 +110,11 @@ class ProjectCloseColors {
     static let leadTasksTableViewControllerTableCellReOpenButtonColor = "47BB7F"
     static let leadTasksTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
     static let leadTasksTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
+
+    static let leadContactsTableViewControllerTitleColor = "2C3541"
+    static let leadContactsTableViewControllerSubtitleColor = "47BB7F"
+    static let leadContactsTableViewControllerTableCellDeleteButtonColor = "FF0000"
+    static let leadContactsTableViewControllerTableViewCellContactOptionsBackgroundViewColor = "47BB7F"
 
     static let allTableViewCellTintColor = "47BB7F"
 }

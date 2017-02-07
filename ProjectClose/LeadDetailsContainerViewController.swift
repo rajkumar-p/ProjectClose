@@ -92,7 +92,14 @@ class LeadDetailsContainerViewController: UIViewController {
             let addLeadTaskViewController = AddLeadTaskViewController()
             addLeadTaskViewController.leadId = leadId
             addLeadTaskViewController.addLeadTaskDelegate = selectedViewController as! LeadTasksTableViewController
+
             self.navigationController?.pushViewController(addLeadTaskViewController, animated: true)
+        } else if selectedViewController is LeadContactsTableViewController {
+            let addLeadContactViewController = AddLeadContactViewController()
+            addLeadContactViewController.leadId = leadId
+            addLeadContactViewController.addLeadContactDelegate = selectedViewController as! LeadContactsTableViewController
+
+            self.navigationController?.pushViewController(addLeadContactViewController, animated: true)
         }
     }
 

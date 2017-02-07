@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
-class LeadContactsTableViewController: UITableViewController {
+class LeadContactsTableViewController: UITableViewController, AddLeadContactDelegate {
     let leadContactTableViewCellReuseIdentifier = "LeadContactCell"
+    let leadCommsTableViewCellReuseIdentifier = "LeadCommsCell"
+    let commsViewTag = 777
+
+    var realm: Realm!
+    var leadContactsResultSet: Results<Contact>!
+
+    var selectedIndexPath: IndexPath!
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        setupAddContactButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -29,12 +36,9 @@ class LeadContactsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
-    }
-
-    func setupAddContactButton() {
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        setupRealm()
+        loadLeadContacts()
     }
 
     func setupTableView() {
@@ -44,6 +48,14 @@ class LeadContactsTableViewController: UITableViewController {
             tableView.separatorStyle = .none
             tableView.rowHeight = 75.0
         }
+    }
+
+    func setupRealm() {
+        realm = try! Realm()
+    }
+
+    func loadLeadContacts() {
+        leadContactsResultSet = realm.objects(Contact.self).sorted(byProperty: "name")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,12 +68,167 @@ class LeadContactsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return leadContactsResultSet.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let leadContact = leadContactsResultSet[indexPath.row]
+        
+        let leadContactCell = UITableViewCell(style: .subtitle, reuseIdentifier: leadContactTableViewCellReuseIdentifier)
+        leadContactCell.selectionStyle = .none
+        
+        leadContactCell.textLabel?.text = leadContact.name
+        leadContactCell.textLabel?.font = UIFont(name:  ProjectCloseFonts.leadContactsTableViewControllerTitleFont, size: 20.0)
+        leadContactCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerTitleColor)
+        
+        leadContactCell.detailTextLabel?.text = leadContact.phone + " / " + leadContact.email
+        leadContactCell.detailTextLabel?.font = UIFont(name:  ProjectCloseFonts.leadContactsTableViewControllerSubtitleFont, size: 18.0)
+        leadContactCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerSubtitleColor)
+
+        let commsView = UIView()
+        commsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        commsView.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerTableViewCellContactOptionsBackgroundViewColor)
+        commsView.alpha = 0.0
+        commsView.tag = commsViewTag
+
+        leadContactCell.contentView.addSubview(commsView)
+
+//        leadContactCell.contentView.addConstraint(commsView.widthAnchor.constraint(equalTo: (commsView.superview?.widthAnchor)!))
+        leadContactCell.contentView.addConstraint(commsView.widthAnchor.constraint(equalTo: (commsView.superview?.widthAnchor)!))
+//        leadContactCell.contentView.addConstraint(commsView.heightAnchor.constraint(equalToConstant: 75.0))
+        leadContactCell.contentView.addConstraint(commsView.heightAnchor.constraint(equalTo: (commsView.superview?.heightAnchor)!, multiplier: 0.90))
+        leadContactCell.contentView.addConstraint(commsView.centerXAnchor.constraint(equalTo: (commsView.superview?.centerXAnchor)!))
+        leadContactCell.contentView.addConstraint(commsView.centerYAnchor.constraint(equalTo: (commsView.superview?.centerYAnchor)!))
+//        leadContactCell.contentView.addConstraint(commsView.topAnchor.constraint(equalTo: (commsView.superview?.topAnchor)!))
+
+        let commsStackView = createCommsStackView(for: indexPath)
+        commsView.addSubview(commsStackView)
+        
+        commsView.addConstraint(commsStackView.widthAnchor.constraint(equalTo: (commsStackView.superview?.widthAnchor)!, multiplier: 0.95))
+        commsView.addConstraint(commsStackView.heightAnchor.constraint(equalTo: (commsStackView.superview?.heightAnchor)!))
+        commsView.addConstraint(commsStackView.centerXAnchor.constraint(equalTo: (commsStackView.superview?.centerXAnchor)!))
+        commsView.addConstraint(commsStackView.centerYAnchor.constraint(equalTo: (commsStackView.superview?.centerYAnchor)!))
+        
+        return leadContactCell
+    }
+
+    func createCommsStackView(for indexPath: IndexPath) -> UIStackView {
+        let backButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+
+        backButton.setImage(UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        backButton.tintColor = .white
+        backButton.addTarget(self, action: #selector(LeadContactsTableViewController.backButtonPressed(_:)), for: .touchUpInside)
+
+        let phoneButton = UIButton()
+        phoneButton.translatesAutoresizingMaskIntoConstraints = false
+
+        phoneButton.setImage(UIImage(named: "Phone")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        phoneButton.tintColor = .white
+        phoneButton.addTarget(self, action: #selector(LeadContactsTableViewController.phoneButtonPressed(_:)), for: .touchUpInside)
+        
+        let textMessageButton = UIButton()
+        textMessageButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        textMessageButton.setImage(UIImage(named: "TextMessage")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        textMessageButton.tintColor = .white
+        textMessageButton.addTarget(self, action: #selector(LeadContactsTableViewController.textMessageButtonPressed(_:)), for: .touchUpInside)
+        
+        let emailButton = UIButton()
+        emailButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        emailButton.setImage(UIImage(named: "Email")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        emailButton.tintColor = .white
+        emailButton.addTarget(self, action: #selector(LeadContactsTableViewController.emailButtonPressed(_:)), for: .touchUpInside)
+
+        let commsStackView = UIStackView()
+        commsStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        commsStackView.axis = .horizontal
+        commsStackView.distribution = .equalSpacing
+        commsStackView.alignment = .center
+        commsStackView.spacing = 8.0
+
+        commsStackView.addArrangedSubview(backButton)
+        commsStackView.addArrangedSubview(phoneButton)
+        commsStackView.addArrangedSubview(textMessageButton)
+        commsStackView.addArrangedSubview(emailButton)
+
+        return commsStackView
+    }
+
+    func backButtonPressed(_ sender: UIButton) {
+        print(leadContactsResultSet[selectedIndexPath.row].name)
+        print("Back button pressed.")
+        let selectedCell = tableView.cellForRow(at: selectedIndexPath)
+        let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
+        commsView?.alpha = 0.0
+    }
+
+    func phoneButtonPressed(_ sender: UIButton) {
+        print(leadContactsResultSet[selectedIndexPath.row].name)
+        print("Call button pressed.")
+    }
+    
+    func textMessageButtonPressed(_ sender: UIButton) {
+        print(leadContactsResultSet[selectedIndexPath.row].name)
+        print("Text Message button pressed.")
+    }
+    
+    func emailButtonPressed(_ sender: UIButton) {
+        print(leadContactsResultSet[selectedIndexPath.row].name)
+        print("Email Message button pressed.")
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
+        commsView?.alpha = 1.0
+//        selectedCell?.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerTableViewCellContactOptionsBackgroundViewColor)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
+        commsView?.alpha = 0.0
+//        let deSelectedCell = tableView.cellForRow(at: indexPath)
+//        deSelectedCell?.backgroundColor = .white
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView!.setEditing(editing, animated: animated)
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let leadContactToBeDeleted = leadContactsResultSet[indexPath.row]
+            try! realm.write {
+                realm.delete(leadContactToBeDeleted)
+            }
+
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
+    }
+
+    func didFinishAddingLeadContact(sender: AddLeadContactViewController) {
+        reloadTableViewData()
+    }
+
+    func reloadTableViewData() {
+        self.tableView.reloadData()
     }
 
     /*

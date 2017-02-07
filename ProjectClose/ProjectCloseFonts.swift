@@ -47,6 +47,12 @@ class ProjectCloseFonts {
     static let addLeadTasksViewControllerTextFieldPlaceholderFont = "Lato-Hairline"
     static let addLeadTasksViewControllerAddLeadTaskButtonFont = "Lato-Bold"
 
+    static let addLeadContactViewControllerNameFont = "Lato-Regular"
+    static let addLeadContactViewControllerEmailFont = "Lato-Regular"
+    static let addLeadContactViewControllerPhoneFont = "Lato-Regular"
+    static let addLeadContactViewControllerTextFieldPlaceholderFont = "Lato-Hairline"
+    static let addLeadContactViewControllerAddLeadContactButtonFont = "Lato-Bold"
+
     static let settingsViewControllerNameFont="Lato-Bold"
     static let settingsViewControllerEmailFont="Lato-Regular"
     static let settingsViewControllerYourSettingsLabelTitleFont = "Lato-Bold"
@@ -71,6 +77,9 @@ class ProjectCloseFonts {
 
     static let leadTasksTableViewControllerTitleFont = "Lato-Regular"
     static let leadTasksTableViewControllerSubtitleFont = "Lato-Regular"
+
+    static let leadContactsTableViewControllerTitleFont = "Lato-Regular"
+    static let leadContactsTableViewControllerSubtitleFont = "Lato-Regular"
 
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
 }
