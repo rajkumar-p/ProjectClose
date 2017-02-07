@@ -211,6 +211,11 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
         let _ = self.navigationController?.popViewController(animated: true)
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -172,8 +172,16 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     }
 
     func phoneButtonPressed(_ sender: UIButton) {
-        print(leadContactsResultSet[selectedIndexPath.row].name)
-        print("Call button pressed.")
+        let phoneNumber = leadContactsResultSet[selectedIndexPath.row].phone
+        if let url = NSURL(string: "tel://" + phoneNumber!), UIApplication.shared.canOpenURL(url as URL) {
+            print(url)
+            print(phoneNumber!)
+            if UIApplication.shared.canOpenURL(url as URL) {
+                UIApplication.shared.openURL(url as URL)
+            }
+        } else {
+            print("Cannot make call with the selected phone number.")
+        }
     }
     
     func textMessageButtonPressed(_ sender: UIButton) {
