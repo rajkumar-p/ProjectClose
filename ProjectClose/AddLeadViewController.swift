@@ -331,6 +331,8 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
         print("Lead Saved.")
 
+        // Save messages
+
         addDelegate.didFinishAddingLead(sender: self)
 
 //        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: newLead.leadId)

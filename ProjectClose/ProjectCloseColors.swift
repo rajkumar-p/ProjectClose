@@ -115,6 +115,18 @@ class ProjectCloseColors {
     static let leadContactsTableViewControllerSubtitleColor = "47BB7F"
     static let leadContactsTableViewControllerTableCellDeleteButtonColor = "FF0000"
     static let leadContactsTableViewControllerTableViewCellContactOptionsBackgroundViewColor = "47BB7F"
+    static let leadContactsTableViewControllerCommsButtonBackgroundColor = "FFFFFF"
+    static let leadContactsTableViewControllerCommsOptionsImageTintColor = "47BB7F"
+
+    static let leadMessagesTableViewControllerTitleColor = "2C3541"
+    static let leadMessagesTableViewControllerSubtitleColor = "47BB7F"
+    static let leadMessagesTableViewControllerImageViewBackgroundColor = "47BB7F"
+    static let leadMessagesTableViewControllerImageViewTintColor = "47BB7F"
+    static let leadMessagesTableViewControllerCommsOptionsTintColor = "47BB7F"
+
+    static let leadStatusTableViewControllerTitleColor = "2C3541"
+    static let leadStatusTableViewControllerSelectedTitleColor = "47BB7F"
+    static let leadStatusTableViewControllerTableViewCellTintColor = "47BB7F"
 
     static let allTableViewCellTintColor = "47BB7F"
 }

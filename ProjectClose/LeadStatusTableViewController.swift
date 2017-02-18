@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LeadStatusTableViewController: UITableViewController {
     let leadStatusTableViewCellReuseIdentifier = "LeadStatusCell"
+    let leadDataSource = ["Potential", "Bad Fit", "Qualified", "Customer"]
+
+    var realm: Realm!
+    var leadId: String!
+    var lead: Lead!
+
+    var selectedIndexPath: IndexPath!
 
     init() {
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(leadId: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.leadId = leadId
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +42,9 @@ class LeadStatusTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
+
+        setupRealm()
+        loadLead()
     }
 
     func setupTableView() {
@@ -39,32 +56,72 @@ class LeadStatusTableViewController: UITableViewController {
         }
     }
 
+    func setupRealm() {
+        realm = try! Realm()
+    }
+
+    func loadLead() {
+        lead = realm.object(ofType: Lead.self, forPrimaryKey: leadId)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print("Memory warning : LeadStatusTableViewController")
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return leadDataSource.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let leadStatusCell = UITableViewCell(style: .default, reuseIdentifier: leadStatusTableViewCellReuseIdentifier)
+        leadStatusCell.selectionStyle = .none
+        leadStatusCell.tintColor = UIColor(hexString: ProjectCloseColors.leadStatusTableViewControllerTableViewCellTintColor)
 
-        // Configure the cell...
+        leadStatusCell.textLabel?.text = leadDataSource[indexPath.row]
+        leadStatusCell.textLabel?.font = UIFont(name: ProjectCloseFonts.leadStatusTableViewControllerTitleFont, size: 20.0)
 
-        return cell
+        if leadDataSource[indexPath.row] == lead.status {
+            selectedIndexPath = indexPath
+            leadStatusCell.accessoryType = .checkmark
+            leadStatusCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadStatusTableViewControllerSelectedTitleColor)
+        } else {
+            leadStatusCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadStatusTableViewControllerTitleColor)
+        }
+
+        return leadStatusCell
     }
-    */
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let previousSelectedCell = self.tableView?.cellForRow(at: selectedIndexPath)
+        previousSelectedCell?.accessoryType = .none
+        previousSelectedCell?.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadStatusTableViewControllerTitleColor)
+        
+        let currentSelectedCell = self.tableView?.cellForRow(at: indexPath)
+        currentSelectedCell?.accessoryType = .checkmark
+        currentSelectedCell?.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadStatusTableViewControllerSelectedTitleColor)
+        
+        selectedIndexPath = indexPath
+
+        try! realm.write {
+            lead.status = leadDataSource[indexPath.row]
+        }
+
+        reloadTableViewData()
+    }
+
+    func reloadTableViewData() {
+        self.tableView?.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.

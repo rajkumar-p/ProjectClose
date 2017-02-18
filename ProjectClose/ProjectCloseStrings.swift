@@ -16,4 +16,12 @@ class ProjectCloseStrings {
     static let settingsTableViewControllerProfileImageName = "Profile"
     static let settingsViewControllerProfileImageName = "Profile"
     static let allViewControllerBackButtonImageName = "Back"
+
+    static let leadMessageTableViewCellPhoneIncomingImageName = "PhoneIncoming"
+    static let leadMessageTableViewCellPhoneOutgoingImageName = "PhoneOutgoing"
+    static let leadMessageTableViewCellEmailIncomingImageName = "EmailIncoming"
+    static let leadMessageTableViewCellEmailOutgoingImageName = "EmailOutgoing"
+    static let leadMessageTableViewCellEmailImageName = "Email"
+    static let leadMessageTableViewCellTextIncomingImageName = "TextMessage"
+    static let leadMessageTableViewCellTextOutgoingImageName = "TextMessage"
 }

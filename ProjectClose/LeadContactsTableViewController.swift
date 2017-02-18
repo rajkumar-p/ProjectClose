@@ -122,29 +122,42 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
 
+        backButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Close")!, to: CGSize(width: 32.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
         backButton.setImage(UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        backButton.tintColor = .white
+        backButton.layer.cornerRadius = 60.0 / 2.0
+        backButton.clipsToBounds = true
+        backButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
+        backButton.tintColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsOptionsImageTintColor)
         backButton.addTarget(self, action: #selector(LeadContactsTableViewController.backButtonPressed(_:)), for: .touchUpInside)
 
         let phoneButton = UIButton()
         phoneButton.translatesAutoresizingMaskIntoConstraints = false
 
-        phoneButton.setImage(UIImage(named: "Phone")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        phoneButton.tintColor = .white
+        phoneButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Phone")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        phoneButton.layer.cornerRadius = 60.0 / 2.0
+        phoneButton.clipsToBounds = true
+        phoneButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
+        phoneButton.tintColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsOptionsImageTintColor)
         phoneButton.addTarget(self, action: #selector(LeadContactsTableViewController.phoneButtonPressed(_:)), for: .touchUpInside)
         
         let textMessageButton = UIButton()
         textMessageButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        textMessageButton.setImage(UIImage(named: "TextMessage")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        textMessageButton.tintColor = .white
+
+        textMessageButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "TextMessage")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        textMessageButton.layer.cornerRadius = 60.0 / 2.0
+        textMessageButton.clipsToBounds = true
+        textMessageButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
+        textMessageButton.tintColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsOptionsImageTintColor)
         textMessageButton.addTarget(self, action: #selector(LeadContactsTableViewController.textMessageButtonPressed(_:)), for: .touchUpInside)
         
         let emailButton = UIButton()
         emailButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        emailButton.setImage(UIImage(named: "Email")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        emailButton.tintColor = .white
+
+        emailButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Email")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        emailButton.layer.cornerRadius = 60.0 / 2.0
+        emailButton.clipsToBounds = true
+        emailButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
+        emailButton.tintColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsOptionsImageTintColor)
         emailButton.addTarget(self, action: #selector(LeadContactsTableViewController.emailButtonPressed(_:)), for: .touchUpInside)
 
         let commsStackView = UIStackView()
@@ -159,6 +172,18 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         commsStackView.addArrangedSubview(phoneButton)
         commsStackView.addArrangedSubview(textMessageButton)
         commsStackView.addArrangedSubview(emailButton)
+
+        commsStackView.addConstraint(backButton.widthAnchor.constraint(equalToConstant: 60.0))
+        commsStackView.addConstraint(backButton.heightAnchor.constraint(equalToConstant: 60.0))
+
+        commsStackView.addConstraint(phoneButton.widthAnchor.constraint(equalToConstant: 60.0))
+        commsStackView.addConstraint(phoneButton.heightAnchor.constraint(equalToConstant: 60.0))
+
+        commsStackView.addConstraint(textMessageButton.widthAnchor.constraint(equalToConstant: 60.0))
+        commsStackView.addConstraint(textMessageButton.heightAnchor.constraint(equalToConstant: 60.0))
+
+        commsStackView.addConstraint(emailButton.widthAnchor.constraint(equalToConstant: 60.0))
+        commsStackView.addConstraint(emailButton.heightAnchor.constraint(equalToConstant: 60.0))
 
         return commsStackView
     }

@@ -81,5 +81,10 @@ class ProjectCloseFonts {
     static let leadContactsTableViewControllerTitleFont = "Lato-Regular"
     static let leadContactsTableViewControllerSubtitleFont = "Lato-Regular"
 
+    static let leadMessagesTableViewControllerTitleFont = "Lato-Regular"
+    static let leadMessagesTableViewControllerSubtitleFont = "Lato-Regular"
+
+    static let leadStatusTableViewControllerTitleFont = "Lato-Regular"
+
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
 }

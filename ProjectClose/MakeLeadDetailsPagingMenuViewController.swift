@@ -107,7 +107,11 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         let leadOpportunitiesTableViewController = LeadOpportunitiesTableViewController()
         let leadContactsTableViewController = LeadContactsTableViewController()
         let leadMessagesTableViewController = LeadMessagesTableViewController()
-        let leadStatusTableViewController = LeadStatusTableViewController()
+        var leadStatusTableViewController: LeadStatusTableViewController!
+        
+        init(leadId: String) {
+            leadStatusTableViewController = LeadStatusTableViewController(leadId: leadId)
+        }
 
         var componentType: ComponentType {
             return .all(menuOptions: MenuOptions(), pagingControllers: [leadTasksTableViewController, leadOpportunitiesTableViewController, leadContactsTableViewController, leadMessagesTableViewController, leadStatusTableViewController])
@@ -122,5 +126,5 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         }
     }
 
-    return LeadDetailsPagingMenuViewController(options: PagingMenuOptions(), leadId: leadId)
+    return LeadDetailsPagingMenuViewController(options: PagingMenuOptions(leadId: leadId), leadId: leadId)
 }

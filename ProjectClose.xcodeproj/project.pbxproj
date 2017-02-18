@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35081D371E55A9EA008E251D /* LeadMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */; };
+		352BC1851E5188470015B572 /* EmailConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BC1841E5188470015B572 /* EmailConversation.swift */; };
 		354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AD1E481BCD00D34DD0 /* Contact.swift */; };
 		354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */; };
 		354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */; };
+		356FCAE21E4B203400CEFD5F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE11E4B203400CEFD5F /* Message.swift */; };
+		356FCAE41E4B20A300CEFD5F /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE31E4B20A300CEFD5F /* TextMessage.swift */; };
+		356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */; };
+		356FCAE91E4B211A00CEFD5F /* PhoneCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE81E4B211A00CEFD5F /* PhoneCall.swift */; };
 		358185C91E1E18F30092BAEA /* close-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 358185BC1E1E18F30092BAEA /* close-background.jpg */; };
 		358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DA1E1E5D650092BAEA /* MainTabBarController.swift */; };
 		358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */; };
@@ -66,6 +72,7 @@
 		35EB2F101E36FAF800C4EB19 /* AddLeadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2F0F1E36FAF800C4EB19 /* AddLeadDelegate.swift */; };
 		35EB2F121E37010900C4EB19 /* ChangeLeadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2F111E37010900C4EB19 /* ChangeLeadDelegate.swift */; };
 		35EB2F141E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2F131E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift */; };
+		35FB0FDE1E52F0600087AD1E /* ToItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB0FDD1E52F0600087AD1E /* ToItem.swift */; };
 		4EAFEA22DF094AAFCFFB7F8A /* Pods_ProjectCloseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */; };
 		839F266250DD004C7090B642 /* Pods_ProjectCloseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D476D2C04CC9BB383AD23579 /* Pods_ProjectCloseUITests.framework */; };
 		A7E89BC35AE668D100ED52F3 /* Pods_ProjectClose.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE2880D9FB88671B2CABD2 /* Pods_ProjectClose.framework */; };
@@ -90,9 +97,15 @@
 
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadMessageTableViewCell.swift; sourceTree = "<group>"; };
+		352BC1841E5188470015B572 /* EmailConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConversation.swift; sourceTree = "<group>"; };
 		354F31AD1E481BCD00D34DD0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactViewController.swift; sourceTree = "<group>"; };
 		354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactDelegate.swift; sourceTree = "<group>"; };
+		356FCAE11E4B203400CEFD5F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		356FCAE31E4B20A300CEFD5F /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
+		356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailMessage.swift; sourceTree = "<group>"; };
+		356FCAE81E4B211A00CEFD5F /* PhoneCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCall.swift; sourceTree = "<group>"; };
 		358185BC1E1E18F30092BAEA /* close-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "close-background.jpg"; sourceTree = "<group>"; };
 		358185DA1E1E5D650092BAEA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxNavigationController.swift; sourceTree = "<group>"; };
@@ -155,6 +168,7 @@
 		35EB2F0F1E36FAF800C4EB19 /* AddLeadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadDelegate.swift; sourceTree = "<group>"; };
 		35EB2F111E37010900C4EB19 /* ChangeLeadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLeadDelegate.swift; sourceTree = "<group>"; };
 		35EB2F131E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeLeadDetailsPagingMenuViewController.swift; sourceTree = "<group>"; };
+		35FB0FDD1E52F0600087AD1E /* ToItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToItem.swift; sourceTree = "<group>"; };
 		37C923CCB9F5D096F31FBB7F /* Pods-ProjectCloseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseUITests/Pods-ProjectCloseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6ABFF71A2C809F8FAE305C97 /* Pods_ProjectCloseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectCloseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECAE13BDA4955B49286C340 /* Pods-ProjectClose.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectClose.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectClose/Pods-ProjectClose.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +240,12 @@
 				3586C0F81E24CBCA00BDB146 /* User.swift */,
 				3586C0FA1E24CC8900BDB146 /* Lead.swift */,
 				354F31AD1E481BCD00D34DD0 /* Contact.swift */,
+				356FCAE11E4B203400CEFD5F /* Message.swift */,
+				356FCAE31E4B20A300CEFD5F /* TextMessage.swift */,
+				356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */,
+				356FCAE81E4B211A00CEFD5F /* PhoneCall.swift */,
+				352BC1841E5188470015B572 /* EmailConversation.swift */,
+				35FB0FDD1E52F0600087AD1E /* ToItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -258,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
+				35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -740,11 +761,14 @@
 			files = (
 				358185EE1E1FA7C10092BAEA /* LeadsNavigationController.swift in Sources */,
 				358185E81E1FA7610092BAEA /* ReportsViewController.swift in Sources */,
+				356FCAE91E4B211A00CEFD5F /* PhoneCall.swift in Sources */,
 				358185E61E1FA7530092BAEA /* LeadsViewController.swift in Sources */,
 				3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */,
 				35EB2F121E37010900C4EB19 /* ChangeLeadDelegate.swift in Sources */,
 				3586C0F91E24CBCA00BDB146 /* User.swift in Sources */,
+				352BC1851E5188470015B572 /* EmailConversation.swift in Sources */,
 				35EB2F021E31FC5400C4EB19 /* AddLeadViewController.swift in Sources */,
+				356FCAE21E4B203400CEFD5F /* Message.swift in Sources */,
 				358185E41E1FA7440092BAEA /* OpportunitiesViewController.swift in Sources */,
 				3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */,
 				358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */,
@@ -754,10 +778,13 @@
 				358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */,
 				358185E21E1FA5350092BAEA /* InboxViewController.swift in Sources */,
 				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
+				356FCAE41E4B20A300CEFD5F /* TextMessage.swift in Sources */,
 				358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */,
 				358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */,
 				3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */,
+				35081D371E55A9EA008E251D /* LeadMessageTableViewCell.swift in Sources */,
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
+				356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */,
 				35EB2F0C1E35C73400C4EB19 /* LeadDetailsPagingMenuViewController.swift in Sources */,
 				354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */,
 				35EB2F0E1E365AF600C4EB19 /* LeadStatusTableViewController.swift in Sources */,
@@ -782,6 +809,7 @@
 				35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */,
 				35EB2F081E35C48900C4EB19 /* LeadContactsTableViewController.swift in Sources */,
 				358D749C1E4456DE0093CC70 /* AddLeadTaskDelegate.swift in Sources */,
+				35FB0FDE1E52F0600087AD1E /* ToItem.swift in Sources */,
 				35EB2F041E35C46000C4EB19 /* LeadTasksTableViewController.swift in Sources */,
 				35CEC2A71E1A26C8007CE4CD /* AppDelegate.swift in Sources */,
 				35EB2F061E35C47400C4EB19 /* LeadOpportunitiesTableViewController.swift in Sources */,
