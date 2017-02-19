@@ -24,6 +24,7 @@ class ChooseUserTableViewController: UITableViewController {
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
         previousSelectedUser = user
+        selectedUser = previousSelectedUser
     }
     
     required init?(coder aDecoder: NSCoder) {
