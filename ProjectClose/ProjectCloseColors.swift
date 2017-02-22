@@ -54,6 +54,7 @@ class ProjectCloseColors {
 
     static let addLeadTasksViewControllerTaskDescriptionTitleColor = "2C3541"
     static let addLeadTasksViewControllerAssignedToTitleColor = "2C3541"
+    static let addLeadTasksViewControllerLeadTitleColor = "2C3541"
     static let addLeadTasksViewControllerExpiryDateTitleColor = "2C3541"
     static let addLeadTasksViewControllerAddLeadTaskButtonBackgroundColor = "47BB7F"
     static let addLeadTasksViewControllerAddLeadTaskButtonTitleColor = "FFFFFF"
@@ -99,6 +100,9 @@ class ProjectCloseColors {
     static let usersTableViewControllerNameColor = "2C3541"
     static let usersTableViewControllerEmailColor = "47BB7F"
 
+    static let chooseLeadsTableViewControllerCompanyNameColor = "2C3541"
+    static let chooseLeadsTableViewControllerCompanyDescriptionColor = "47BB7F"
+
     static let leadsTableViewControllerCompanyNameColor = "2C3541"
     static let leadsTableViewControllerStatusColor = "47BB7F"
 
@@ -127,6 +131,38 @@ class ProjectCloseColors {
     static let leadStatusTableViewControllerTitleColor = "2C3541"
     static let leadStatusTableViewControllerSelectedTitleColor = "47BB7F"
     static let leadStatusTableViewControllerTableViewCellTintColor = "47BB7F"
+
+    static let inboxTasksTableViewCellLeadLabelBorderColor = "47BB7F"
+    static let inboxTasksTableViewCellLeadLabelTitleColor = "47BB7F"
+    static let inboxTasksTableViewControllerTitleColor = "2C3541"
+    static let inboxTasksTableViewControllerSubtitleColor = "47BB7F"
+    static let inboxTasksTableViewControllerExpiredSubtitleColor = "FF0000"
+    static let inboxTasksTableViewControllerTableCellDeleteButtonColor = "FF0000"
+    static let inboxTasksTableViewControllerTableCellCloseButtonColor = "47BB7F"
+    static let inboxTasksTableViewControllerTableCellReOpenButtonColor = "47BB7F"
+    static let inboxTasksTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
+    static let inboxTasksTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
+
+    static let allInboxTableViewControllerLeadTitleColor = "47BB7F"
+    static let allInboxTableViewControllerTitleColor = "2C3541"
+    static let allInboxTableViewControllerSubtitleColor = "47BB7F"
+    static let allInboxTableViewControllerExpiredSubtitleColor = "FF0000"
+    static let allInboxTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
+    static let allInboxTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
+
+    static let doneInboxTableViewControllerLeadTitleColor = "47BB7F"
+    static let doneInboxTableViewControllerTitleColor = "2C3541"
+    static let doneInboxTableViewControllerSubtitleColor = "47BB7F"
+    static let doneInboxTableViewControllerExpiredSubtitleColor = "FF0000"
+    static let doneInboxTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
+    static let doneInboxTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
+
+    static let futureInboxTableViewControllerLeadTitleColor = "47BB7F"
+    static let futureInboxTableViewControllerTitleColor = "2C3541"
+    static let futureInboxTableViewControllerSubtitleColor = "47BB7F"
+    static let futureInboxTableViewControllerExpiredSubtitleColor = "FF0000"
+    static let futureInboxTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
+    static let futureInboxTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
 
     static let allTableViewCellTintColor = "47BB7F"
 }

@@ -43,6 +43,7 @@ class ProjectCloseFonts {
 
     static let addLeadTasksViewControllerTaskDescriptionFont = "Lato-Regular"
     static let addLeadTasksViewControllerAssignedToFont = "Lato-Regular"
+    static let addLeadTasksViewControllerLeadFont = "Lato-Regular"
     static let addLeadTasksViewControllerExpiryDateFont = "Lato-Regular"
     static let addLeadTasksViewControllerTextFieldPlaceholderFont = "Lato-Hairline"
     static let addLeadTasksViewControllerAddLeadTaskButtonFont = "Lato-Bold"
@@ -72,6 +73,9 @@ class ProjectCloseFonts {
     static let usersTableViewControllerNameFont = "Lato-Regular"
     static let usersTableViewControllerEmailFont = "Lato-Regular"
 
+    static let chooseLeadsTableViewControllerCompanyNameFont = "Lato-Regular"
+    static let chooseLeadsTableViewControllerCompanyDescriptionFont = "Lato-Regular"
+
     static let leadsTableViewControllerCompanyName = "Lato-Regular"
     static let leadsTableViewControllerStatus = "Lato-Regular"
 
@@ -85,6 +89,18 @@ class ProjectCloseFonts {
     static let leadMessagesTableViewControllerSubtitleFont = "Lato-Regular"
 
     static let leadStatusTableViewControllerTitleFont = "Lato-Regular"
+
+    static let allInboxTableViewControllerLeadLabelFont = "Lato-Regular"
+    static let allInboxTableViewControllerTitleFont = "Lato-Regular"
+    static let allInboxTableViewControllerSubtitleFont = "Lato-Regular"
+
+    static let doneInboxTableviewcontrollerLeadlabelfont = "Lato-Regular"
+    static let doneInboxTableviewcontrollerTitlefont = "Lato-Regular"
+    static let doneInboxTableviewcontrollerSubtitlefont = "Lato-Regular"
+
+    static let futureInboxTableviewcontrollerLeadlabelfont = "Lato-Regular"
+    static let futureInboxTableviewcontrollerTitlefont = "Lato-Regular"
+    static let futureInboxTableviewcontrollerSubtitlefont = "Lato-Regular"
 
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
 }

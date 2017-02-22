@@ -272,12 +272,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     fileprivate struct PagingMenuOptions: PagingMenuControllerCustomizable {
-        let allInboxViewController = AllInboxViewController()
-        let futureInboxViewController = FutureInboxViewController()
-        let doneInboxViewController = DoneInboxViewController()
+        let allInboxTableViewController = AllInboxTableViewController()
+        let futureInboxTableViewController = FutureInboxTableViewController()
+        let doneInboxTableViewController = DoneInboxTableViewController()
 
         var componentType: ComponentType {
-            return .all(menuOptions: MenuOptions(), pagingControllers: [allInboxViewController, futureInboxViewController, doneInboxViewController])
+            return .all(menuOptions: MenuOptions(), pagingControllers: [allInboxTableViewController, futureInboxTableViewController, doneInboxTableViewController])
         }
 
         var lazyLoadingPage: LazyLoadingPage {

@@ -325,6 +325,15 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         newLead.createdOn = NSDate()
         newLead.status = "Potential"
 
+        let companyNameWords = companyNameTextField.text!.components(separatedBy: " ")
+        if companyNameWords.count > 1 {
+            newLead.shortIdentifier = String(describing: companyNameWords[0].characters.first!) + String(describing: companyNameWords[1].characters.first!)
+            newLead.shortIdentifier = newLead.shortIdentifier.uppercased()
+        } else {
+            newLead.shortIdentifier = String(describing: companyNameWords[0].characters.first!)
+            newLead.shortIdentifier = newLead.shortIdentifier.uppercased()
+        }
+
         try! realm.write {
             realm.add(newLead, update: true)
         }

@@ -24,10 +24,12 @@ class Task: Object {
     dynamic var expiryDate: Date!
 
     override static func indexedProperties() -> [String] {
+        
         return ["taskId", "leadId"]
     }
 
     override static func primaryKey() -> String? {
         return "taskId"
     }
+    
 }

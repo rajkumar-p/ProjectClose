@@ -20,6 +20,8 @@ class Lead: Object {
     dynamic var createdBy: User!
     dynamic var status: String!
 
+    dynamic var shortIdentifier = ""
+
     override static func indexedProperties() -> [String] {
         return ["leadId"]
     }

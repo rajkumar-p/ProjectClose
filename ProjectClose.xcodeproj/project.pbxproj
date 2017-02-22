@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		35081D371E55A9EA008E251D /* LeadMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */; };
+		35081D391E59DAD3008E251D /* AllInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D381E59DAD3008E251D /* AllInboxTableViewController.swift */; };
+		35081D3B1E59DC39008E251D /* FutureInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3A1E59DC39008E251D /* FutureInboxTableViewController.swift */; };
+		35081D3D1E59DC52008E251D /* DoneInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */; };
+		35081D3F1E5ACDF5008E251D /* InboxTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */; };
 		352BC1851E5188470015B572 /* EmailConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BC1841E5188470015B572 /* EmailConversation.swift */; };
 		354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AD1E481BCD00D34DD0 /* Contact.swift */; };
 		354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */; };
 		354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */; };
+		355F072B1E5D4B95009BEF3E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F072A1E5D4B95009BEF3E /* AddTaskViewController.swift */; };
+		355F072E1E5D700F009BEF3E /* ChooseLeadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F072D1E5D700F009BEF3E /* ChooseLeadTableViewController.swift */; };
+		355F07301E5D803C009BEF3E /* LeadChoosenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */; };
+		355F07321E5D8C36009BEF3E /* AddTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */; };
 		356FCAE21E4B203400CEFD5F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE11E4B203400CEFD5F /* Message.swift */; };
 		356FCAE41E4B20A300CEFD5F /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE31E4B20A300CEFD5F /* TextMessage.swift */; };
 		356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */; };
@@ -20,7 +28,6 @@
 		358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DA1E1E5D650092BAEA /* MainTabBarController.swift */; };
 		358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */; };
 		358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185DF1E1FA07B0092BAEA /* Extensions.swift */; };
-		358185E21E1FA5350092BAEA /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185E11E1FA5350092BAEA /* InboxViewController.swift */; };
 		358185E41E1FA7440092BAEA /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185E31E1FA7440092BAEA /* OpportunitiesViewController.swift */; };
 		358185E61E1FA7530092BAEA /* LeadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185E51E1FA7530092BAEA /* LeadsViewController.swift */; };
 		358185E81E1FA7610092BAEA /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185E71E1FA7610092BAEA /* ReportsViewController.swift */; };
@@ -29,9 +36,6 @@
 		358185EE1E1FA7C10092BAEA /* LeadsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */; };
 		358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */; };
 		358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */; };
-		3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */; };
-		3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */; };
-		3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */; };
 		3586C0F71E24C50600BDB146 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F61E24C50600BDB146 /* Task.swift */; };
 		3586C0F91E24CBCA00BDB146 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F81E24CBCA00BDB146 /* User.swift */; };
 		3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FA1E24CC8900BDB146 /* Lead.swift */; };
@@ -98,10 +102,18 @@
 /* Begin PBXFileReference section */
 		28464E6986A7DD2ADF204656 /* Pods-ProjectCloseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectCloseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectCloseTests/Pods-ProjectCloseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadMessageTableViewCell.swift; sourceTree = "<group>"; };
+		35081D381E59DAD3008E251D /* AllInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllInboxTableViewController.swift; sourceTree = "<group>"; };
+		35081D3A1E59DC39008E251D /* FutureInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureInboxTableViewController.swift; sourceTree = "<group>"; };
+		35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxTableViewController.swift; sourceTree = "<group>"; };
+		35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTaskTableViewCell.swift; sourceTree = "<group>"; };
 		352BC1841E5188470015B572 /* EmailConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConversation.swift; sourceTree = "<group>"; };
 		354F31AD1E481BCD00D34DD0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactViewController.swift; sourceTree = "<group>"; };
 		354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactDelegate.swift; sourceTree = "<group>"; };
+		355F072A1E5D4B95009BEF3E /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		355F072D1E5D700F009BEF3E /* ChooseLeadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLeadTableViewController.swift; sourceTree = "<group>"; };
+		355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadChoosenDelegate.swift; sourceTree = "<group>"; };
+		355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskDelegate.swift; sourceTree = "<group>"; };
 		356FCAE11E4B203400CEFD5F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		356FCAE31E4B20A300CEFD5F /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
 		356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailMessage.swift; sourceTree = "<group>"; };
@@ -110,7 +122,6 @@
 		358185DA1E1E5D650092BAEA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxNavigationController.swift; sourceTree = "<group>"; };
 		358185DF1E1FA07B0092BAEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		358185E11E1FA5350092BAEA /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		358185E31E1FA7440092BAEA /* OpportunitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewController.swift; sourceTree = "<group>"; };
 		358185E51E1FA7530092BAEA /* LeadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadsViewController.swift; sourceTree = "<group>"; };
 		358185E71E1FA7610092BAEA /* ReportsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
@@ -119,9 +130,6 @@
 		358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadsNavigationController.swift; sourceTree = "<group>"; };
 		358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsNavigationController.swift; sourceTree = "<group>"; };
 		358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
-		3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllInboxViewController.swift; sourceTree = "<group>"; };
-		3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureInboxViewController.swift; sourceTree = "<group>"; };
-		3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxViewController.swift; sourceTree = "<group>"; };
 		3586C0F61E24C50600BDB146 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3586C0F81E24CBCA00BDB146 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3586C0FA1E24CC8900BDB146 /* Lead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
@@ -279,6 +287,7 @@
 			children = (
 				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
 				35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */,
+				35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -360,11 +369,11 @@
 		35EB2EF01E2C885E00C4EB19 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
-				3586C0EF1E23C15800BDB146 /* AllInboxViewController.swift */,
-				3586C0F11E23C16E00BDB146 /* FutureInboxViewController.swift */,
-				3586C0F31E23C18500BDB146 /* DoneInboxViewController.swift */,
 				358185DC1E1F9C600092BAEA /* InboxNavigationController.swift */,
-				358185E11E1FA5350092BAEA /* InboxViewController.swift */,
+				35081D381E59DAD3008E251D /* AllInboxTableViewController.swift */,
+				35081D3A1E59DC39008E251D /* FutureInboxTableViewController.swift */,
+				35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */,
+				355F072A1E5D4B95009BEF3E /* AddTaskViewController.swift */,
 			);
 			name = Inbox;
 			sourceTree = "<group>";
@@ -415,6 +424,7 @@
 				358185E91E1FA76F0092BAEA /* SettingsViewController.swift */,
 				35EB2EFD1E2F8C4400C4EB19 /* SettingsTableViewController.swift */,
 				35CA99411E41FBFD00240E53 /* ChooseUserTableViewController.swift */,
+				355F072D1E5D700F009BEF3E /* ChooseLeadTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -453,6 +463,8 @@
 				35CA99431E42160200240E53 /* UserChoosenDelegate.swift */,
 				358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */,
 				354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */,
+				355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */,
+				355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -766,23 +778,26 @@
 				3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */,
 				35EB2F121E37010900C4EB19 /* ChangeLeadDelegate.swift in Sources */,
 				3586C0F91E24CBCA00BDB146 /* User.swift in Sources */,
+				355F07321E5D8C36009BEF3E /* AddTaskDelegate.swift in Sources */,
 				352BC1851E5188470015B572 /* EmailConversation.swift in Sources */,
 				35EB2F021E31FC5400C4EB19 /* AddLeadViewController.swift in Sources */,
+				355F07301E5D803C009BEF3E /* LeadChoosenDelegate.swift in Sources */,
 				356FCAE21E4B203400CEFD5F /* Message.swift in Sources */,
 				358185E41E1FA7440092BAEA /* OpportunitiesViewController.swift in Sources */,
 				3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */,
 				358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */,
+				35081D3F1E5ACDF5008E251D /* InboxTaskTableViewCell.swift in Sources */,
 				359EC9EB1E1B7ADE00083309 /* Utilities.swift in Sources */,
 				35CA99401E41CE5F00240E53 /* AddLeadTaskViewController.swift in Sources */,
 				35EB2F001E31F4AE00C4EB19 /* LeadsTableViewController.swift in Sources */,
 				358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */,
-				358185E21E1FA5350092BAEA /* InboxViewController.swift in Sources */,
 				359EC9EF1E1B7B0600083309 /* ProjectCloseFonts.swift in Sources */,
 				356FCAE41E4B20A300CEFD5F /* TextMessage.swift in Sources */,
 				358185DD1E1F9C600092BAEA /* InboxNavigationController.swift in Sources */,
 				358185DB1E1E5D650092BAEA /* MainTabBarController.swift in Sources */,
-				3586C0F01E23C15800BDB146 /* AllInboxViewController.swift in Sources */,
 				35081D371E55A9EA008E251D /* LeadMessageTableViewCell.swift in Sources */,
+				355F072B1E5D4B95009BEF3E /* AddTaskViewController.swift in Sources */,
+				355F072E1E5D700F009BEF3E /* ChooseLeadTableViewController.swift in Sources */,
 				358185EA1E1FA76F0092BAEA /* SettingsViewController.swift in Sources */,
 				356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */,
 				35EB2F0C1E35C73400C4EB19 /* LeadDetailsPagingMenuViewController.swift in Sources */,
@@ -794,9 +809,8 @@
 				35CA99441E42160200240E53 /* UserChoosenDelegate.swift in Sources */,
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
 				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
-				3586C0F41E23C18500BDB146 /* DoneInboxViewController.swift in Sources */,
+				35081D391E59DAD3008E251D /* AllInboxTableViewController.swift in Sources */,
 				35EB2F101E36FAF800C4EB19 /* AddLeadDelegate.swift in Sources */,
-				3586C0F21E23C16E00BDB146 /* FutureInboxViewController.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
 				35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */,
 				35EB2F0A1E35C4A200C4EB19 /* LeadMessagesTableViewController.swift in Sources */,
@@ -808,6 +822,7 @@
 				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
 				35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */,
 				35EB2F081E35C48900C4EB19 /* LeadContactsTableViewController.swift in Sources */,
+				35081D3D1E59DC52008E251D /* DoneInboxTableViewController.swift in Sources */,
 				358D749C1E4456DE0093CC70 /* AddLeadTaskDelegate.swift in Sources */,
 				35FB0FDE1E52F0600087AD1E /* ToItem.swift in Sources */,
 				35EB2F041E35C46000C4EB19 /* LeadTasksTableViewController.swift in Sources */,
@@ -815,6 +830,7 @@
 				35EB2F061E35C47400C4EB19 /* LeadOpportunitiesTableViewController.swift in Sources */,
 				35CA993E1E406D1B00240E53 /* LeadDetailsContainerViewController.swift in Sources */,
 				354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */,
+				35081D3B1E59DC39008E251D /* FutureInboxTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

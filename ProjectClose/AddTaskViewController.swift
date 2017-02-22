@@ -1,33 +1,34 @@
 //
-//  AddLeadTaskViewController.swift
+//  AddTaskWithLeadViewController.swift
 //  ProjectClose
 //
-//  Created by raj on 01/02/17.
+//  Created by raj on 22/02/17.
 //  Copyright © 2017 diskodev. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoosenDelegate {
+class AddTaskViewController: UIViewController, UITextFieldDelegate, UserChoosenDelegate, LeadChoosenDelegate {
     var realm: Realm!
+    var selectedUser: User!
+    var selectedLead: Lead!
 
     var taskDescriptionLabel: UILabel!
     var taskDescriptionTextField: UIOffsetUITextField!
 
-    var assignedToLabel: UILabel!
-    var assignedToUserLabel: UILabel!
-
     var expiryDateLabel: UILabel!
     var expiryDateTextField: UIOffsetUITextField!
 
-    var addLeadTaskButton: UIButton!
-    
-    var currentUserEmail = "raj@diskodev.com"
-    var selectedUser: User!
-    var leadId: String!
+    var leadLabel: UILabel!
+    var assignedToLeadLabel: UILabel!
 
-    var addLeadTaskDelegate: AddLeadTaskDelegate!
+    var assignedToLabel: UILabel!
+    var assignedToUserLabel: UILabel!
+
+    var addLeadTaskButton: UIButton!
+
+    var addTaskDelegate: AddTaskDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +37,18 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         initTitle()
         setupView()
         setupLeftBarButton()
-        
+
         setupRealm()
-        loadCurrentUser(currentUserEmail: currentUserEmail)
+        loadInitialLeadAndUser()
 
         setupTaskDescriptionLabel()
         setupTaskDescriptionTextField()
 
         setupExpiryDateLabel()
         setupExpiryDateTextField()
+
+        setupLeadLabel()
+        setupAssignedToLeadLabel()
 
         setupAssignedToLabel()
         setupAssignedToUserLabel()
@@ -53,7 +57,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
     }
 
     func initTitle() {
-        self.title = NSLocalizedString("add_lead_task_vc_title", value: "Add Task", comment: "Add Lead Task VC Title")
+        self.title = NSLocalizedString("add_task_vc_title", value: "Add Task", comment: "Add Task VC Title")
     }
 
     func setupView() {
@@ -62,22 +66,27 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
 
     func setupLeftBarButton() {
         let backButtonImage = UIImage(named: ProjectCloseStrings.allViewControllerBackButtonImageName)?.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(AddLeadTaskViewController.backButtonPressed(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(AddTaskViewController.backButtonPressed(_:)))
     }
-    
+
     func setupRealm() {
         realm = try! Realm()
     }
-    
-    func loadCurrentUser(currentUserEmail: String) {
-        selectedUser = realm.object(ofType: User.self, forPrimaryKey: currentUserEmail)
+
+    func loadInitialLeadAndUser() {
+        selectedLead = realm.objects(Lead.self).first
+        selectedUser = realm.objects(User.self).first
+    }
+
+    func backButtonPressed(_ sender: UIBarButtonItem) {
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     func setupTaskDescriptionLabel() {
         taskDescriptionLabel = UILabel()
         taskDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        taskDescriptionLabel.text = NSLocalizedString("add_lead_task_vc_company_name_label_title", value: " Task Description",comment: "Add Lead Task VC Company Name Label Title")
+        taskDescriptionLabel.text = NSLocalizedString("add_lead_vc_company_name_label_title", value: " Task Description",comment: "Add Lead VC Company Name Label Title")
         taskDescriptionLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTitleColor)
         taskDescriptionLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTaskDescriptionFont, size: 20.0)
         taskDescriptionLabel.sizeToFit()
@@ -96,7 +105,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         taskDescriptionTextField.autocapitalizationType = .words
         taskDescriptionTextField.autocorrectionType = .no
         taskDescriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTaskDescriptionFont, size: 20.0)
-        taskDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_company_name_placeholder", value: "e.g. Call Brady", comment: "Add Lead Task VC Company Name Placeholder"),
+        taskDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_name_placeholder", value: "e.g. Call Brady", comment: "Add Lead VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTitleColor)!,
                              NSFontAttributeName : UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTextFieldPlaceholderFont, size: 20.0)!])
 
@@ -109,15 +118,11 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         self.view.addConstraint(taskDescriptionTextField.heightAnchor.constraint(equalToConstant: 40.0))
     }
 
-    func backButtonPressed(_ sender: UIBarButtonItem) {
-        let _ = self.navigationController?.popViewController(animated: true)
-    }
-
     func setupExpiryDateLabel() {
         expiryDateLabel = UILabel()
         expiryDateLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        expiryDateLabel.text = NSLocalizedString("add_lead_task_vc_expiry_date_label_title", value: " Expiry Date",comment: "Add Lead Task VC Expiry Date Label Title")
+        expiryDateLabel.text = NSLocalizedString("add_task_vc_expiry_date_label_title", value: " Expiry Date",comment: "Add Lead VC Expiry Date Label Title")
         expiryDateLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTitleColor)
         expiryDateLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerExpiryDateFont, size: 20.0)
         expiryDateLabel.sizeToFit()
@@ -136,7 +141,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         expiryDateTextField.autocapitalizationType = .words
         expiryDateTextField.autocorrectionType = .no
         expiryDateTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerExpiryDateFont, size: 20.0)
-        expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Lead Task VC Expiry Date Placeholder"),
+        expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_task_vc_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Task VC Expiry Date Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTitleColor)!,
                              NSFontAttributeName : UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTextFieldPlaceholderFont, size: 20.0)!])
 
@@ -149,18 +154,55 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         self.view.addConstraint(expiryDateTextField.heightAnchor.constraint(equalToConstant: 40.0))
     }
 
+    func setupLeadLabel() {
+        leadLabel = UILabel()
+        leadLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        leadLabel.text = NSLocalizedString("add_task_vc_lead_label_title", value: " Lead",comment: "Add Task VC Lead Label Title")
+        leadLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerLeadTitleColor)
+        leadLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerLeadFont, size: 20.0)
+        leadLabel.sizeToFit()
+
+        self.view.addSubview(leadLabel)
+
+        self.view.addConstraint(leadLabel.topAnchor.constraint(equalTo: expiryDateTextField.bottomAnchor, constant: 20.0))
+        self.view.addConstraint(leadLabel.heightAnchor.constraint(equalToConstant: 40.0))
+        self.view.addConstraint(leadLabel.widthAnchor.constraint(equalTo: (leadLabel.superview?.widthAnchor)!, multiplier: 0.50))
+    }
+
+    func setupAssignedToLeadLabel() {
+        assignedToLeadLabel = UILabel()
+        assignedToLeadLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        assignedToLeadLabel.text = selectedLead.companyName
+        assignedToLeadLabel.textAlignment = .right
+        assignedToLeadLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerLeadTitleColor)
+        assignedToLeadLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAssignedToFont, size: 20.0)
+        assignedToLeadLabel.sizeToFit()
+
+        assignedToLeadLabel.isUserInteractionEnabled = true
+        assignedToLeadLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AddTaskViewController.leadLabelPressed(_:))))
+
+        self.view.addSubview(assignedToLeadLabel)
+
+        self.view.addConstraint(assignedToLeadLabel.topAnchor.constraint(equalTo: expiryDateTextField.bottomAnchor, constant: 20.0))
+        self.view.addConstraint(assignedToLeadLabel.heightAnchor.constraint(equalToConstant: 40.0))
+        self.view.addConstraint(assignedToLeadLabel.widthAnchor.constraint(equalTo: (assignedToLeadLabel.superview?.widthAnchor)!, multiplier: 0.49))
+        self.view.addConstraint(assignedToLeadLabel.leftAnchor.constraint(equalTo: leadLabel.rightAnchor))
+    }
+
     func setupAssignedToLabel() {
         assignedToLabel = UILabel()
         assignedToLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        assignedToLabel.text = NSLocalizedString("add_lead_task_vc_assigned_to_label_title", value: " Assigned To",comment: "Add Lead Task VC Assigned To Label Title")
+        assignedToLabel.text = NSLocalizedString("add_task_vc_assigned_to_label_title", value: " Assigned To",comment: "Add Task VC Assigned To Label Title")
         assignedToLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToTitleColor)
         assignedToLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAssignedToFont, size: 20.0)
         assignedToLabel.sizeToFit()
 
         self.view.addSubview(assignedToLabel)
 
-        self.view.addConstraint(assignedToLabel.topAnchor.constraint(equalTo: expiryDateTextField.bottomAnchor, constant: 20.0))
+        self.view.addConstraint(assignedToLabel.topAnchor.constraint(equalTo: leadLabel.bottomAnchor, constant: 20.0))
         self.view.addConstraint(assignedToLabel.heightAnchor.constraint(equalToConstant: 40.0))
         self.view.addConstraint(assignedToLabel.widthAnchor.constraint(equalTo: (assignedToLabel.superview?.widthAnchor)!, multiplier: 0.50))
     }
@@ -169,20 +211,20 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         assignedToUserLabel = UILabel()
         assignedToUserLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        assignedToUserLabel.text = "Rajkumar P"
-        assignedToUserLabel.textAlignment = .center
+        assignedToUserLabel.text = selectedUser.name
+        assignedToUserLabel.textAlignment = .right
         assignedToUserLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToTitleColor)
         assignedToUserLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAssignedToFont, size: 20.0)
         assignedToUserLabel.sizeToFit()
 
         assignedToUserLabel.isUserInteractionEnabled = true
-        assignedToUserLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AddLeadTaskViewController.userLabelPressed(_:))))
+        assignedToUserLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AddTaskViewController.userLabelPressed(_:))))
 
         self.view.addSubview(assignedToUserLabel)
 
-        self.view.addConstraint(assignedToUserLabel.topAnchor.constraint(equalTo: expiryDateTextField.bottomAnchor, constant: 20.0))
+        self.view.addConstraint(assignedToUserLabel.topAnchor.constraint(equalTo: assignedToLeadLabel.bottomAnchor, constant: 20.0))
         self.view.addConstraint(assignedToUserLabel.heightAnchor.constraint(equalToConstant: 40.0))
-        self.view.addConstraint(assignedToUserLabel.widthAnchor.constraint(equalTo: (assignedToUserLabel.superview?.widthAnchor)!, multiplier: 0.50))
+        self.view.addConstraint(assignedToUserLabel.widthAnchor.constraint(equalTo: (assignedToUserLabel.superview?.widthAnchor)!, multiplier: 0.49))
         self.view.addConstraint(assignedToUserLabel.leftAnchor.constraint(equalTo: assignedToLabel.rightAnchor))
     }
 
@@ -190,7 +232,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         addLeadTaskButton = UIButton()
         addLeadTaskButton.translatesAutoresizingMaskIntoConstraints = false
 
-        addLeadTaskButton.setTitle(NSLocalizedString("add_lead_task_vc_add_lead_task_button_title", value: "ADD TASK", comment: "Add Lead VC Add Lead Task Button Title"), for: .normal)
+        addLeadTaskButton.setTitle(NSLocalizedString("add_task_vc_add_lead_button_title", value: "ADD TASK", comment: "Add Task VC Add Task Button Title"), for: .normal)
         addLeadTaskButton.setTitleColor(UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAddLeadTaskButtonTitleColor), for: .normal)
         addLeadTaskButton.backgroundColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAddLeadTaskButtonBackgroundColor)
         addLeadTaskButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAddLeadTaskButtonFont, size: 20.0)
@@ -203,33 +245,40 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         self.view.addConstraint(addLeadTaskButton.heightAnchor.constraint(equalToConstant: 40.0))
         self.view.addConstraint(addLeadTaskButton.centerXAnchor.constraint(equalTo: (addLeadTaskButton.superview?.centerXAnchor)!))
 
-        addLeadTaskButton.addTarget(self, action: #selector(AddLeadTaskViewController.addLeadTaskButtonPressed(_:)), for: .touchUpInside)
+        addLeadTaskButton.addTarget(self, action: #selector(AddTaskViewController.addLeadTaskButtonPressed(_:)), for: .touchUpInside)
     }
 
     func addLeadTaskButtonPressed(_ sender: UIButton) {
-        let newLeadTask = Task()
-        newLeadTask.taskId = leadId + "__" + DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
-        newLeadTask.leadId = leadId
-        newLeadTask.taskDescription = taskDescriptionTextField.text!
-        newLeadTask.closed = false
-        newLeadTask.assignedTo = selectedUser
-        newLeadTask.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
+        let newTask = Task()
+        newTask.taskId = selectedLead.leadId + "__" + DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
+        newTask.leadId = selectedLead.leadId
+        newTask.taskDescription = taskDescriptionTextField.text!
+        newTask.closed = false
+        newTask.assignedTo = selectedUser
+        newTask.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
 
-        newLeadTask.createdDate = Date()
+        newTask.createdDate = Date()
         if let expiryDate = expiryDateTextField.text {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
 
-//            newLeadTask.expiryDate = dateFormatter.date(from: expiryDate)
-            newLeadTask.expiryDate = Calendar.current.date(byAdding: .day, value: 1, to: dateFormatter.date(from: expiryDate)!)
-        }
-        
-        try! realm.write {
-            realm.add(newLeadTask)
+//            newTask.expiryDate = dateFormatter.date(from: expiryDate)
+            newTask.expiryDate = Calendar.current.date(byAdding: .day, value: 1, to: dateFormatter.date(from: expiryDate)!)
         }
 
-        addLeadTaskDelegate.didFinishAddingLeadTask(sender: self)
+        try! realm.write {
+            realm.add(newTask)
+        }
+
+        addTaskDelegate.didFinishAddingTask(sender: self)
         let _ = self.navigationController?.popViewController(animated: true)
+    }
+
+    func leadLabelPressed(_ sender: UILabel) {
+        let chooseLeadTableViewController = ChooseLeadTableViewController(lead: selectedLead)
+        chooseLeadTableViewController.leadChoosenDelegate = self
+
+        self.navigationController?.pushViewController(chooseLeadTableViewController, animated: true)
     }
 
     func userLabelPressed(_ sender: UILabel) {
@@ -238,21 +287,31 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
 
         self.navigationController?.pushViewController(chooseUserTableViewController, animated: true)
     }
-    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        print("Memory warning : AddTaskWithLeadViewController")
+    }
+
     func didChooseUser(sender: ChooseUserTableViewController, selectedUser: User) {
         self.selectedUser = selectedUser
         assignedToUserLabel.text = self.selectedUser.name
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func didChooseLead(sender: ChooseLeadTableViewController, selectedLead: Lead) {
+        self.selectedLead = selectedLead
+        assignedToLeadLabel.text = self.selectedLead.companyName
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        print("Memory warning : AddLeadTaskViewController")
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
+
 }
