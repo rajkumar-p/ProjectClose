@@ -15,6 +15,8 @@ class DoneInboxTableViewController: UITableViewController {
     var realm: Realm!
     var closedTasksResultSet: Results<Task>!
 
+    var closedTasksNotificationToken: NotificationToken!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,7 @@ class DoneInboxTableViewController: UITableViewController {
 
         setupRealm()
         loadClosedTasks()
+        listenForClosedTasksNotifications()
     }
     
     func setupTableView() {
@@ -46,9 +49,35 @@ class DoneInboxTableViewController: UITableViewController {
         closedTasksResultSet = realm.objects(Task.self).filter(NSPredicate(format: "closed == %@", NSNumber(booleanLiteral: true)))
     }
 
+    func listenForClosedTasksNotifications() {
+        closedTasksNotificationToken = closedTasksResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("Initial - DoneInboxTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - DoneInboxTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    deinit {
+        closedTasksNotificationToken.stop()
     }
 
     // MARK: - Table view data source

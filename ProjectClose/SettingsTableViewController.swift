@@ -11,9 +11,11 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     enum SettingsRow { case profileDetails; case sectionHeader; case sectionDetail; case sectionEmpty; case button }
 
-    let rowCount = 13
-    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.button]
-    let rowContent = ["", "", "Your Settings", "Profile", "Audio", "Organizations", "", "Diskodev.com's Settings", "Users", "Plans & Billing", "API Keys", "", "LOG OUT"]
+    let rowCount = 10
+    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.button]
+//    let rowCount = 13
+//    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.button]
+    let rowContent = ["", "Your Settings", "Profile", "Audio", "Organizations", "Diskodev.com's Settings", "Users", "Plans & Billing", "API Keys", "LOG OUT"]
 
     let settingsProfileDetailsTableViewCellReuseIdentifier = "SettingsProfileDetailsTableViewCell"
     let settingsSectionHeaderTableViewCellReuseIdentifier = "SectionHeaderTableViewCell"
@@ -117,7 +119,7 @@ class SettingsTableViewController: UITableViewController {
         profileDetailsCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerNameTitleColor)
 
         profileDetailsCell.detailTextLabel?.text = "raj@diskodev.com"
-        profileDetailsCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerEmailFont, size: 16.0)
+        profileDetailsCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerEmailFont, size: 18.0)
         profileDetailsCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerEmailTitleColor)
         
         profileDetailsCell.selectionStyle = .none
@@ -161,14 +163,33 @@ class SettingsTableViewController: UITableViewController {
     func makeButtonTableViewCell(indexPath: IndexPath) -> UITableViewCell {
         let buttonCell = UITableViewCell(style: .default, reuseIdentifier: settingsButtonTableViewCellReuseIdentifier)
 
-        buttonCell.textLabel?.text = rowContent[indexPath.row]
-        buttonCell.textLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerLogoutButtonFont, size: 20.0)
-        buttonCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonTitleColor)
-        buttonCell.textLabel?.textAlignment = .center
-        
-        buttonCell.backgroundColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonBackgroundColor)
-        buttonCell.selectedBackgroundView = { let selectedBackgroundView = UIView(); selectedBackgroundView.backgroundColor = .clear; return selectedBackgroundView }()
+        let logoutButton = UIButton()
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
 
+        logoutButton.setTitle(rowContent[indexPath.row], for: .normal)
+        logoutButton.setTitleColor(UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonTitleColor), for: .normal)
+        logoutButton.backgroundColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonBackgroundColor)
+        logoutButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerLogoutButtonFont, size: 20.0)
+
+//        logoutButton.layer.cornerRadius = 10.0
+//        logoutButton.layer.borderWidth = 2.5
+//        logoutButton.layer.borderColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonBackgroundColor)?.cgColor
+
+        buttonCell.contentView.addSubview(logoutButton)
+
+        buttonCell.contentView.addConstraint(logoutButton.widthAnchor.constraint(equalTo: (logoutButton.superview?.widthAnchor)!, multiplier: 0.60))
+        buttonCell.contentView.addConstraint(logoutButton.heightAnchor.constraint(equalTo: (logoutButton.superview?.heightAnchor)!, multiplier: 0.80))
+        buttonCell.contentView.addConstraint(logoutButton.centerXAnchor.constraint(equalTo: (logoutButton.superview?.centerXAnchor)!))
+        buttonCell.contentView.addConstraint(logoutButton.centerYAnchor.constraint(equalTo: (logoutButton.superview?.centerYAnchor)!))
+//        buttonCell.textLabel?.text = rowContent[indexPath.row]
+//        buttonCell.textLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerLogoutButtonFont, size: 20.0)
+//        buttonCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonBackgroundColor)
+////        buttonCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonTitleColor)
+//        buttonCell.textLabel?.textAlignment = .center
+//
+////        buttonCell.backgroundColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerLogoutButtonBackgroundColor)
+//        buttonCell.selectedBackgroundView = { let selectedBackgroundView = UIView(); selectedBackgroundView.backgroundColor = .clear; return selectedBackgroundView }()
+//
         return buttonCell
     }
     

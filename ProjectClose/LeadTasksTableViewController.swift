@@ -16,6 +16,8 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
     var realm: Realm!
     var leadTasksResultSet: Results<Task>!
 
+    var leadTasksNotificationToken: NotificationToken!
+
     init() {
         super.init(nibName: nil, bundle: nil)
 //        setupAddTaskButton()
@@ -37,6 +39,7 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
 
         setupRealm()
         loadLeadTasks()
+        listenForLeadTasksNotifications()
     }
 
     func setupTableView() {
@@ -58,10 +61,36 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
         leadTasksResultSet = realm.objects(Task.self).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
     }
 
+    func listenForLeadTasksNotifications() {
+        leadTasksNotificationToken = leadTasksResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("Initial - LeadTasksTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - LeadTasksTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         print("Memory warning : LeadTasksTableViewController")
+    }
+
+    deinit {
+        leadTasksNotificationToken.stop()
     }
 
     // MARK: - Table view data source
@@ -91,15 +120,20 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM d, yyyy"
             subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
-            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
-            switch order {
-            case .orderedAscending:
-                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
-            case .orderedDescending:
+            if leadTask.expiryDeadlineDate < Date() {
                 leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
-            case .orderedSame:
+            } else {
                 leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
             }
+//            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
+//            switch order {
+//            case .orderedAscending:
+//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+//            case .orderedDescending:
+//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
+//            case .orderedSame:
+//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+//            }
         }
         
         leadTaskCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerStatus, size: 18.0)
@@ -190,7 +224,8 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
 //    }
 
     func didFinishAddingLeadTask(sender: AddLeadTaskViewController) {
-        reloadTableView()
+//        reloadTableView()
+        print("didFinishAddingLeadTask from LeadTasksTableViewController.")
     }
 
     func reloadTableView() {

@@ -23,6 +23,8 @@ class Task: Object {
 
     dynamic var expiryDate: Date!
 
+    dynamic var expiryDeadlineDate: Date!
+
     override static func indexedProperties() -> [String] {
         
         return ["taskId", "leadId"]

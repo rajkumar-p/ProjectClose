@@ -15,6 +15,8 @@ class AllInboxTableViewController: UITableViewController {
     var realm: Realm!
     var taskResultSet: Results<Task>!
 
+    var allTasksNotificationToken: NotificationToken!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,7 @@ class AllInboxTableViewController: UITableViewController {
 
         setupRealm()
         loadTasks()
+        listenForAllTasksNotifications()
     }
 
     func setupTableView() {
@@ -48,9 +51,35 @@ class AllInboxTableViewController: UITableViewController {
         taskResultSet = realm.objects(Task.self).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
     }
 
+    func listenForAllTasksNotifications() {
+        allTasksNotificationToken = taskResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("Initial - AllInboxTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - AllInboxTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    deinit {
+        allTasksNotificationToken?.stop()
     }
 
     // MARK: - Table view data source
@@ -86,15 +115,20 @@ class AllInboxTableViewController: UITableViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM d, yyyy"
             subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
-            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
-            switch order {
-            case .orderedAscending:
-                taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerSubtitleColor)
-            case .orderedDescending:
+            if task.expiryDeadlineDate < Date() {
                 taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerExpiredSubtitleColor)
-            case .orderedSame:
+            } else {
                 taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerSubtitleColor)
             }
+//            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
+//            switch order {
+//            case .orderedAscending:
+//                taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerSubtitleColor)
+//            case .orderedDescending:
+//                taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerExpiredSubtitleColor)
+//            case .orderedSame:
+//                taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerSubtitleColor)
+//            }
         }
 
         taskCell.subTitleLabel?.font = UIFont(name: ProjectCloseFonts.allInboxTableViewControllerSubtitleFont, size: 18.0)

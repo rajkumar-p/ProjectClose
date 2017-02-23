@@ -258,12 +258,12 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UserChoosenD
         newTask.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
 
         newTask.createdDate = Date()
-        if let expiryDate = expiryDateTextField.text {
+        if let expiryDate = expiryDateTextField.text, expiryDateTextField.text != "" {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
 
-//            newTask.expiryDate = dateFormatter.date(from: expiryDate)
-            newTask.expiryDate = Calendar.current.date(byAdding: .day, value: 1, to: dateFormatter.date(from: expiryDate)!)
+            newTask.expiryDate = dateFormatter.date(from: expiryDate)
+            newTask.expiryDeadlineDate = Calendar.current.date(byAdding: .day, value: 1, to: newTask.expiryDate!)
         }
 
         try! realm.write {

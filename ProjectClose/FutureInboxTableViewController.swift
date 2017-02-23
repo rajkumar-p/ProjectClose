@@ -15,6 +15,8 @@ class FutureInboxTableViewController: UITableViewController {
     var realm: Realm!
     var futureTasksResultSet: Results<Task>!
 
+    var futureTasksNotificationToken: NotificationToken!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,7 @@ class FutureInboxTableViewController: UITableViewController {
 
         setupRealm()
         loadFutureTasks()
+        listenForFutureTasksNotifications()
     }
 
     func setupTableView() {
@@ -44,8 +47,31 @@ class FutureInboxTableViewController: UITableViewController {
 
     func loadFutureTasks() {
 //        futureTasksResultSet = realm.objects(Task.self).filter { self.isTaskExpired(expiryDate: $0.expiryDate) == false }
-        futureTasksResultSet = realm.objects(Task.self).filter(NSPredicate(format: "expiryDate != nil AND %@ < Calendar.current.date(byAdding: .day, value: 1, to: expiryDate)", argumentArray: [Date()]))
+        futureTasksResultSet = realm.objects(Task.self).filter(NSPredicate(format: "closed == false AND expiryDate != nil AND %@ < expiryDeadlineDate", argumentArray: [Date()]))
+//        futureTasksResultSet = realm.objects(Task.self).filter(NSPredicate(format: "expiryDate != nil AND %@ < Calendar.current.date(byAdding: .day, value: 1, to: expiryDate)", argumentArray: [Date()]))
 //        futureTasksResultSet = realm.objects(Task.self).filter("expiryDate != nil").sorted(byProperty: "expiryDate", ascending: true)
+    }
+
+    func listenForFutureTasksNotifications() {
+        futureTasksNotificationToken = futureTasksResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("Initial - FutureInboxTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - FutureInboxTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
     }
 
     func isTaskExpired(expiryDate: Date!) -> Bool {
@@ -64,6 +90,10 @@ class FutureInboxTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    deinit {
+        futureTasksNotificationToken.stop()
     }
 
     // MARK: - Table view data source

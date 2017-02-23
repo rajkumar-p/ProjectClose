@@ -216,12 +216,13 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         newLeadTask.createdBy = realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com")
 
         newLeadTask.createdDate = Date()
-        if let expiryDate = expiryDateTextField.text {
+        if let expiryDate = expiryDateTextField.text, expiryDateTextField.text != "" {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
 
 //            newLeadTask.expiryDate = dateFormatter.date(from: expiryDate)
-            newLeadTask.expiryDate = Calendar.current.date(byAdding: .day, value: 1, to: dateFormatter.date(from: expiryDate)!)
+            newLeadTask.expiryDate = dateFormatter.date(from: expiryDate)
+            newLeadTask.expiryDeadlineDate = Calendar.current.date(byAdding: .day, value: 1, to: newLeadTask.expiryDate!)
         }
         
         try! realm.write {

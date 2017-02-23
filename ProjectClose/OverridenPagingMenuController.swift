@@ -27,7 +27,7 @@ class OverridenPagingMenuController: PagingMenuController, AddTaskDelegate {
         // Do any additional setup after loading the view.
         initTitle()
 
-        setupPagingMenuMoveHandler()
+//        setupPagingMenuMoveHandler()
     }
 
     func initTitle() {
@@ -76,18 +76,19 @@ class OverridenPagingMenuController: PagingMenuController, AddTaskDelegate {
     }
 
     func didFinishAddingTask(sender: AddTaskViewController) {
-        for viewController in (self.childViewControllers.first?.childViewControllers)! {
-            if viewController is AllInboxTableViewController {
-                let allInboxViewController = viewController as! AllInboxTableViewController
-                allInboxViewController.reloadTableView()
-            } else if viewController is FutureInboxTableViewController {
-                let futureInboxViewController = viewController as! FutureInboxTableViewController
-                futureInboxViewController.reloadTableView()
-            } else if viewController is DoneInboxTableViewController {
-                let doneInboxViewController = viewController as! DoneInboxTableViewController
-                doneInboxViewController.reloadTableView()
-            }
-        }
+//        for viewController in (self.childViewControllers.first?.childViewControllers)! {
+//            if viewController is AllInboxTableViewController {
+//                let allInboxViewController = viewController as! AllInboxTableViewController
+//                allInboxViewController.reloadTableView()
+//            } else if viewController is FutureInboxTableViewController {
+//                let futureInboxViewController = viewController as! FutureInboxTableViewController
+//                futureInboxViewController.reloadTableView()
+//            } else if viewController is DoneInboxTableViewController {
+//                let doneInboxViewController = viewController as! DoneInboxTableViewController
+//                doneInboxViewController.reloadTableView()
+//            }
+//        }
+        print("didFinishAddingTask from OverridenPagingMenuController.")
     }
 
     override func didReceiveMemoryWarning() {
