@@ -283,6 +283,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var lazyLoadingPage: LazyLoadingPage {
             return .all
         }
+
+        var isScrollEnabled: Bool {
+            return false
+        }
     }
 
     func loginButtonPressed(_ sender: UIButton) {

@@ -186,8 +186,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
             try! self?.realm.write {
                 self?.realm.delete(leadTask)
             }
-            
-            self?.reloadTableView()
         })
         deleteAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellDeleteButtonColor)
 
@@ -197,8 +195,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
                     leadTask.closed = false
                     leadTask.closedDate = nil
                 }
-
-                self?.reloadTableView()
             })
             reOpenAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellReOpenButtonColor)
 
@@ -209,8 +205,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
                     leadTask.closed = true
                     leadTask.closedDate = Date()
                 }
-                
-                self?.reloadTableView()
             })
             closeAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellCloseButtonColor)
 

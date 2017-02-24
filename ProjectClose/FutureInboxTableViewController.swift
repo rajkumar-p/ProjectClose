@@ -144,8 +144,6 @@ class FutureInboxTableViewController: UITableViewController {
             try! self?.realm.write {
                 self?.realm.delete(futureTask)
             }
-
-            self?.reloadTableView()
         })
         deleteAction.backgroundColor = UIColor(hexString: ProjectCloseColors.inboxTasksTableViewControllerTableCellDeleteButtonColor)
 
@@ -155,8 +153,6 @@ class FutureInboxTableViewController: UITableViewController {
                     futureTask.closed = false
                     futureTask.closedDate = nil
                 }
-
-                self?.reloadTableView()
             })
             reOpenAction.backgroundColor = UIColor(hexString: ProjectCloseColors.inboxTasksTableViewControllerTableCellReOpenButtonColor)
 
@@ -167,8 +163,6 @@ class FutureInboxTableViewController: UITableViewController {
                     futureTask.closed = true
                     futureTask.closedDate = Date()
                 }
-
-                self?.reloadTableView()
             })
             closeAction.backgroundColor = UIColor(hexString: ProjectCloseColors.inboxTasksTableViewControllerTableCellCloseButtonColor)
 

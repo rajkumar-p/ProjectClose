@@ -139,8 +139,6 @@ class DoneInboxTableViewController: UITableViewController {
             try! self?.realm.write {
                 self?.realm.delete(closedTask)
             }
-
-            self?.reloadTableView()
         })
         deleteAction.backgroundColor = UIColor(hexString: ProjectCloseColors.inboxTasksTableViewControllerTableCellDeleteButtonColor)
 
@@ -149,8 +147,6 @@ class DoneInboxTableViewController: UITableViewController {
                 closedTask.closed = false
                 closedTask.closedDate = nil
             }
-
-            self?.reloadTableView()
         })
         reOpenAction.backgroundColor = UIColor(hexString: ProjectCloseColors.inboxTasksTableViewControllerTableCellReOpenButtonColor)
 
