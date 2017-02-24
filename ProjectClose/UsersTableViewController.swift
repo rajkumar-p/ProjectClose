@@ -13,6 +13,8 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     private var realm: Realm!
     private var usersResultSet: Results<User>!
 
+    var usersNotificationToken: NotificationToken!
+
     private let userTableViewCellReuseIdentifier = "UserCell"
 
     override func viewDidLoad() {
@@ -31,6 +33,7 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
 
         setupRealm()
         getAllUsers()
+        listenForUsersNotifications()
     }
 
     func initTitle() {
@@ -63,6 +66,28 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
         usersResultSet = realm.objects(User.self)
     }
 
+    func listenForUsersNotifications() {
+        usersNotificationToken = usersResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                print("Initial - UsersTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - UsersTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
+    }
+
     func backButtonPressed(_ sender: UIButton) {
         let _ = self.navigationController?.popViewController(animated: true)
     }
@@ -82,7 +107,11 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
 
     func didFinishAddingUser(sender: AddUserViewController) {
         print("UsersTableViewController - Saved data")
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
+    }
+
+    deinit {
+        usersNotificationToken.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -140,6 +169,10 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
 
             tableView.deleteRows(at: [indexPath], with: .left)
         }
+    }
+
+    func reloadTableView() {
+        self.tableView?.reloadData()
     }
 
     /*
