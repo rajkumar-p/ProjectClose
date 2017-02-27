@@ -177,7 +177,7 @@ class SettingsTableViewController: UITableViewController {
 
         buttonCell.contentView.addSubview(logoutButton)
 
-        buttonCell.contentView.addConstraint(logoutButton.widthAnchor.constraint(equalTo: (logoutButton.superview?.widthAnchor)!, multiplier: 0.60))
+        buttonCell.contentView.addConstraint(logoutButton.widthAnchor.constraint(equalTo: (logoutButton.superview?.widthAnchor)!))
         buttonCell.contentView.addConstraint(logoutButton.heightAnchor.constraint(equalTo: (logoutButton.superview?.heightAnchor)!, multiplier: 0.80))
         buttonCell.contentView.addConstraint(logoutButton.centerXAnchor.constraint(equalTo: (logoutButton.superview?.centerXAnchor)!))
         buttonCell.contentView.addConstraint(logoutButton.centerYAnchor.constraint(equalTo: (logoutButton.superview?.centerYAnchor)!))
