@@ -11,11 +11,11 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     enum SettingsRow { case profileDetails; case sectionHeader; case sectionDetail; case sectionEmpty; case button }
 
-    let rowCount = 10
-    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.button]
+    let rowCount = 12
+    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail]
 //    let rowCount = 13
 //    let rowContentType: [SettingsRow] = [SettingsRow.profileDetails, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.sectionHeader, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionDetail, SettingsRow.sectionEmpty, SettingsRow.button]
-    let rowContent = ["", "Your Settings", "Profile", "Audio", "Organizations", "Diskodev.com's Settings", "Users", "Plans & Billing", "API Keys", "LOG OUT"]
+    let rowContent = ["", "Your Settings", "Profile", "Audio", "Organizations", "Diskodev.com's Settings", "Users", "Plans & Billing", "API Keys", "Templates", "Phone Settings", "Email Settings"]
 
     let settingsProfileDetailsTableViewCellReuseIdentifier = "SettingsProfileDetailsTableViewCell"
     let settingsSectionHeaderTableViewCellReuseIdentifier = "SectionHeaderTableViewCell"
@@ -57,7 +57,8 @@ class SettingsTableViewController: UITableViewController {
 
     func setupTableView() {
         if let tableView = self.tableView {
-            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
+            tableView.register(UserProfileTableViewCell.classForCoder(), forCellReuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
+//            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
             tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: settingsSectionHeaderTableViewCellReuseIdentifier)
             tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: settingsSectionDetailTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
@@ -99,30 +100,51 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func makeProfileDetailsTableViewCell() -> UITableViewCell {
-        let profileDetailsCell = UITableViewCell(style: .subtitle, reuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
-        
-        let resizedProfileImage = ProjectCloseUtilities.resizeImage(img: UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)!, to: CGSize(width: 70.0, height: 70.0))
+//        let profileDetailsCell = UITableViewCell(style: .subtitle, reuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
+//
+//        let resizedProfileImage = ProjectCloseUtilities.resizeImage(img: UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)!, to: CGSize(width: 70.0, height: 70.0))
+//
+////        profileDetailsCell.imageView?.layer.borderWidth = 1.0
+////        profileDetailsCell.imageView?.layer.borderColor = UIColor(hexString: ProjectCloseColors.settingsViewControllerProfileImageBorderColor)?.cgColor
+//
+////        profileDetailsCell.imageView?.contentMode = .scaleAspectFit
+////        profileDetailsCell.imageView?.transform = CGAffineTransform(scaleX: 0.20, y: 0.20)
+//
+//        profileDetailsCell.imageView?.contentMode = .scaleAspectFill
+//        profileDetailsCell.imageView?.layer.cornerRadius = 35.0
+//        profileDetailsCell.imageView?.clipsToBounds = true
+//        profileDetailsCell.imageView?.image = resizedProfileImage
+//
+//        profileDetailsCell.textLabel?.text = "Rajkumar P"
+//        profileDetailsCell.textLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerNameFont, size: 20.0)
+//        profileDetailsCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerNameTitleColor)
+//
+//        profileDetailsCell.detailTextLabel?.text = "raj@diskodev.com"
+//        profileDetailsCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerEmailFont, size: 18.0)
+//        profileDetailsCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerEmailTitleColor)
+//
+//        profileDetailsCell.selectionStyle = .none
+//
+//        return profileDetailsCell
 
-//        profileDetailsCell.imageView?.layer.borderWidth = 1.0
-//        profileDetailsCell.imageView?.layer.borderColor = UIColor(hexString: ProjectCloseColors.settingsViewControllerProfileImageBorderColor)?.cgColor
-
-//        profileDetailsCell.imageView?.contentMode = .scaleAspectFit
-//        profileDetailsCell.imageView?.transform = CGAffineTransform(scaleX: 0.20, y: 0.20)
-        
-        profileDetailsCell.imageView?.contentMode = .scaleAspectFill
-        profileDetailsCell.imageView?.layer.cornerRadius = 35.0
-        profileDetailsCell.imageView?.clipsToBounds = true
-        profileDetailsCell.imageView?.image = resizedProfileImage
-
-        profileDetailsCell.textLabel?.text = "Rajkumar P"
-        profileDetailsCell.textLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerNameFont, size: 20.0)
-        profileDetailsCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerNameTitleColor)
-
-        profileDetailsCell.detailTextLabel?.text = "raj@diskodev.com"
-        profileDetailsCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.settingsTableViewControllerEmailFont, size: 18.0)
-        profileDetailsCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.settingsTableViewControllerEmailTitleColor)
-        
+        let profileDetailsCell = UserProfileTableViewCell(style: .default, reuseIdentifier: settingsProfileDetailsTableViewCellReuseIdentifier)
         profileDetailsCell.selectionStyle = .none
+
+        profileDetailsCell.avatarButton.setImage(UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)!, for: .normal)
+//        profileDetailsCell.avatarImageView.image = UIImage(named: ProjectCloseStrings.settingsTableViewControllerProfileImageName)
+//        profileDetailsCell.avatarImageView?.contentMode = .scaleAspectFit
+
+        profileDetailsCell.mainLabel?.text = "Rajkumar P"
+        profileDetailsCell.mainLabel?.font = UIFont(name: ProjectCloseFonts.userProfileTableViewCellMainLabelFont, size: 20.0)
+        profileDetailsCell.mainLabel?.textColor = UIColor(hexString: ProjectCloseColors.userProfileTableViewCellMainLabelColor)
+
+        profileDetailsCell.subTitleLabel?.text = "raj@diskodev.com"
+        profileDetailsCell.subTitleLabel?.font = UIFont(name: ProjectCloseFonts.userProfileTableViewCellSubTitleLabelFont, size: 18.0)
+        profileDetailsCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.userProfileTableViewCellSubTitleLabelColor)
+
+        profileDetailsCell.logoutButton?.setTitle("LOG OUT", for: .normal)
+        profileDetailsCell.logoutButton?.backgroundColor = UIColor(hexString: ProjectCloseColors.userProfileTableViewCellLogoutButtonBackgroundColor)
+        profileDetailsCell.logoutButton?.titleLabel?.font = UIFont(name: ProjectCloseFonts.userProfileTableViewCellSubTitleLabelFont, size: 14.0)
 
         return profileDetailsCell
     }
@@ -196,7 +218,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch rowContentType[indexPath.row] {
             case .profileDetails:
-                return 100.0
+                return 75.0
             case .sectionHeader:
                 return 50.0
             case .sectionDetail:

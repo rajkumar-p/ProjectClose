@@ -143,6 +143,12 @@ class ProjectCloseColors {
     static let inboxTasksTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
     static let inboxTasksTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
 
+    static let userProfileTableViewCellLogoutButtonBorderColor = "47BB7F"
+    static let userProfileTableViewCellMainLabelColor = "2C3541"
+    static let userProfileTableViewCellSubTitleLabelColor = "2C3541"
+    static let userProfileTableViewCellLogoutButtonColor = "FFFFFF"
+    static let userProfileTableViewCellLogoutButtonBackgroundColor = "47BB7F"
+
     static let allInboxTableViewControllerLeadTitleColor = "47BB7F"
     static let allInboxTableViewControllerTitleColor = "2C3541"
     static let allInboxTableViewControllerSubtitleColor = "47BB7F"

@@ -12,6 +12,7 @@
 		35081D3B1E59DC39008E251D /* FutureInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3A1E59DC39008E251D /* FutureInboxTableViewController.swift */; };
 		35081D3D1E59DC52008E251D /* DoneInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */; };
 		35081D3F1E5ACDF5008E251D /* InboxTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */; };
+		352867DF1E653DC8005E7CA5 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */; };
 		352BC1851E5188470015B572 /* EmailConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BC1841E5188470015B572 /* EmailConversation.swift */; };
 		354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AD1E481BCD00D34DD0 /* Contact.swift */; };
 		354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */; };
@@ -106,6 +107,7 @@
 		35081D3A1E59DC39008E251D /* FutureInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureInboxTableViewController.swift; sourceTree = "<group>"; };
 		35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxTableViewController.swift; sourceTree = "<group>"; };
 		35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTaskTableViewCell.swift; sourceTree = "<group>"; };
+		352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		352BC1841E5188470015B572 /* EmailConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConversation.swift; sourceTree = "<group>"; };
 		354F31AD1E481BCD00D34DD0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				359EC9F31E1B8EE700083309 /* UIOffsetUITextField.swift */,
 				35081D361E55A9EA008E251D /* LeadMessageTableViewCell.swift */,
 				35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */,
+				352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */,
+				352867DF1E653DC8005E7CA5 /* UserProfileTableViewCell.swift in Sources */,
 				359EC9ED1E1B7AF300083309 /* ProjectCloseColors.swift in Sources */,
 				35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */,
 				35EB2F081E35C48900C4EB19 /* LeadContactsTableViewController.swift in Sources */,
