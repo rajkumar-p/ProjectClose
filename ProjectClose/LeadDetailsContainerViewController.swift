@@ -242,6 +242,11 @@ class LeadDetailsContainerViewController: UIViewController {
             })
             commsOptionsAlertController.addAction(emailAction)
 
+            let noteAction = UIAlertAction(title: "Add a Note", style: .default, handler: { action in
+                print("Note Action")
+            })
+            commsOptionsAlertController.addAction(noteAction)
+
             commsOptionsAlertController.view.tintColor = UIColor(hexString: ProjectCloseColors.leadMessagesTableViewControllerCommsOptionsTintColor)
             self.present(commsOptionsAlertController, animated: true, completion: {
 
