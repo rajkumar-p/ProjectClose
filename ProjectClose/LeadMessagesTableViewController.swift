@@ -63,7 +63,7 @@ class LeadMessagesTableViewController: UITableViewController {
     }
 
     func loadMessages() {
-        messagesResultSet = realm.objects(Message.self).sorted(byProperty: "messageId")
+        messagesResultSet = realm.objects(Message.self).sorted(byKeyPath: "messageId")
     }
 
     override func didReceiveMemoryWarning() {

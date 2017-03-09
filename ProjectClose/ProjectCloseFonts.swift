@@ -41,6 +41,17 @@ class ProjectCloseFonts {
     static let addLeadViewControllerTextFieldPlaceholderFont = "Lato-Hairline"
     static let addLeadViewControllerAddLeadButtonFont = "Lato-Bold"
 
+    static let addLeadOpportunityViewControllerDescriptionFont = "Lato-Regular"
+    static let addLeadOpportunityViewControllerDescriptionPlaceholderFont = "Lato-Hairline"
+    static let addLeadOpportunityViewControllerExpiryDateFont = "Lato-Regular"
+    static let addLeadOpportunityViewControllerExpiryDatePlaceholderFont = "Lato-Hairline"
+    static let addLeadOpportunityViewControllerValueFont = "Lato-Regular"
+    static let addLeadOpportunityViewControllerValuePlaceholderFont = "Lato-Hairline"
+    static let addLeadOpportunityViewControllerConfidenceFont = "Lato-Regular"
+    static let addLeadOpportunityViewControllerConfidencePlaceholderFont = "Lato-Hairline"
+    static let addLeadOpportunityViewControllerAssignedToFont = "Lato-Regular"
+    static let addLeadOpportunityViewControllerAddLeadOpportunityButtonFont = "Lato-Regular"
+
     static let addLeadTasksViewControllerTaskDescriptionFont = "Lato-Regular"
     static let addLeadTasksViewControllerAssignedToFont = "Lato-Regular"
     static let addLeadTasksViewControllerLeadFont = "Lato-Regular"
@@ -78,6 +89,11 @@ class ProjectCloseFonts {
 
     static let leadsTableViewControllerCompanyName = "Lato-Regular"
     static let leadsTableViewControllerStatus = "Lato-Regular"
+
+    static let leadOpportunitiesTableViewControllerValueFont = "Lato-Regular"
+    static let leadOpportunitiesTableViewControllerAssignedToFont = "Lato-Regular"
+    static let leadOpportunitiesTableViewControllerStatusFont = "Lato-Regular"
+    static let leadOpportunitiesTableViewControllerPercentageFont = "Lato-Regular"
 
     static let leadTasksTableViewControllerTitleFont = "Lato-Regular"
     static let leadTasksTableViewControllerSubtitleFont = "Lato-Regular"

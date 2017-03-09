@@ -251,6 +251,12 @@ class LeadDetailsContainerViewController: UIViewController {
             self.present(commsOptionsAlertController, animated: true, completion: {
 
             })
+        } else if selectedViewController is LeadOpportunitiesTableViewController {
+            let addLeadOpportunityViewController = AddLeadOpportunityViewController()
+            addLeadOpportunityViewController.leadId = leadId
+            addLeadOpportunityViewController.addLeadOpportunityDelegate = selectedViewController as! LeadOpportunitiesTableViewController
+
+            self.navigationController?.pushViewController(addLeadOpportunityViewController, animated: true)
         }
     }
 

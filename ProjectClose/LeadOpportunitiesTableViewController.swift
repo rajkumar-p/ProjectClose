@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-class LeadOpportunitiesTableViewController: UITableViewController {
+class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpportunityDelegate {
     let leadOpportunityTableViewCellReuseIdentifier = "LeadOpportunityCell"
+
+    var realm: Realm!
+    var leadOpportunitiesResultSet: Results<Opportunity>!
+
+    var leadOpportunityNotificationToken: NotificationToken!
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        setupAddOpportunitieButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -29,17 +34,45 @@ class LeadOpportunitiesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
+
+        setupRealm()
+        loadLeadOpportunities()
+        listenForLeadOpportunitiesNotifications()
     }
 
-    func setupAddOpportunitieButton() {
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.pagingInboxViewControllerAddTaskButtonColor)
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    func setupRealm() {
+        realm = try! Realm()
+    }
+
+    func loadLeadOpportunities() {
+        leadOpportunitiesResultSet = realm.objects(Opportunity.self)
+    }
+
+    func listenForLeadOpportunitiesNotifications() {
+        leadOpportunityNotificationToken = leadOpportunitiesResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                 print("Initial - LeadOpportunitiesTableViewController")
+                self?.reloadTableView()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                print("Update - LeadOpportunitiesTableViewController")
+                self?.tableView.beginUpdates()
+                self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.reloadRows(at: modifications.map { IndexPath(item: $0, section: 0) }, with: .automatic)
+                self?.tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
     }
 
     func setupTableView() {
         if let tableView = self.tableView {
-            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leadOpportunityTableViewCellReuseIdentifier)
+            tableView.register(LeadOpportunityTableViewCell.classForCoder(), forCellReuseIdentifier: leadOpportunityTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
             tableView.rowHeight = 75.0
@@ -52,27 +85,61 @@ class LeadOpportunitiesTableViewController: UITableViewController {
         print("Memory warning : LeadOpportunitiesTableViewController")
     }
 
+
+    deinit {
+        leadOpportunityNotificationToken.stop()
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return leadOpportunitiesResultSet.count
     }
 
-    /*
+    func reloadTableView() {
+        self.tableView?.reloadData()
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let opportunity = leadOpportunitiesResultSet[indexPath.row]
 
-        // Configure the cell...
+        let leadOpportunityCell = LeadOpportunityTableViewCell(style: .default, reuseIdentifier: leadOpportunityTableViewCellReuseIdentifier, confidencePercentage: opportunity.confidence)
 
-        return cell
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        leadOpportunityCell.valueLabel.text = "$" + numberFormatter.string(from: NSNumber(value: opportunity.value))! + " Monthly"
+        leadOpportunityCell.valueLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerValueColor)
+        leadOpportunityCell.valueLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerValueFont, size: 20.0)
+
+        leadOpportunityCell.userLabel.text = opportunity.assignedTo.name
+        leadOpportunityCell.userLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerAssignedToColor)
+        leadOpportunityCell.userLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerAssignedToFont, size: 18.0)
+
+        leadOpportunityCell.confidencePercentageLabel.text = " \(opportunity.confidence)% "
+        leadOpportunityCell.confidencePercentageLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)
+        leadOpportunityCell.confidencePercentageLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerPercentageFont, size: 14.0)
+
+        leadOpportunityCell.statusLabel.text = opportunity.status ?? "Active"
+        leadOpportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerStatusColor)
+        leadOpportunityCell.statusLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerStatusFont, size: 18.0)
+
+        leadOpportunityCell.confidenceView.layer.borderColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)?.cgColor
+        leadOpportunityCell.confidenceView.layer.borderWidth = 1.5
+
+        leadOpportunityCell.confidenceInPrecentageView.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)
+
+        return leadOpportunityCell
     }
-    */
+
+    func didFinishAddingLeadOpportunity(sender: AddLeadOpportunityViewController) {
+        print("Added new Lead Opportunity.")
+    }
 
     /*
     // Override to support conditional editing of the table view.

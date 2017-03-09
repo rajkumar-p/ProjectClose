@@ -55,7 +55,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     }
 
     func loadLeadContacts() {
-        leadContactsResultSet = realm.objects(Contact.self).sorted(byProperty: "name")
+        leadContactsResultSet = realm.objects(Contact.self).sorted(byKeyPath: "name")
     }
 
     override func didReceiveMemoryWarning() {

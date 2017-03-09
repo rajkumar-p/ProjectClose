@@ -46,8 +46,8 @@ class AllInboxTableViewController: UITableViewController {
     }
 
     func loadTasks() {
-        let closedDateSortDescriptor = SortDescriptor(property: "closedDate")
-        let createdDateSortDescriptor = SortDescriptor(property: "createdDate", ascending: false)
+        let closedDateSortDescriptor = SortDescriptor(keyPath: "closedDate")
+        let createdDateSortDescriptor = SortDescriptor(keyPath: "createdDate", ascending: false)
         taskResultSet = realm.objects(Task.self).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
     }
 

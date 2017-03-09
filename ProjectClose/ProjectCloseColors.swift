@@ -52,6 +52,14 @@ class ProjectCloseColors {
     static let addLeadViewControllerAddLeadButtonBackgroundColor = "47BB7F"
     static let addLeadViewControllerAddLeadButtonTitleColor = "FFFFFF"
 
+    static let addLeadOpportunityViewControllerDescriptionTitleColor = "2C3541"
+    static let addLeadOpportunityViewControllerExpiryDateTitleColor = "2C3541"
+    static let addLeadOpportunityViewControllerValueTitleColor = "2C3541"
+    static let addLeadOpportunityViewControllerConfidenceTitleColor = "2C3541"
+    static let addLeadOpportunityViewControllerAssignedToTitleColor = "2C3541"
+    static let addLeadOpportunityViewControllerAddLeadOpportunityButtonBackgroundColor = "47BB7F"
+    static let addLeadOpportunityViewControllerAddLeadOpportunityButtonTitleColor = "FFFFFF"
+
     static let addLeadTasksViewControllerTaskDescriptionTitleColor = "2C3541"
     static let addLeadTasksViewControllerAssignedToTitleColor = "2C3541"
     static let addLeadTasksViewControllerLeadTitleColor = "2C3541"
@@ -105,6 +113,11 @@ class ProjectCloseColors {
 
     static let leadsTableViewControllerCompanyNameColor = "2C3541"
     static let leadsTableViewControllerStatusColor = "47BB7F"
+
+    static let leadOpportunityTableViewControllerValueColor = "2C3541"
+    static let leadOpportunityTableViewControllerAssignedToColor = "2C3541"
+    static let leadOpportunityTableViewControllerStatusColor = "47BB7F"
+    static let leadOpportunityTableViewControllerPercentageColor = "47BB7F"
 
     static let leadTasksTableViewControllerTitleColor = "2C3541"
     static let leadTasksTableViewControllerSubtitleColor = "47BB7F"
