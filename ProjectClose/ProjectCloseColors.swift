@@ -40,6 +40,8 @@ class ProjectCloseColors {
     static let pagingInboxViewControllerSelectedPageMenuUnderlineColor = "47BB7F"
     static let pagingInboxViewControllerAddTaskButtonColor = "FFFFFF"
 
+    static let opportunitiesViewControllerAddLeadButtonColor = "FFFFFF"
+
     static let leadDetailsPagingMenuTitleColor = "2C3541"
     static let leadDetailsPagingMenuSelectedTitleColor = "47BB7F"
     static let leadDetailsPagingMenuUnderlineColor = "47BB7F"
@@ -59,6 +61,15 @@ class ProjectCloseColors {
     static let addLeadOpportunityViewControllerAssignedToTitleColor = "2C3541"
     static let addLeadOpportunityViewControllerAddLeadOpportunityButtonBackgroundColor = "47BB7F"
     static let addLeadOpportunityViewControllerAddLeadOpportunityButtonTitleColor = "FFFFFF"
+
+    static let addOpportunityViewControllerDescriptionTitleColor = "2C3541"
+    static let addOpportunityViewControllerExpiryDateTitleColor = "2C3541"
+    static let addOpportunityViewControllerLeadTitleColor = "2C3541"
+    static let addOpportunityViewControllerValueTitleColor = "2C3541"
+    static let addOpportunityViewControllerConfidenceTitleColor = "2C3541"
+    static let addOpportunityViewControllerAssignedToTitleColor = "2C3541"
+    static let addOpportunityViewControllerAddOpportunityButtonBackgroundColor = "47BB7F"
+    static let addOpportunityViewControllerAddOpportunityButtonTitleColor = "FFFFFF"
 
     static let addLeadTasksViewControllerTaskDescriptionTitleColor = "2C3541"
     static let addLeadTasksViewControllerAssignedToTitleColor = "2C3541"
@@ -116,7 +127,12 @@ class ProjectCloseColors {
 
     static let leadOpportunityTableViewControllerValueColor = "2C3541"
     static let leadOpportunityTableViewControllerAssignedToColor = "2C3541"
+    static let leadOpportunityTableViewControllerClosedStatusColor = "FF0000"
+    static let leadOpportunityTableViewControllerPausedStatusColor = "2C3541"
     static let leadOpportunityTableViewControllerStatusColor = "47BB7F"
+    static let leadOpportunityTableViewControllerActiveButtonColor = "47BB7F"
+    static let leadOpportunityTableViewControllerPauseButtonColor = "2C3541"
+    static let leadOpportunityTableViewControllerClosedButtonColor = "FF0000"
     static let leadOpportunityTableViewControllerPercentageColor = "47BB7F"
 
     static let leadTasksTableViewControllerTitleColor = "2C3541"
@@ -144,6 +160,19 @@ class ProjectCloseColors {
     static let leadStatusTableViewControllerTitleColor = "2C3541"
     static let leadStatusTableViewControllerSelectedTitleColor = "47BB7F"
     static let leadStatusTableViewControllerTableViewCellTintColor = "47BB7F"
+
+    static let opportunityTableViewCellLeadLabelBorderColor = "47BB7F"
+    static let opportunityTableViewCellLeadLabelTitleColor = "47BB7F"
+    static let opportunityTableViewCellValueColor = "2C3541"
+    static let opportunityTableViewCellAssignedToColor = "2C3541"
+    static let opportunityTableViewCellStatusColor = "47BB7F"
+    static let opportunityTableViewCellClosedStatusColor = "FF0000"
+    static let opportunityTableViewCellPercentageColor = "47BB7F"
+    static let opportunityTableViewCellPercentageViewBorderColor = "47BB7F"
+    static let opportunityTableViewCellChangeStatusButtonColor = "47BB7F"
+    static let opportunityTableViewCellSetActiveButtonColor = "47BB7F"
+    static let opportunityTableViewCellPauseButtonColor = "2C3541"
+    static let opportunityTableViewCellCloseButtonColor = "FF0000"
 
     static let inboxTasksTableViewCellLeadLabelBorderColor = "47BB7F"
     static let inboxTasksTableViewCellLeadLabelTitleColor = "47BB7F"

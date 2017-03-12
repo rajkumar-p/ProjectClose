@@ -312,6 +312,8 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
             newLeadOpportunity.expiryDate = dateFormatter.date(from: expiryDate)
         }
 
+        newLeadOpportunity.status = "Active"
+
         try! realm.write {
             realm.add(newLeadOpportunity)
         }

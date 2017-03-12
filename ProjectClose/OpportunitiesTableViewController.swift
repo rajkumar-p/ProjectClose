@@ -1,26 +1,28 @@
 //
-//  LeadOpportunitiesTableViewController.swift
+//  OpportunitiesTableViewController.swift
 //  ProjectClose
 //
-//  Created by raj on 23/01/17.
+//  Created by raj on 09/03/17.
 //  Copyright © 2017 diskodev. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpportunityDelegate {
-    let leadOpportunityTableViewCellReuseIdentifier = "LeadOpportunityCell"
+class OpportunitiesTableViewController: UITableViewController, AddOpportunityDelegate {
+    let opportunityTableViewCellReuseIdentifier = "OpportunityCell"
 
     var realm: Realm!
-    var leadOpportunitiesResultSet: Results<Opportunity>!
-
-    var leadOpportunityNotificationToken: NotificationToken!
+    var opportunitiesResultSet: Results<Opportunity>!
+    var opportunitiesNotificationToken: NotificationToken!
 
     init() {
         super.init(nibName: nil, bundle: nil)
-    }
+        initTitle()
 
+        setupAddTaskButton()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -36,27 +38,53 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
         setupTableView()
 
         setupRealm()
-        loadLeadOpportunities()
-        listenForLeadOpportunitiesNotifications()
+        loadOpportunities()
+        listenForOpportunitiesNotifications()
+    }
+
+    func initTitle() {
+        self.title = NSLocalizedString("opportunities_table_vc_title", value: "Opportunities", comment: "Opportunities Table VC title")
+    }
+
+    func setupAddTaskButton() {
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(OpportunitiesTableViewController.addTaskButtonPressed(_:)))
+        rightBarButtonItem.tintColor = UIColor(hexString: ProjectCloseColors.opportunitiesViewControllerAddLeadButtonColor)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+
+    func addTaskButtonPressed(_ sender: UIBarButtonItem) {
+        let addOpportunityViewController = AddOpportunityViewController()
+        addOpportunityViewController.addOpportunityDelegate = self
+
+        self.navigationController?.pushViewController(addOpportunityViewController, animated: true)
+    }
+
+    func setupTableView() {
+        if let tableView = self.tableView {
+            tableView.register(OpportunityTableViewCell.classForCoder(), forCellReuseIdentifier: opportunityTableViewCellReuseIdentifier)
+            tableView.showsVerticalScrollIndicator = false
+            tableView.separatorStyle = .none
+            tableView.rowHeight = 75.0
+        }
     }
 
     func setupRealm() {
         realm = try! Realm()
     }
 
-    func loadLeadOpportunities() {
-        leadOpportunitiesResultSet = realm.objects(Opportunity.self).sorted(byKeyPath: "createdDate", ascending: false)
+    func loadOpportunities() {
+        opportunitiesResultSet = realm.objects(Opportunity.self).sorted(byKeyPath: "createdDate", ascending: false)
     }
 
-    func listenForLeadOpportunitiesNotifications() {
-        leadOpportunityNotificationToken = leadOpportunitiesResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+    func listenForOpportunitiesNotifications() {
+        opportunitiesNotificationToken = opportunitiesResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                 print("Initial - LeadOpportunitiesTableViewController")
+                print("Initial - OpportunitiesTableViewController")
                 self?.reloadTableView()
                 break
             case .update(_, let deletions, let insertions, let modifications):
-                print("Update - LeadOpportunitiesTableViewController")
+                print("Update - OpportunitiesTableViewController")
                 self?.tableView.beginUpdates()
                 self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
                 self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
@@ -70,24 +98,14 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
         }
     }
 
-    func setupTableView() {
-        if let tableView = self.tableView {
-            tableView.register(LeadOpportunityTableViewCell.classForCoder(), forCellReuseIdentifier: leadOpportunityTableViewCellReuseIdentifier)
-            tableView.showsVerticalScrollIndicator = false
-            tableView.separatorStyle = .none
-            tableView.rowHeight = 75.0
-        }
+    deinit {
+        opportunitiesNotificationToken.stop()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        print("Memory warning : LeadOpportunitiesTableViewController")
-    }
-
-
-    deinit {
-        leadOpportunityNotificationToken.stop()
+        print("Memory warning : OpportunitiesTableViewController")
     }
 
     // MARK: - Table view data source
@@ -99,53 +117,55 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leadOpportunitiesResultSet.count
-    }
-
-    func reloadTableView() {
-        self.tableView?.reloadData()
+        return opportunitiesResultSet.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let opportunity = leadOpportunitiesResultSet[indexPath.row]
+        let opportunity = opportunitiesResultSet[indexPath.row]
+        let leadForOpportunity = realm.object(ofType: Lead.self, forPrimaryKey: opportunity.leadId)
 
-        let leadOpportunityCell = LeadOpportunityTableViewCell(style: .default, reuseIdentifier: leadOpportunityTableViewCellReuseIdentifier, confidencePercentage: opportunity.confidence)
-        leadOpportunityCell.selectionStyle = .none
+        let opportunityCell = OpportunityTableViewCell(style: .default, reuseIdentifier: opportunityTableViewCellReuseIdentifier, confidencePercentage: opportunity.confidence)
+        opportunityCell.selectionStyle = .none
+
+        opportunityCell.leadLabel?.text = leadForOpportunity?.shortIdentifier
+        opportunityCell.leadLabel?.textAlignment = .center
+        opportunityCell.leadLabel?.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellLeadLabelTitleColor)
+        opportunityCell.leadLabel?.font = UIFont(name: ProjectCloseFonts.opportunityTableViewCellLeadLabelTitleFont, size: 20.0)
 
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        leadOpportunityCell.valueLabel.text = "$" + numberFormatter.string(from: NSNumber(value: opportunity.value))! + " Monthly"
-        leadOpportunityCell.valueLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerValueColor)
-        leadOpportunityCell.valueLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerValueFont, size: 20.0)
+        opportunityCell.valueLabel.text = "$" + numberFormatter.string(from: NSNumber(value: opportunity.value))! + " Monthly"
+        opportunityCell.valueLabel.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellValueColor)
+        opportunityCell.valueLabel.font = UIFont(name: ProjectCloseFonts.opportunityTableViewCellValueFont, size: 20.0)
 
-        leadOpportunityCell.userLabel.text = opportunity.assignedTo.name
-        leadOpportunityCell.userLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerAssignedToColor)
-        leadOpportunityCell.userLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerAssignedToFont, size: 18.0)
+        opportunityCell.userLabel.text = opportunity.assignedTo.name
+        opportunityCell.userLabel.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellAssignedToColor)
+        opportunityCell.userLabel.font = UIFont(name: ProjectCloseFonts.opportunityTableViewCellAssignedToFont, size: 18.0)
 
-        leadOpportunityCell.confidencePercentageLabel.text = " \(opportunity.confidence)% "
-        leadOpportunityCell.confidencePercentageLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)
-        leadOpportunityCell.confidencePercentageLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerPercentageFont, size: 14.0)
+        opportunityCell.confidencePercentageLabel.text = " \(opportunity.confidence)% "
+        opportunityCell.confidencePercentageLabel.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageColor)
+        opportunityCell.confidencePercentageLabel.font = UIFont(name: ProjectCloseFonts.opportunityTableViewCellPercentageFont, size: 14.0)
 
-        leadOpportunityCell.statusLabel.text = opportunity.status
+        opportunityCell.statusLabel.text = opportunity.status
         if opportunity.status == "Closed" {
-            leadOpportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerClosedStatusColor)
+            opportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellClosedStatusColor)
         } else if opportunity.status == "Paused" {
-            leadOpportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPausedStatusColor)
+            opportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPausedStatusColor)
         } else {
-            leadOpportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerStatusColor)
+            opportunityCell.statusLabel.textColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellStatusColor)
         }
-        leadOpportunityCell.statusLabel.font = UIFont(name: ProjectCloseFonts.leadOpportunitiesTableViewControllerStatusFont, size: 18.0)
+        opportunityCell.statusLabel.font = UIFont(name: ProjectCloseFonts.opportunityTableViewCellStatusFont, size: 18.0)
 
-        leadOpportunityCell.confidenceView.layer.borderColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)?.cgColor
-        leadOpportunityCell.confidenceView.layer.borderWidth = 1.5
+        opportunityCell.confidenceView.layer.borderColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageViewBorderColor)?.cgColor
+        opportunityCell.confidenceView.layer.borderWidth = 1.5
 
-        leadOpportunityCell.confidenceInPrecentageView.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPercentageColor)
+        opportunityCell.confidenceInPrecentageView.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageColor)
 
-        return leadOpportunityCell
+        return opportunityCell
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let opportunity = leadOpportunitiesResultSet[indexPath.row]
+        let opportunity = opportunitiesResultSet[indexPath.row]
 
         let activeStatusAction: UITableViewRowAction!
         let pauseStatusAction: UITableViewRowAction!
@@ -157,14 +177,14 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
                     opportunity.status = "Paused"
                 }
             })
-            pauseStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPauseButtonColor)
+            pauseStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPauseButtonColor)
 
             closeStatusAction = UITableViewRowAction(style: .default, title: "Close", handler: { [weak self] action, indexPath in
                 try! self?.realm.write {
                     opportunity.status = "Closed"
                 }
             })
-            closeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerClosedButtonColor)
+            closeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellCloseButtonColor)
 
             return [pauseStatusAction, closeStatusAction]
         } else if opportunity.status == "Paused" {
@@ -173,14 +193,14 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
                     opportunity.status = "Active"
                 }
             })
-            activeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerActiveButtonColor)
+            activeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellSetActiveButtonColor)
 
             closeStatusAction = UITableViewRowAction(style: .default, title: "Close", handler: { [weak self] action, indexPath in
                 try! self?.realm.write {
                     opportunity.status = "Closed"
                 }
             })
-            closeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerClosedButtonColor)
+            closeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellCloseButtonColor)
 
             return [activeStatusAction, closeStatusAction]
         } else {
@@ -189,21 +209,25 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
                     opportunity.status = "Active"
                 }
             })
-            activeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerActiveButtonColor)
+            activeStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellSetActiveButtonColor)
 
             pauseStatusAction = UITableViewRowAction(style: .default, title: "Pause", handler: { [weak self] action, indexPath in
                 try! self?.realm.write {
                     opportunity.status = "Paused"
                 }
             })
-            pauseStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadOpportunityTableViewControllerPauseButtonColor)
+            pauseStatusAction.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPauseButtonColor)
 
             return [activeStatusAction, pauseStatusAction]
         }
     }
 
-    func didFinishAddingLeadOpportunity(sender: AddLeadOpportunityViewController) {
-        print("Added new Lead Opportunity.")
+    func reloadTableView() {
+        self.tableView?.reloadData()
+    }
+    
+    func didFinishAddingOpportunity(sender: AddOpportunityViewController) {
+        print("Finish adding Opportunity.")
     }
 
     /*

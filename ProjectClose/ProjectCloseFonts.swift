@@ -52,6 +52,18 @@ class ProjectCloseFonts {
     static let addLeadOpportunityViewControllerAssignedToFont = "Lato-Regular"
     static let addLeadOpportunityViewControllerAddLeadOpportunityButtonFont = "Lato-Regular"
 
+    static let addOpportunityViewControllerDescriptionFont = "Lato-Regular"
+    static let addOpportunityViewControllerDescriptionPlaceholderFont = "Lato-Hairline"
+    static let addOpportunityViewControllerExpiryDateFont = "Lato-Regular"
+    static let addOpportunityViewControllerLeadFont = "Lato-Regular"
+    static let addOpportunityViewControllerExpiryDatePlaceholderFont = "Lato-Hairline"
+    static let addOpportunityViewControllerValueFont = "Lato-Regular"
+    static let addOpportunityViewControllerValuePlaceholderFont = "Lato-Hairline"
+    static let addOpportunityViewControllerConfidenceFont = "Lato-Regular"
+    static let addOpportunityViewControllerConfidencePlaceholderFont = "Lato-Hairline"
+    static let addOpportunityViewControllerAssignedToFont = "Lato-Regular"
+    static let addOpportunityViewControllerAddOpportunityButtonFont = "Lato-Regular"
+
     static let addLeadTasksViewControllerTaskDescriptionFont = "Lato-Regular"
     static let addLeadTasksViewControllerAssignedToFont = "Lato-Regular"
     static let addLeadTasksViewControllerLeadFont = "Lato-Regular"
@@ -94,6 +106,12 @@ class ProjectCloseFonts {
     static let leadOpportunitiesTableViewControllerAssignedToFont = "Lato-Regular"
     static let leadOpportunitiesTableViewControllerStatusFont = "Lato-Regular"
     static let leadOpportunitiesTableViewControllerPercentageFont = "Lato-Regular"
+
+    static let opportunityTableViewCellLeadLabelTitleFont = "Lato-Regular"
+    static let opportunityTableViewCellValueFont = "Lato-Regular"
+    static let opportunityTableViewCellAssignedToFont = "Lato-Regular"
+    static let opportunityTableViewCellStatusFont = "Lato-Regular"
+    static let opportunityTableViewCellPercentageFont = "Lato-Regular"
 
     static let leadTasksTableViewControllerTitleFont = "Lato-Regular"
     static let leadTasksTableViewControllerSubtitleFont = "Lato-Regular"

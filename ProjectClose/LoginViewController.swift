@@ -293,7 +293,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let pagingInboxMenuController = OverridenPagingMenuController(options: PagingMenuOptions())
 //        pagingInboxMenuController.title = NSLocalizedString("pagingmenu_vc_title", value: "Inbox",comment: "PagingMenu VC title")
 
-        let opportunitiesViewController = OpportunitiesViewController()
+//        let opportunitiesViewController = OpportunitiesViewController()
+        let opportunitiesTableViewController = OpportunitiesTableViewController()
 //        let leadsViewController = LeadsViewController()
         let leadsTableViewController = LeadsTableViewController()
         let reportsViewController = ReportsViewController()
@@ -307,7 +308,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let settingsNavigationController = SettingsNavigationController()
 
         inboxNavigationController.pushViewController(pagingInboxMenuController, animated: false)
-        opportunitiesNavigationController.pushViewController(opportunitiesViewController, animated: false)
+        opportunitiesNavigationController.pushViewController(opportunitiesTableViewController, animated: false)
         leadsNavigationController.pushViewController(leadsTableViewController, animated: false)
 //        leadsNavigationController.pushViewController(leadsViewController, animated: false)
         reportsNavigationController.pushViewController(reportsViewController, animated: false)

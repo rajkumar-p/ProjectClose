@@ -25,6 +25,10 @@
 		355F072E1E5D700F009BEF3E /* ChooseLeadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F072D1E5D700F009BEF3E /* ChooseLeadTableViewController.swift */; };
 		355F07301E5D803C009BEF3E /* LeadChoosenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */; };
 		355F07321E5D8C36009BEF3E /* AddTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */; };
+		356D1D191E7131D1003EF117 /* OpportunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D1D181E7131D1003EF117 /* OpportunitiesTableViewController.swift */; };
+		356D1D1B1E7135D8003EF117 /* OpportunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D1D1A1E7135D8003EF117 /* OpportunityTableViewCell.swift */; };
+		356D1D1D1E7192A0003EF117 /* AddOpportunityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D1D1C1E7192A0003EF117 /* AddOpportunityDelegate.swift */; };
+		356D1D1F1E7192ED003EF117 /* AddOpportunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D1D1E1E7192ED003EF117 /* AddOpportunityViewController.swift */; };
 		356FCAE21E4B203400CEFD5F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE11E4B203400CEFD5F /* Message.swift */; };
 		356FCAE41E4B20A300CEFD5F /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE31E4B20A300CEFD5F /* TextMessage.swift */; };
 		356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */; };
@@ -124,6 +128,10 @@
 		355F072D1E5D700F009BEF3E /* ChooseLeadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLeadTableViewController.swift; sourceTree = "<group>"; };
 		355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadChoosenDelegate.swift; sourceTree = "<group>"; };
 		355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskDelegate.swift; sourceTree = "<group>"; };
+		356D1D181E7131D1003EF117 /* OpportunitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunitiesTableViewController.swift; sourceTree = "<group>"; };
+		356D1D1A1E7135D8003EF117 /* OpportunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityTableViewCell.swift; sourceTree = "<group>"; };
+		356D1D1C1E7192A0003EF117 /* AddOpportunityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpportunityDelegate.swift; sourceTree = "<group>"; };
+		356D1D1E1E7192ED003EF117 /* AddOpportunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpportunityViewController.swift; sourceTree = "<group>"; };
 		356FCAE11E4B203400CEFD5F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		356FCAE31E4B20A300CEFD5F /* TextMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
 		356FCAE51E4B20F000CEFD5F /* EmailMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailMessage.swift; sourceTree = "<group>"; };
@@ -301,6 +309,7 @@
 				35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */,
 				352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */,
 				352867E41E6E9C70005E7CA5 /* LeadOpportunityTableViewCell.swift */,
+				356D1D1A1E7135D8003EF117 /* OpportunityTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -396,6 +405,8 @@
 			children = (
 				358185EB1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift */,
 				358185E31E1FA7440092BAEA /* OpportunitiesViewController.swift */,
+				356D1D181E7131D1003EF117 /* OpportunitiesTableViewController.swift */,
+				356D1D1E1E7192ED003EF117 /* AddOpportunityViewController.swift */,
 			);
 			name = Opportunities;
 			sourceTree = "<group>";
@@ -480,6 +491,7 @@
 				355F072F1E5D803C009BEF3E /* LeadChoosenDelegate.swift */,
 				355F07311E5D8C36009BEF3E /* AddTaskDelegate.swift */,
 				352867E61E6EED70005E7CA5 /* AddLeadOpportunityDelegate.swift */,
+				356D1D1C1E7192A0003EF117 /* AddOpportunityDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -820,14 +832,18 @@
 				356FCAE61E4B20F000CEFD5F /* EmailMessage.swift in Sources */,
 				35EB2F0C1E35C73400C4EB19 /* LeadDetailsPagingMenuViewController.swift in Sources */,
 				354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */,
+				356D1D1F1E7192ED003EF117 /* AddOpportunityViewController.swift in Sources */,
 				35EB2F0E1E365AF600C4EB19 /* LeadStatusTableViewController.swift in Sources */,
 				359EC9F41E1B8EE700083309 /* UIOffsetUITextField.swift in Sources */,
 				35CA99421E41FBFD00240E53 /* ChooseUserTableViewController.swift in Sources */,
 				35EB2EFE1E2F8C4400C4EB19 /* SettingsTableViewController.swift in Sources */,
 				35CA99441E42160200240E53 /* UserChoosenDelegate.swift in Sources */,
 				358185E01E1FA07B0092BAEA /* Extensions.swift in Sources */,
+				356D1D1B1E7135D8003EF117 /* OpportunityTableViewCell.swift in Sources */,
 				3586C0F71E24C50600BDB146 /* Task.swift in Sources */,
+				356D1D191E7131D1003EF117 /* OpportunitiesTableViewController.swift in Sources */,
 				35081D391E59DAD3008E251D /* AllInboxTableViewController.swift in Sources */,
+				356D1D1D1E7192A0003EF117 /* AddOpportunityDelegate.swift in Sources */,
 				35EB2F101E36FAF800C4EB19 /* AddLeadDelegate.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
 				35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */,
