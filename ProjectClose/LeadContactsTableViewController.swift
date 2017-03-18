@@ -122,8 +122,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
 
-        backButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Close")!, to: CGSize(width: 32.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
-        backButton.setImage(UIImage(named: "Close")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        backButton.setImage(UIImage(named: ProjectCloseStrings.leadContactsTableViewControllerContactBackImageName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         backButton.layer.cornerRadius = 60.0 / 2.0
         backButton.clipsToBounds = true
         backButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
@@ -133,7 +132,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let phoneButton = UIButton()
         phoneButton.translatesAutoresizingMaskIntoConstraints = false
 
-        phoneButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Phone")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        phoneButton.setImage(UIImage(named: ProjectCloseStrings.leadContactsTableViewControllerContactPhoneImageName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         phoneButton.layer.cornerRadius = 60.0 / 2.0
         phoneButton.clipsToBounds = true
         phoneButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
@@ -143,7 +142,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let textMessageButton = UIButton()
         textMessageButton.translatesAutoresizingMaskIntoConstraints = false
 
-        textMessageButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "TextMessage")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        textMessageButton.setImage(UIImage(named: ProjectCloseStrings.leadContactsTableViewControllerContactTextMessageImageName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         textMessageButton.layer.cornerRadius = 60.0 / 2.0
         textMessageButton.clipsToBounds = true
         textMessageButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
@@ -153,7 +152,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let emailButton = UIButton()
         emailButton.translatesAutoresizingMaskIntoConstraints = false
 
-        emailButton.setImage(ProjectCloseUtilities.resizeImage(img: UIImage(named: "Email")!, to: CGSize(width: 38.0, height: 39.0)).withRenderingMode(.alwaysTemplate), for: .normal)
+        emailButton.setImage(UIImage(named: ProjectCloseStrings.leadContactsTableViewControllerContactEmailImageName)?.withRenderingMode(.alwaysTemplate), for: .normal)
         emailButton.layer.cornerRadius = 60.0 / 2.0
         emailButton.clipsToBounds = true
         emailButton.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerCommsButtonBackgroundColor)
@@ -225,15 +224,12 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
         let selectedCell = tableView.cellForRow(at: indexPath)
         let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
         commsView?.alpha = 1.0
-//        selectedCell?.backgroundColor = UIColor(hexString: ProjectCloseColors.leadContactsTableViewControllerTableViewCellContactOptionsBackgroundViewColor)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath)
         let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
         commsView?.alpha = 0.0
-//        let deSelectedCell = tableView.cellForRow(at: indexPath)
-//        deSelectedCell?.backgroundColor = .white
     }
 
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {

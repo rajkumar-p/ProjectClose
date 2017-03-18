@@ -90,11 +90,9 @@ class LeadMessagesTableViewController: UITableViewController {
         let messageCell = tableView.dequeueReusableCell(withIdentifier: leadMessageTableViewCellReuseIdentifier, for: indexPath) as! LeadMessageTableViewCell
         messageCell.selectionStyle = .none
 
-//        messageCell.messageTypeImageViewPlaceholderView.backgroundColor = UIColor(hexString: ProjectCloseColors.leadMessagesTableViewControllerImageViewBackgroundColor)
-
         if message.messageType == "EMAIL" {
-            let resizedEmailImage = ProjectCloseUtilities.resizeImage(img: UIImage(named: ProjectCloseStrings.leadMessageTableViewCellEmailImageName)!, to: CGSize(width: 48.0, height: 33.0)).withRenderingMode(.alwaysTemplate)
-            messageCell.messageTypeImageView.image = resizedEmailImage
+            messageCell.messageTypeImageView.image = UIImage(named: ProjectCloseStrings.leadMessagesTableViewControllerMessageEmailImageName)?.withRenderingMode(.alwaysTemplate)
+            messageCell.messageTypeImageView.contentMode = .center
 
             let participantsList = message.emailConversation?.participants.components(separatedBy: ", ")
             var participantsTextRepresentation = ""
@@ -109,8 +107,8 @@ class LeadMessagesTableViewController: UITableViewController {
             messageCell.subTitleLabel?.text = subjectWithMessagesCount
             messageCell.subTitleLabel?.sizeToFit()
         } else if message.messageType == "TEXT" {
-            let resizedTextImage = ProjectCloseUtilities.resizeImage(img: UIImage(named: ProjectCloseStrings.leadMessageTableViewCellTextIncomingImageName)!, to: CGSize(width: 48.0, height: 45.0)).withRenderingMode(.alwaysTemplate)
-            messageCell.messageTypeImageView.image = resizedTextImage
+            messageCell.messageTypeImageView.image = UIImage(named: ProjectCloseStrings.leadMessagesTableViewControllerMessageTextMessageImageName)?.withRenderingMode(.alwaysTemplate)
+            messageCell.contentMode = .center
 
             messageCell.mainLabel?.text = message.textMessage?.to
             messageCell.subTitleLabel?.text = message.textMessage?.message
@@ -135,7 +133,6 @@ class LeadMessagesTableViewController: UITableViewController {
             messageCell.subTitleLabel?.text = phoneCallDurationFormatter.string(from: phoneCallDuration!)
         }
 
-//        messageCell.messageTypeImageView.tintColor = .white
         messageCell.messageTypeImageView.tintColor = UIColor(hexString: ProjectCloseColors.leadMessagesTableViewControllerImageViewBackgroundColor)
 
         messageCell.mainLabel?.font = UIFont(name: ProjectCloseFonts.leadMessagesTableViewControllerTitleFont, size: 20.0)

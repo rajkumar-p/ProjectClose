@@ -20,10 +20,10 @@ class ProjectCloseUtilities {
         return newImage!
     }
 
-    static func styleTabBarItem(tabBarItem: UITabBarItem, imageName: String) {
+    static func styleTabBarItem(tabBarItem: UITabBarItem, imageName: String, to: CGSize = CGSize(width: 30.0, height: 30.0)) {
         let image = UIImage(named: imageName)
 
-        tabBarItem.image = ProjectCloseUtilities.resizeImage(img: image!, to: CGSize(width: 30.0, height: 30.0)).withRenderingMode(.alwaysOriginal)
+        tabBarItem.image = ProjectCloseUtilities.resizeImage(img: image!, to: to).withRenderingMode(.alwaysOriginal)
         tabBarItem.selectedImage = ProjectCloseUtilities.resizeImage(img: image!, to: CGSize(width: 30.0, height: 30.0))
     }
 

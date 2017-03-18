@@ -17,8 +17,7 @@ class OpportunitiesNavigationController: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         setTitle()
-        ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.opportunitiesNavigationControllerOpportunitiesImageName)
-//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+        setTabBarItemImage(name: ProjectCloseStrings.opportunitiesNavigationControllerOpportunitiesImageName)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +26,11 @@ class OpportunitiesNavigationController: UINavigationController {
 
     func setTitle() {
         self.title = NSLocalizedString("opportunities_nav_vc_title", value: "Opportunities",comment: "Opportunities Nav VC title")
+    }
+
+    func setTabBarItemImage(name: String) {
+        self.tabBarItem.image = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: name)
     }
 
     override func viewDidLoad() {

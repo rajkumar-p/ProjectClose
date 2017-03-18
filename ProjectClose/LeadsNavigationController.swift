@@ -17,12 +17,16 @@ class LeadsNavigationController: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         setTitle()
-        ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.leadsNavigationControllerLeadImageName)
-//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+        setTabBarItemImage(name: ProjectCloseStrings.leadsNavigationControllerLeadImageName)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setTabBarItemImage(name: String) {
+        self.tabBarItem.image = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: name)
     }
 
     func setTitle() {

@@ -24,4 +24,12 @@ class ProjectCloseStrings {
     static let leadMessageTableViewCellEmailImageName = "Email"
     static let leadMessageTableViewCellTextIncomingImageName = "TextMessage"
     static let leadMessageTableViewCellTextOutgoingImageName = "TextMessage"
+
+    static let leadMessagesTableViewControllerMessageEmailImageName = "MessageEmail"
+    static let leadMessagesTableViewControllerMessageTextMessageImageName = "MessageText"
+
+    static let leadContactsTableViewControllerContactEmailImageName = "ContactEmail"
+    static let leadContactsTableViewControllerContactTextMessageImageName = "ContactText"
+    static let leadContactsTableViewControllerContactPhoneImageName = "ContactPhone"
+    static let leadContactsTableViewControllerContactBackImageName = "ContactBack"
 }

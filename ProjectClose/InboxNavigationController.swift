@@ -16,12 +16,16 @@ class InboxNavigationController: UINavigationController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.inboxNavigationControllerInboxImageName)
-//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+        setTabBarItemImage(name: ProjectCloseStrings.inboxNavigationControllerInboxImageName)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setTabBarItemImage(name: String) {
+        self.tabBarItem.image = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: name)
     }
 
     override func viewDidLoad() {

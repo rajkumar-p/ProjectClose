@@ -17,8 +17,7 @@ class SettingsNavigationController: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         setTitle()
-        ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.settingsNavigationControllerSettingsImageName)
-//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+        setTabBarItemImage(name: ProjectCloseStrings.settingsNavigationControllerSettingsImageName)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +27,12 @@ class SettingsNavigationController: UINavigationController {
     func setTitle() {
         self.title = NSLocalizedString("settings_nav_vc_title", value: "Settings",comment: "Settings Nav VC title")
     }
+
+    func setTabBarItemImage(name: String) {
+        self.tabBarItem.image = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: name)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

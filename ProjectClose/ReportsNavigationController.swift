@@ -17,8 +17,7 @@ class ReportsNavigationController: UINavigationController {
     init() {
         super.init(nibName: nil, bundle: nil)
         setTitle()
-        ProjectCloseUtilities.styleTabBarItem(tabBarItem: self.tabBarItem, imageName: ProjectCloseStrings.reportsNavigationControllerReportsImageName)
-//        ProjectCloseUtilities.styleNavigationBar(navigationBar: self.navigationBar, colorHexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor)
+        setTabBarItemImage(name: ProjectCloseStrings.reportsNavigationControllerReportsImageName)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +26,11 @@ class ReportsNavigationController: UINavigationController {
 
     func setTitle() {
         self.title = NSLocalizedString("reports_nav_vc_title", value: "Reports",comment: "Reports Nav VC title")
+    }
+
+    func setTabBarItemImage(name: String) {
+        self.tabBarItem.image = UIImage(named: name)?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: name)
     }
 
     override func viewDidLoad() {
