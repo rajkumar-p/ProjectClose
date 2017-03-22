@@ -212,5 +212,16 @@ class ProjectCloseColors {
     static let futureInboxTableViewControllerTableCellTitleStrikeThroughColor = "2C3541"
     static let futureInboxTableViewControllerTableCellSubtitleStrikeThroughColor = "47BB7F"
 
+    static let reportsTableViewControllerSectionBackgroundColor = "47BB7F"
+    static let reportsTableViewControllerSectionLeadNameTitleColor = "FFFFFF"
+
+    static let reportTableViewCellReportTitleColor = "47BB7F"
+    static let reportTableViewCellLowTitleColor = "47BB7F"
+    static let reportTableViewCellHighTitleColor = "47BB7F"
+    static let reportTableViewCellMetricColor = "47BB7F"
+    static let reportTableViewCellGraphColor = "47BB7F"
+    static let reportTableViewCellPercentageTitleColor = "47BB7F"
+    static let reportTableViewCellStarImageTintColor = "47BB7F"
+
     static let allTableViewCellTintColor = "47BB7F"
 }

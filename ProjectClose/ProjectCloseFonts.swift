@@ -137,8 +137,16 @@ class ProjectCloseFonts {
     static let futureInboxTableviewcontrollerSubtitlefont = "Lato-Regular"
 
     static let userProfileTableViewCellMainLabelFont = "Lato-Bold"
-    static let userProfileTableViewCellSubTitleLabelFont = "Lato-regular"
+    static let userProfileTableViewCellSubTitleLabelFont = "Lato-Regular"
     static let userProfileTableViewCellLogoutButtonFont = "Lato-Regular"
 
     static let settingsViewControllerLogoutButtonTitleFont = "Lato-Bold"
+
+    static let reportsTableViewControllerSectionLeadNameTitleFont = "Lato-Regular"
+
+    static let reportTableViewCellReportTitleFont = "Lato-Regular"
+    static let reportTableViewCellLowTitleFont = "Lato-Regular"
+    static let reportTableViewCellHighTitleFont = "Lato-Regular"
+    static let reportTableViewCellMetricFont = "Lato-Regular"
+    static let reportTableViewCellPercentageTitleFont = "Lato-Regular"
 }

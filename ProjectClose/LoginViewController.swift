@@ -291,14 +291,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func loginButtonPressed(_ sender: UIButton) {
         let pagingInboxMenuController = OverridenPagingMenuController(options: PagingMenuOptions())
-//        pagingInboxMenuController.title = NSLocalizedString("pagingmenu_vc_title", value: "Inbox",comment: "PagingMenu VC title")
 
-//        let opportunitiesViewController = OpportunitiesViewController()
         let opportunitiesTableViewController = OpportunitiesTableViewController()
-//        let leadsViewController = LeadsViewController()
         let leadsTableViewController = LeadsTableViewController()
-        let reportsViewController = ReportsViewController()
-//        let settingsViewController = SettingsViewController()
+        let reportsTableViewController = ReportsTableViewController()
         let settingsTableViewController = SettingsTableViewController()
 
         let inboxNavigationController = InboxNavigationController()
@@ -310,9 +306,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         inboxNavigationController.pushViewController(pagingInboxMenuController, animated: false)
         opportunitiesNavigationController.pushViewController(opportunitiesTableViewController, animated: false)
         leadsNavigationController.pushViewController(leadsTableViewController, animated: false)
-//        leadsNavigationController.pushViewController(leadsViewController, animated: false)
-        reportsNavigationController.pushViewController(reportsViewController, animated: false)
-//        settingsNavigationController.pushViewController(settingsViewController, animated: false)
+        reportsNavigationController.pushViewController(reportsTableViewController, animated: false)
         settingsNavigationController.pushViewController(settingsTableViewController, animated: false)
 
         let mainTabBarController = MainTabBarController()

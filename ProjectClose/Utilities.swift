@@ -43,4 +43,8 @@ class ProjectCloseUtilities {
 
         return realmConfiguration
     }
+
+    static func degreeToRadian(degree: CGFloat) -> CGFloat {
+        return degree * .pi / 180.0
+    }
 }

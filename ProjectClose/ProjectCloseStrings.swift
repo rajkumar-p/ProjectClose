@@ -32,4 +32,8 @@ class ProjectCloseStrings {
     static let leadContactsTableViewControllerContactTextMessageImageName = "ContactText"
     static let leadContactsTableViewControllerContactPhoneImageName = "ContactPhone"
     static let leadContactsTableViewControllerContactBackImageName = "ContactBack"
+
+    static let reportsTableViewControllerHeaderShowDetailsImageName = "ReportShowDetails"
+
+    static let reportTableViewCellStarImageName = "ReportStar"
 }
