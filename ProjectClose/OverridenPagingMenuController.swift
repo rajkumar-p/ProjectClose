@@ -88,7 +88,6 @@ class OverridenPagingMenuController: PagingMenuController, AddTaskDelegate {
 //                doneInboxViewController.reloadTableView()
 //            }
 //        }
-        print("didFinishAddingTask from OverridenPagingMenuController.")
     }
 
     override func didReceiveMemoryWarning() {

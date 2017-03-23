@@ -169,7 +169,6 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
             realm.add(userToBeWritted, update: true)
         }
 
-        print("AddUserViewController - Saved data")
         delegate?.didFinishAddingUser(sender: self)
 
         let _ = self.navigationController?.popViewController(animated: true)

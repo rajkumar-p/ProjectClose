@@ -80,11 +80,9 @@ class OpportunitiesTableViewController: UITableViewController, AddOpportunityDel
         opportunitiesNotificationToken = opportunitiesResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                print("Initial - OpportunitiesTableViewController")
                 self?.reloadTableView()
                 break
             case .update(_, let deletions, let insertions, let modifications):
-                print("Update - OpportunitiesTableViewController")
                 self?.tableView.beginUpdates()
                 self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
                 self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
@@ -227,7 +225,6 @@ class OpportunitiesTableViewController: UITableViewController, AddOpportunityDel
     }
     
     func didFinishAddingOpportunity(sender: AddOpportunityViewController) {
-        print("Finish adding Opportunity.")
     }
 
     /*

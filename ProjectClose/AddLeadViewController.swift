@@ -338,8 +338,6 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             realm.add(newLead, update: true)
         }
 
-        print("Lead Saved.")
-
         // Save messages
 
         addDelegate.didFinishAddingLead(sender: self)

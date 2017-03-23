@@ -70,11 +70,9 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
         usersNotificationToken = usersResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                print("Initial - UsersTableViewController")
                 self?.reloadTableView()
                 break
             case .update(_, let deletions, let insertions, let modifications):
-                print("Update - UsersTableViewController")
                 self?.tableView.beginUpdates()
                 self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
                 self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
@@ -106,7 +104,6 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     }
 
     func didFinishAddingUser(sender: AddUserViewController) {
-        print("UsersTableViewController - Saved data")
 //        self.tableView.reloadData()
     }
 

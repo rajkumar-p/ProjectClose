@@ -223,27 +223,22 @@ class LeadDetailsContainerViewController: UIViewController {
             let commsOptionsAlertController = UIAlertController(title: nil, message: "Communication Options", preferredStyle: .actionSheet)
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                print("Cancel Action.")
             })
             commsOptionsAlertController.addAction(cancelAction)
 
             let callAction = UIAlertAction(title: "Make a Call", style: .default, handler: { action in
-                print("Call Action.")
             })
             commsOptionsAlertController.addAction(callAction)
 
             let textMessageAction = UIAlertAction(title: "Send a Text Message", style: .default, handler: { action in
-                print("Text Message Action")
             })
             commsOptionsAlertController.addAction(textMessageAction)
 
             let emailAction = UIAlertAction(title: "Send an Email", style: .default, handler: { action in
-                print("Email Action.")
             })
             commsOptionsAlertController.addAction(emailAction)
 
             let noteAction = UIAlertAction(title: "Add a Note", style: .default, handler: { action in
-                print("Note Action")
             })
             commsOptionsAlertController.addAction(noteAction)
 

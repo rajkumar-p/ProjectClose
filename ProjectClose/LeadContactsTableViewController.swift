@@ -188,8 +188,6 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     }
 
     func backButtonPressed(_ sender: UIButton) {
-        print(leadContactsResultSet[selectedIndexPath.row].name)
-        print("Back button pressed.")
         let selectedCell = tableView.cellForRow(at: selectedIndexPath)
         let commsView = selectedCell?.contentView.viewWithTag(commsViewTag)
         commsView?.alpha = 0.0
@@ -198,8 +196,6 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     func phoneButtonPressed(_ sender: UIButton) {
         let phoneNumber = leadContactsResultSet[selectedIndexPath.row].phone
         if let url = NSURL(string: "tel://" + phoneNumber!), UIApplication.shared.canOpenURL(url as URL) {
-            print(url)
-            print(phoneNumber!)
             if UIApplication.shared.canOpenURL(url as URL) {
                 UIApplication.shared.openURL(url as URL)
             }
@@ -209,13 +205,9 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     }
     
     func textMessageButtonPressed(_ sender: UIButton) {
-        print(leadContactsResultSet[selectedIndexPath.row].name)
-        print("Text Message button pressed.")
     }
     
     func emailButtonPressed(_ sender: UIButton) {
-        print(leadContactsResultSet[selectedIndexPath.row].name)
-        print("Email Message button pressed.")
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

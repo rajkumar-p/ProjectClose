@@ -65,11 +65,9 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
         leadTasksNotificationToken = leadTasksResultSet.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                print("Initial - LeadTasksTableViewController")
                 self?.reloadTableView()
                 break
             case .update(_, let deletions, let insertions, let modifications):
-                print("Update - LeadTasksTableViewController")
                 self?.tableView.beginUpdates()
                 self?.tableView.insertRows(at: insertions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
                 self?.tableView.deleteRows(at: deletions.map { IndexPath(item: $0, section: 0) }, with: .automatic)
@@ -219,7 +217,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
 
     func didFinishAddingLeadTask(sender: AddLeadTaskViewController) {
 //        reloadTableView()
-        print("didFinishAddingLeadTask from LeadTasksTableViewController.")
     }
 
     func reloadTableView() {
