@@ -113,7 +113,7 @@ class AllInboxTableViewController: UITableViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM d, yyyy"
             subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
-            if task.expiryDeadlineDate < Date() {
+            if task.expiryDeadlineDate < Date() && !task.closed {
                 taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerExpiredSubtitleColor)
             } else {
                 taskCell.subTitleLabel?.textColor = UIColor(hexString: ProjectCloseColors.allInboxTableViewControllerSubtitleColor)

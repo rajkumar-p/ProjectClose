@@ -109,6 +109,7 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
         descriptionTextField.translatesAutoresizingMaskIntoConstraints = false
 
         descriptionTextField.keyboardType = .asciiCapable
+        descriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerDescriptionTextFieldTitleColor)
         descriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadOpportunityViewControllerDescriptionFont, size: 20.0)
         descriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_opportunity_vc_opportunity_description_placeholder", value: "e.g. Gob's ready to buy a $3000 suit.", comment: "Add Lead Opportunity VC Opportunity Description Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerDescriptionTitleColor)!,
@@ -145,6 +146,7 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
         expiryDateTextField.keyboardType = .asciiCapable
         expiryDateTextField.autocapitalizationType = .words
         expiryDateTextField.autocorrectionType = .no
+        expiryDateTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerExpiryDateTextFieldTitleColor)
         expiryDateTextField.font = UIFont(name: ProjectCloseFonts.addLeadOpportunityViewControllerExpiryDateFont, size: 20.0)
         expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_opportunity_vc_opportunity_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Lead Opportunity VC Opportunity Expiry Date Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerExpiryDateTitleColor)!,
@@ -181,7 +183,7 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
 
         assignedToUserLabel.text = selectedUser.name
         assignedToUserLabel.textAlignment = .right
-        assignedToUserLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerAssignedToTitleColor)
+        assignedToUserLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerAssignedToValueTitleColor)
         assignedToUserLabel.font = UIFont(name: ProjectCloseFonts.addLeadOpportunityViewControllerAssignedToFont, size: 20.0)
         assignedToUserLabel.sizeToFit()
 
@@ -219,6 +221,7 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
 
         valueTextField.textAlignment = .right
         valueTextField.keyboardType = .numbersAndPunctuation
+        valueTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerValueTextFieldTitleColor)
         valueTextField.font = UIFont(name: ProjectCloseFonts.addLeadOpportunityViewControllerValueFont, size: 20.0)
         valueTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_opportunity_vc_opportunity_value_placeholder", value: "e.g. 3,000", comment: "Add Lead Opportunity VC Opportunity Value Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerValueTitleColor)!,
@@ -258,6 +261,7 @@ class AddLeadOpportunityViewController: UIViewController, UITextFieldDelegate, U
 
         confidenceTextField.textAlignment = .right
         confidenceTextField.keyboardType = .numbersAndPunctuation
+        confidenceTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerConfidenceTextFieldTitleColor)
         confidenceTextField.font = UIFont(name: ProjectCloseFonts.addLeadOpportunityViewControllerConfidenceFont, size: 20.0)
         confidenceTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_opportunity_vc_opportunity_confidence_placeholder", value: "e.g. 60", comment: "Add Lead Opportunity VC Opportunity Confidence Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadOpportunityViewControllerConfidenceTitleColor)!,

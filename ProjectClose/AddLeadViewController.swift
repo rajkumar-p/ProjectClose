@@ -88,6 +88,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyNameTextField.keyboardType = .asciiCapable
         companyNameTextField.autocapitalizationType = .words
         companyNameTextField.autocorrectionType = .no
+        companyNameTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyNameTextFieldTitleColor)
         companyNameTextField.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerCompanyNameFont, size: 20.0)
         companyNameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_name_placeholder", value: "e.g. Foo Company", comment: "Add Lead VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyNameTitleColor)!,
@@ -124,6 +125,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyDescriptionTextField.keyboardType = .asciiCapable
         companyDescriptionTextField.autocorrectionType = .no
         companyDescriptionTextField.autocapitalizationType = .none
+        companyDescriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyDescriptionTextFieldTitleColor)
         companyDescriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerCompanyDescriptionFont, size: 20.0)
         companyDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_description_placeholder", value: "e.g. Awesome Company!!!", comment: "Add Lead VC Company Description Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyDescriptionTitleColor)!,
@@ -160,8 +162,8 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyAddressTextView.keyboardType = .asciiCapable
         companyAddressTextView.autocorrectionType = .default
         companyAddressTextView.autocapitalizationType = .sentences
+        companyAddressTextView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTextFieldTitleColor)
         companyAddressTextView.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)
-        companyAddressTextView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)
 //        companyDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_address_placeholder", value: "e.g. 48/7, Awesome Street,\n Awesome City, \n Awesome State.", comment: "Add Lead VC Company Address Placeholder"),
 //                attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)!,
 //                             NSFontAttributeName : UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)!])
@@ -201,112 +203,6 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let _ = self.navigationController?.popViewController(animated: true)
     }
 
-//    fileprivate struct PageMenuItemLeadTasks: MenuItemViewCustomizable {
-//        var displayMode: MenuItemDisplayMode {
-//            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_tasks_menu_title", value: "TASKS", comment: "Lead Details Paging Menu VC Lead Tasks Menu Title"),
-//                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
-//                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
-//                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
-//                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
-//            ))
-//        }
-//
-//        var horizontalMargin: CGFloat {
-//            return 5.0
-//        }
-//    }
-//
-//    fileprivate struct PageMenuItemLeadOpportunities: MenuItemViewCustomizable {
-//        var displayMode: MenuItemDisplayMode {
-//            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_opportunities_menu_title", value: "OPPORTUNITIES", comment: "Lead Details Paging Menu VC Lead Opportunities Menu Title"),
-//                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
-//                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
-//                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
-//                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
-//            ))
-//        }
-//
-//        var horizontalMargin: CGFloat {
-//            return 5.0
-//        }
-//    }
-//
-//    fileprivate struct PageMenuItemLeadContacts: MenuItemViewCustomizable {
-//        var displayMode: MenuItemDisplayMode {
-//            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_contants_menu_title", value: "CONTACTS", comment: "Lead Details Paging Menu VC Lead Contacts Menu Title"),
-//                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
-//                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
-//                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
-//                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
-//            ))
-//        }
-//
-//        var horizontalMargin: CGFloat {
-//            return 5.0
-//        }
-//    }
-//
-//    fileprivate struct PageMenuItemLeadMessages: MenuItemViewCustomizable {
-//        var displayMode: MenuItemDisplayMode {
-//            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_messages_menu_title", value: "MESSAGES", comment: "Lead Details Paging Menu VC Lead Messages Menu Title"),
-//                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
-//                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
-//                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
-//                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
-//            ))
-//        }
-//
-//        var horizontalMargin: CGFloat {
-//            return 5.0
-//        }
-//    }
-//
-//    fileprivate struct PageMenuItemLeadStatus: MenuItemViewCustomizable {
-//        var displayMode: MenuItemDisplayMode {
-//            return .text(title: MenuItemText(text: NSLocalizedString("lead_details_paging_menu_vc_lead_status_menu_title", value: "STATUS", comment: "Lead Details Paging Menu VC Lead Status Menu Title"),
-//                    color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuTitleColor)!,
-//                    selectedColor: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuSelectedTitleColor)!,
-//                    font: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerTitleFont, size: 18.0)!,
-//                    selectedFont: UIFont(name: ProjectCloseFonts.leadDetailsPagingMenuViewControllerSelectedTitleFont, size: 18.0)!
-//            ))
-//        }
-//
-//        var horizontalMargin: CGFloat {
-//            return 5.0
-//        }
-//    }
-//
-//    fileprivate struct MenuOptions: MenuViewCustomizable {
-//        var displayMode: MenuDisplayMode {
-////            return .segmentedControl
-////            return .infinite(widthMode: .fixed(width: 100), scrollingMode: .pagingEnabled)
-//            return .standard(widthMode: .fixed(width: 150.0), centerItem: false, scrollingMode: .pagingEnabled)
-//        }
-//
-//        var focusMode: MenuFocusMode {
-//            return .underline(height: 3.0, color: UIColor(hexString: ProjectCloseColors.leadDetailsPagingMenuUnderlineColor)!, horizontalPadding: 10.0, verticalPadding: 0.0)
-//        }
-//
-//        var itemsOptions: [MenuItemViewCustomizable] {
-//            return [PageMenuItemLeadTasks(), PageMenuItemLeadOpportunities(), PageMenuItemLeadContacts(), PageMenuItemLeadMessages(), PageMenuItemLeadStatus()]
-//        }
-//    }
-//
-//    fileprivate struct PagingMenuOptions: PagingMenuControllerCustomizable {
-//        let leadTasksTableViewController = LeadTasksTableViewController()
-//        let leadOpportunitiesTableViewController = LeadOpportunitiesTableViewController()
-//        let leadContactsTableViewController = LeadContactsTableViewController()
-//        let leadMessagesTableViewController = LeadMessagesTableViewController()
-//        let leadStatusTableViewController = LeadStatusTableViewController()
-//
-//        var componentType: ComponentType {
-//            return .all(menuOptions: MenuOptions(), pagingControllers: [leadTasksTableViewController, leadOpportunitiesTableViewController, leadContactsTableViewController, leadMessagesTableViewController, leadStatusTableViewController])
-//        }
-//
-//        var lazyLoadingPage: LazyLoadingPage {
-//            return .all
-//        }
-//    }
 
     func setupRealm() {
         realm = try! Realm()

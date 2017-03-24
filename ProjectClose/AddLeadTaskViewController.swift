@@ -95,6 +95,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         taskDescriptionTextField.keyboardType = .asciiCapable
         taskDescriptionTextField.autocapitalizationType = .words
         taskDescriptionTextField.autocorrectionType = .no
+        taskDescriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTextFieldTitleColor)
         taskDescriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTaskDescriptionFont, size: 20.0)
         taskDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_company_name_placeholder", value: "e.g. Call Brady", comment: "Add Lead Task VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTitleColor)!,
@@ -135,6 +136,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         expiryDateTextField.keyboardType = .asciiCapable
         expiryDateTextField.autocapitalizationType = .words
         expiryDateTextField.autocorrectionType = .no
+        expiryDateTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTextFieldTitleColor)
         expiryDateTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerExpiryDateFont, size: 20.0)
         expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Lead Task VC Expiry Date Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTitleColor)!,
@@ -154,7 +156,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         assignedToLabel.translatesAutoresizingMaskIntoConstraints = false
 
         assignedToLabel.text = NSLocalizedString("add_lead_task_vc_assigned_to_label_title", value: " Assigned To",comment: "Add Lead Task VC Assigned To Label Title")
-        assignedToLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToTitleColor)
+        assignedToLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToLabelTitleColor)
         assignedToLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAssignedToFont, size: 20.0)
         assignedToLabel.sizeToFit()
 
@@ -171,7 +173,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
 
         assignedToUserLabel.text = "Rajkumar P"
         assignedToUserLabel.textAlignment = .center
-        assignedToUserLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToTitleColor)
+        assignedToUserLabel.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerAssignedToValueTitleColor)
         assignedToUserLabel.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerAssignedToFont, size: 20.0)
         assignedToUserLabel.sizeToFit()
 

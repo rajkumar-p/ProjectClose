@@ -108,6 +108,7 @@ class DoneInboxTableViewController: UITableViewController {
         ])
         closedTaskCell.mainLabel?.attributedText = titleAttributedText
         closedTaskCell.mainLabel?.font = UIFont(name: ProjectCloseFonts.doneInboxTableviewcontrollerTitlefont, size: 20.0)
+        closedTaskCell.mainLabel?.textColor = UIColor(hexString: ProjectCloseColors.doneInboxTableViewControllerTitleColor)
 
         var subtitleText = closedTask.assignedTo.name
         let dateFormatter = DateFormatter()

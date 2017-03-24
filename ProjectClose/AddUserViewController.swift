@@ -87,6 +87,7 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         nameTextField.keyboardType = .asciiCapable
         nameTextField.autocapitalizationType = .words
         nameTextField.autocorrectionType = .no
+        nameTextField.textColor = UIColor(hexString: ProjectCloseColors.addUserViewControllerNameTextFieldTitleColor)
         nameTextField.font = UIFont(name: ProjectCloseFonts.addUserViewControllerNameTextFieldFont, size: 20.0)
         nameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_user_vc_name_placeholder", value: "e.g. John Doe", comment: "Add User VC Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addUserViewControllerNameTextFieldPlaceholderColor)!,
@@ -123,6 +124,7 @@ class AddUserViewController: UIViewController, UITextFieldDelegate {
         emailTextField.keyboardType = .emailAddress
         emailTextField.autocorrectionType = .no
         emailTextField.autocapitalizationType = .none
+        emailTextField.textColor = UIColor(hexString: ProjectCloseColors.addUserViewControllerEmailTextFieldTitleColor)
         emailTextField.font = UIFont(name: ProjectCloseFonts.addUserViewControllerEmailTextFieldFont, size: 20.0)
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_user_vc_email_placeholder", value: "e.g. john.doe@example.com", comment: "Add User VC Email Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addUserViewControllerEmailTextFieldPlaceholderColor)!,

@@ -118,7 +118,7 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM d, yyyy"
             subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
-            if leadTask.expiryDeadlineDate < Date() {
+            if leadTask.expiryDeadlineDate < Date() && !leadTask.closed {
                 leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
             } else {
                 leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
