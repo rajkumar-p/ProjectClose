@@ -281,7 +281,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 
         var lazyLoadingPage: LazyLoadingPage {
-            return .all
+            return .one
         }
 
         var isScrollEnabled: Bool {

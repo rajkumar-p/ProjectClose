@@ -203,8 +203,10 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
         let leadContactToBeAdded = Contact()
         leadContactToBeAdded.name = nameTextField.text
         leadContactToBeAdded.email = emailTextField.text
-        leadContactToBeAdded.contactId = leadId + "__" + leadContactToBeAdded.name + "__" + leadContactToBeAdded.email
         leadContactToBeAdded.phone = phoneTextField.text
+
+        leadContactToBeAdded.contactId = leadId + "__" + leadContactToBeAdded.name + "__" + leadContactToBeAdded.email
+        leadContactToBeAdded.leadId = leadId
 
         try! realm.write {
             realm.add(leadContactToBeAdded)

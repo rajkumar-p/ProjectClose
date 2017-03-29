@@ -11,12 +11,14 @@ import RealmSwift
 
 class Contact: Object {
     dynamic var contactId: String!
+    dynamic var leadId: String!
+
     dynamic var name: String!
     dynamic var email: String!
     dynamic var phone: String!
 
     override static func indexedProperties() -> [String] {
-        return ["contactId"]
+        return ["contactId", "leadId"]
     }
 
     override static func primaryKey() -> String? {

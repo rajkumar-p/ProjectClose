@@ -245,5 +245,18 @@ class ProjectCloseColors {
     static let reportTableViewCellPercentageTitleColor = "47BB7F"
     static let reportTableViewCellStarImageTintColor = "47BB7F"
 
+    static let metricTableViewCellReportTitleColor = "47BB7F"
+    static let metricTableViewCellLowTitleColor = "47BB7F"
+    static let metricTableViewCellHighTitleColor = "47BB7F"
+    static let metricTableViewCellMetricColor = "47BB7F"
+    static let metricTableViewCellGraphColor = "47BB7F"
+    static let metricTableViewCellPercentageTitleColor = "47BB7F"
+    static let metricTableViewCellStarImageTintColor = "47BB7F"
+    static let metricTableViewLeftMetricTitleColor = "47BB7F"
+    static let metricTableViewRightMetricTitleColor = "47BB7F"
+    static let metricTableViewTopBarTitleColor = "47BB7F"
+    static let metricTableViewBottomBarTitleColor = "47BB7F"
+    static let metricTableViewWeekTextColor = "47BB7F"
+
     static let allTableViewCellTintColor = "47BB7F"
 }

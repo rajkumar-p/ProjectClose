@@ -12,6 +12,8 @@ import RealmSwift
 class LeadMessagesTableViewController: UITableViewController {
     let leadMessageTableViewCellReuseIdentifier = "LeadMessageCell"
 
+    var leadId: String!
+
     var realm: Realm!
     var messagesResultSet: Results<Message>!
     
@@ -63,7 +65,7 @@ class LeadMessagesTableViewController: UITableViewController {
     }
 
     func loadMessages() {
-        messagesResultSet = realm.objects(Message.self).sorted(byKeyPath: "messageId")
+        messagesResultSet = realm.objects(Message.self).filter(NSPredicate(format: "leadId == %@", leadId)).sorted(byKeyPath: "messageId")
     }
 
     override func didReceiveMemoryWarning() {

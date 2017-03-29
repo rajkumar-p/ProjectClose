@@ -149,4 +149,15 @@ class ProjectCloseFonts {
     static let reportTableViewCellHighTitleFont = "Lato-Regular"
     static let reportTableViewCellMetricFont = "Lato-Regular"
     static let reportTableViewCellPercentageTitleFont = "Lato-Regular"
+
+    static let metricTableViewCellTitleFont = "Lato-Regular"
+    static let metricTableViewCellLowTitleFont = "Lato-Regular"
+    static let metricTableViewCellHighTitleFont = "Lato-Regular"
+    static let metricTableViewCellMetricFont = "Lato-Regular"
+    static let metricTableViewCellPercentageTitleFont = "Lato-Regular"
+    static let metricTableViewLeftMetricTitleFont = "Lato-Regular"
+    static let metricTableViewRightMetricTitleFont = "Lato-Regular"
+    static let metricTableViewTopBarTitleFont = "Lato-Regular"
+    static let metricTableViewBottomBarTitleFont = "Lato-Regular"
+    static let metricTableViewWeekTextFont = "Lato-Regular"
 }

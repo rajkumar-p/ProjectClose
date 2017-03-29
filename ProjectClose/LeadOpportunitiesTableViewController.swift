@@ -12,6 +12,8 @@ import RealmSwift
 class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpportunityDelegate {
     let leadOpportunityTableViewCellReuseIdentifier = "LeadOpportunityCell"
 
+    var leadId: String!
+
     var realm: Realm!
     var leadOpportunitiesResultSet: Results<Opportunity>!
 
@@ -45,7 +47,7 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
     }
 
     func loadLeadOpportunities() {
-        leadOpportunitiesResultSet = realm.objects(Opportunity.self).sorted(byKeyPath: "createdDate", ascending: false)
+        leadOpportunitiesResultSet = realm.objects(Opportunity.self).filter(NSPredicate(format: "leadId == %@", leadId)).sorted(byKeyPath: "createdDate", ascending: false)
     }
 
     func listenForLeadOpportunitiesNotifications() {
@@ -73,6 +75,7 @@ class LeadOpportunitiesTableViewController: UITableViewController, AddLeadOpport
             tableView.register(LeadOpportunityTableViewCell.classForCoder(), forCellReuseIdentifier: leadOpportunityTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
+            tableView.dataSource = self
             tableView.rowHeight = 75.0
         }
     }

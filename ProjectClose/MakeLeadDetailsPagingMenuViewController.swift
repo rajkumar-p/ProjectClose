@@ -110,6 +110,10 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         var leadStatusTableViewController: LeadStatusTableViewController!
         
         init(leadId: String) {
+            leadTasksTableViewController.leadId = leadId
+            leadOpportunitiesTableViewController.leadId = leadId
+            leadContactsTableViewController.leadId = leadId
+            leadMessagesTableViewController.leadId = leadId
             leadStatusTableViewController = LeadStatusTableViewController(leadId: leadId)
         }
 
@@ -118,7 +122,7 @@ func makeLeadDetailsPagingViewController(leadId: String) -> LeadDetailsPagingMen
         }
 
         var lazyLoadingPage: LazyLoadingPage {
-            return .all
+            return .one
         }
         
         var isScrollEnabled: Bool {

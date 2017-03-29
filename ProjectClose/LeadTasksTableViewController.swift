@@ -58,7 +58,7 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
     func loadLeadTasks() {
         let closedDateSortDescriptor = SortDescriptor(keyPath: "closedDate")
         let createdDateSortDescriptor = SortDescriptor(keyPath: "createdDate", ascending: false)
-        leadTasksResultSet = realm.objects(Task.self).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
+        leadTasksResultSet = realm.objects(Task.self).filter(NSPredicate(format: "leadId == %@", leadId)).sorted(by: [closedDateSortDescriptor, createdDateSortDescriptor])
     }
 
     func listenForLeadTasksNotifications() {

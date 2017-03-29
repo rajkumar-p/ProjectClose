@@ -14,6 +14,8 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     let leadCommsTableViewCellReuseIdentifier = "LeadCommsCell"
     let commsViewTag = 777
 
+    var leadId: String!
+
     var realm: Realm!
     var leadContactsResultSet: Results<Contact>!
 
@@ -55,7 +57,7 @@ class LeadContactsTableViewController: UITableViewController, AddLeadContactDele
     }
 
     func loadLeadContacts() {
-        leadContactsResultSet = realm.objects(Contact.self).sorted(byKeyPath: "name")
+        leadContactsResultSet = realm.objects(Contact.self).filter(NSPredicate(format: "leadId == %@", leadId)).sorted(byKeyPath: "name")
     }
 
     override func didReceiveMemoryWarning() {
