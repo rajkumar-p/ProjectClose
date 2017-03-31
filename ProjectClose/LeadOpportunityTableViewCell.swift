@@ -25,10 +25,8 @@ class LeadOpportunityTableViewCell: UITableViewCell {
 
     var statusLabel: UILabel!
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, confidencePercentage: Double) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        self.confidencePercentage = confidencePercentage
 
         cellBackgroundView = UIView()
         cellBackgroundView.translatesAutoresizingMaskIntoConstraints = false

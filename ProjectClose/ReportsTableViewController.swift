@@ -43,11 +43,6 @@ class ReportsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
 
         setupRealm()
@@ -101,12 +96,10 @@ class ReportsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return leadsResultSet.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 4
     }
 
@@ -115,14 +108,12 @@ class ReportsTableViewController: UITableViewController {
 
         let headerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 70.0))
         headerView.backgroundColor = UIColor(hexString: ProjectCloseColors.reportsTableViewControllerSectionBackgroundColor)
-//        headerView.translatesAutoresizingMaskIntoConstraints = false
 
         let leadNameLabel = UILabel()
         leadNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         leadNameLabel.textAlignment = .left
         leadNameLabel.text = leadInSection.companyName
-//        leadNameLabel.backgroundColor = UIColor(hexString: ProjectCloseColors.reportsTableViewControllerSectionBackgroundColor)
         leadNameLabel.textColor = UIColor(hexString: ProjectCloseColors.reportsTableViewControllerSectionLeadNameTitleColor)
         leadNameLabel.font = UIFont(name: ProjectCloseFonts.reportsTableViewControllerSectionLeadNameTitleFont, size: 20.0)
         leadNameLabel.sizeToFit()
@@ -304,66 +295,4 @@ class ReportsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-//    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let reportTableViewCell = cell as! ReportTableViewCell
-//        let radius = CGFloat(reportTableViewCell.graphView.bounds.height / 2.0 - 2.0)
-//        let centerX = reportTableViewCell.graphView.bounds.width / 2.0
-//        let centerY = reportTableViewCell.graphView.bounds.height / 2.0
-//        
-//        let circleLayer1 = CAShapeLayer.init()
-//        circleLayer1.path = UIBezierPath.init(roundedRect: CGRect(x: 0.0, y: 0.0, width: 2.0 * radius, height: 2.0 * radius), cornerRadius: CGFloat(radius)).cgPath
-//        circleLayer1.position = CGPoint(x: centerX - radius, y: centerY - radius)
-//        
-//        circleLayer1.fillColor = UIColor.clear.cgColor
-//        circleLayer1.strokeColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
-//        circleLayer1.lineWidth = 7.0
-//        
-//        reportTableViewCell.graphView.layer.addSublayer(circleLayer1)
-//    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -27,10 +27,8 @@ class OpportunityTableViewCell: UITableViewCell {
 
     var statusLabel: UILabel!
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, confidencePercentage: Double) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        self.confidencePercentage = confidencePercentage
 
         cellBackgroundView = UIView()
         cellBackgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,12 +130,10 @@ class OpportunityTableViewCell: UITableViewCell {
 
         leftView.addConstraint(valueLabel.heightAnchor.constraint(equalToConstant: 24.0))
         cellBackgroundView.addConstraint(valueLabel.leftAnchor.constraint(equalTo: leadLabel.rightAnchor, constant: 16.0))
-//        leftView.addConstraint(valueLabel.leftAnchor.constraint(equalTo: (valueLabel.superview?.leftAnchor)!, constant: 5.0))
         leftView.addConstraint(valueLabel.bottomAnchor.constraint(equalTo: (valueLabel.superview?.centerYAnchor)!, constant: -3.0))
 
         leftView.addConstraint(userLabel.heightAnchor.constraint(equalToConstant: 24.0))
         cellBackgroundView.addConstraint(userLabel.leftAnchor.constraint(equalTo: leadLabel.rightAnchor, constant: 16.0))
-//        leftView.addConstraint(userLabel.leftAnchor.constraint(equalTo: (userLabel.superview?.leftAnchor)!, constant: 5.0))
         leftView.addConstraint(userLabel.topAnchor.constraint(equalTo: (userLabel.superview?.centerYAnchor)!, constant: 3.0))
 
         rightView.addConstraint(confidenceView.widthAnchor.constraint(equalTo: (confidenceView.superview?.widthAnchor)!, multiplier: 0.90))

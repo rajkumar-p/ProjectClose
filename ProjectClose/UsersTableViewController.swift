@@ -20,11 +20,6 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         initTitle()
         setupView()
         setupTableView()
@@ -46,7 +41,6 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
 
     func setupTableView() {
         if let tableView = self.tableView {
-            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: userTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
             tableView.rowHeight = 75.0
@@ -120,12 +114,10 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return usersResultSet.count
     }
 
@@ -135,17 +127,21 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
         let name = user.name
         let email = user.email
 
-        let userCell = UITableViewCell(style: .subtitle, reuseIdentifier: userTableViewCellReuseIdentifier)
+        var userCell = tableView.dequeueReusableCell(withIdentifier: userTableViewCellReuseIdentifier)
 
-        userCell.textLabel?.text = name
-        userCell.textLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerNameFont, size: 20.0)
-        userCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerNameColor)
+        if userCell == nil {
+            userCell = UITableViewCell(style: .subtitle, reuseIdentifier: userTableViewCellReuseIdentifier)
+        }
 
-        userCell.detailTextLabel?.text = email
-        userCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerEmailFont, size: 18.0)
-        userCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerEmailColor)
+        userCell?.textLabel?.text = name
+        userCell?.textLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerNameFont, size: 20.0)
+        userCell?.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerNameColor)
 
-        return userCell
+        userCell?.detailTextLabel?.text = email
+        userCell?.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.usersTableViewControllerEmailFont, size: 18.0)
+        userCell?.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.usersTableViewControllerEmailColor)
+
+        return userCell!
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
@@ -171,50 +167,5 @@ class UsersTableViewController: UITableViewController, AddUserDelegate {
     func reloadTableView() {
         self.tableView?.reloadData()
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

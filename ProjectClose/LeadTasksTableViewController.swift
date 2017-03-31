@@ -20,7 +20,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-//        setupAddTaskButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,11 +29,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         setupTableView()
 
         setupRealm()
@@ -44,7 +38,6 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
 
     func setupTableView() {
         if let tableView = self.tableView {
-            tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leadTaskTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
             tableView.rowHeight = 75.0
@@ -94,24 +87,26 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return leadTasksResultSet.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leadTask = leadTasksResultSet[indexPath.row]
 
-        let leadTaskCell = UITableViewCell(style: .subtitle, reuseIdentifier: leadTaskTableViewCellReuseIdentifier)
+        var leadTaskCell = tableView.dequeueReusableCell(withIdentifier: leadTaskTableViewCellReuseIdentifier)
+
+        if leadTaskCell == nil {
+            leadTaskCell = UITableViewCell(style: .subtitle, reuseIdentifier: leadTaskTableViewCellReuseIdentifier)
+        }
         
-        leadTaskCell.textLabel?.font = UIFont(name:  ProjectCloseFonts.leadTasksTableViewControllerTitleFont, size: 20.0)
-        leadTaskCell.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTitleColor)
+        leadTaskCell?.textLabel?.font = UIFont(name:  ProjectCloseFonts.leadTasksTableViewControllerTitleFont, size: 20.0)
+        leadTaskCell?.textLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTitleColor)
         
-        leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+        leadTaskCell?.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
 
         var subtitleText = leadTask.assignedTo.name
         if let expiryDate = leadTask.expiryDate {
@@ -119,22 +114,13 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
             dateFormatter.dateFormat = "MMM d, yyyy"
             subtitleText = subtitleText + " / " + dateFormatter.string(from: expiryDate)
             if leadTask.expiryDeadlineDate < Date() && !leadTask.closed {
-                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
+                leadTaskCell?.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
             } else {
-                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
+                leadTaskCell?.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
             }
-//            let order = NSCalendar.current.compare(Date(), to: expiryDate, toGranularity: .day)
-//            switch order {
-//            case .orderedAscending:
-//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
-//            case .orderedDescending:
-//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerExpiredSubtitleColor)
-//            case .orderedSame:
-//                leadTaskCell.detailTextLabel?.textColor = UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerSubtitleColor)
-//            }
         }
         
-        leadTaskCell.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerStatus, size: 18.0)
+        leadTaskCell?.detailTextLabel?.font = UIFont(name: ProjectCloseFonts.leadsTableViewControllerStatus, size: 18.0)
         
         if leadTask.closed {
             let titleAttributedText = NSAttributedString(string: leadTask.taskDescription, attributes:
@@ -142,41 +128,21 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
                 NSStrikethroughStyleAttributeName : 2,
                 NSStrikethroughColorAttributeName: UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellTitleStrikeThroughColor)!
             ])
-            leadTaskCell.textLabel?.attributedText = titleAttributedText
+            leadTaskCell?.textLabel?.attributedText = titleAttributedText
             
             let subtitleAttributedText = NSAttributedString(string: subtitleText, attributes:
             [
                     NSStrikethroughStyleAttributeName : 2,
                     NSStrikethroughColorAttributeName: UIColor(hexString: ProjectCloseColors.leadTasksTableViewControllerTableCellSubtitleStrikeThroughColor)!
             ])
-            leadTaskCell.detailTextLabel?.attributedText = subtitleAttributedText
+            leadTaskCell?.detailTextLabel?.attributedText = subtitleAttributedText
         } else {
-            leadTaskCell.textLabel?.text = leadTask.taskDescription
-            leadTaskCell.detailTextLabel?.text = subtitleText
+            leadTaskCell?.textLabel?.text = leadTask.taskDescription
+            leadTaskCell?.detailTextLabel?.text = subtitleText
         }
 
-        return leadTaskCell
+        return leadTaskCell!
     }
-
-//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-//        return .delete
-//    }
-//
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        tableView!.setEditing(editing, animated: animated)
-//    }
-//
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let leadTask = leadTasksResultSet[indexPath.row]
-//            try! realm.write {
-//                realm.delete(leadTask)
-//            }
-//
-//            tableView.deleteRows(at: [indexPath], with: .left)
-//        }
-//    }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let leadTask = leadTasksResultSet[indexPath.row]
@@ -210,72 +176,12 @@ class LeadTasksTableViewController: UITableViewController, AddLeadTaskDelegate {
         }
 
     }
-//
-//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-//        
-//    }
 
     func didFinishAddingLeadTask(sender: AddLeadTaskViewController) {
-//        reloadTableView()
     }
 
     func reloadTableView() {
         self.tableView?.reloadData()
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
