@@ -116,6 +116,7 @@ class AddOpportunityViewController: UIViewController, UITextFieldDelegate, UserC
         descriptionTextField.translatesAutoresizingMaskIntoConstraints = false
 
         descriptionTextField.keyboardType = .asciiCapable
+        descriptionTextField.autocapitalizationType = .words
         descriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerDescriptionTextFieldTitleColor)
         descriptionTextField.font = UIFont(name: ProjectCloseFonts.addOpportunityViewControllerDescriptionFont, size: 20.0)
         descriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_opportunity_vc_opportunity_description_placeholder", value: "e.g. Gob's ready to buy a $3000 suit.", comment: "Add Opportunity VC Opportunity Description Placeholder"),
