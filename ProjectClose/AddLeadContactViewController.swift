@@ -93,6 +93,7 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
         nameTextField.autocapitalizationType = .words
         nameTextField.autocorrectionType = .no
         nameTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerNameTextFieldTitleColor)
+        nameTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerTextFieldTintColor)
         nameTextField.font = UIFont(name: ProjectCloseFonts.addLeadContactViewControllerNameFont, size: 20.0)
         nameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_contact_vc_company_name_placeholder", value: "e.g. Mike Ray", comment: "Add Lead Contact VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerNameTitleColor)!,
@@ -130,6 +131,7 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
         emailTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerEmailTextFieldTitleColor)
+        emailTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerTextFieldTintColor)
         emailTextField.font = UIFont(name: ProjectCloseFonts.addLeadContactViewControllerEmailFont, size: 20.0)
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_contact_vc_company_email_placeholder", value: "e.g. mike.ray@example.com", comment: "Add Lead Contact VC Company Email Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerEmailTitleColor)!,
@@ -165,6 +167,7 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
 
         phoneTextField.keyboardType = .phonePad
         phoneTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerPhoneTextFieldTitleColor)
+        phoneTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerTextFieldTintColor)
         phoneTextField.font = UIFont(name: ProjectCloseFonts.addLeadContactViewControllerPhoneFont, size: 20.0)
         phoneTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_contact_vc_company_phone_placeholder", value: "e.g. +123456789", comment: "Add Lead Contact VC Company Phone Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerPhoneTitleColor)!,

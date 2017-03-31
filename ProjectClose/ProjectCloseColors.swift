@@ -12,6 +12,7 @@ class ProjectCloseColors {
     static let loginViewControllerLogoTitleColor = "FFFFFF"
     static let loginViewControllerLogoBorderColor = "FFFFFF"
 
+    static let loginViewControllerTextFieldTintColor = "FFFFFF"
     static let loginViewControllerEmailTextFieldColor = "FFFFFF"
     static let loginViewControllerEmailTextFieldPlaceholderColor = "FFFFFF"
     static let loginViewControllerPasswordTextFieldColor = "FFFFFF"
@@ -48,6 +49,7 @@ class ProjectCloseColors {
 
     static let leadsTableViewControllerAddLeadButtonColor = "FFFFFF"
 
+    static let addLeadViewControllerTextFieldTintColor = "47BB7F"
     static let addLeadViewControllerCompanyNameTitleColor = "2C3541"
     static let addLeadViewControllerCompanyNameTextFieldTitleColor = "47BB7F"
     static let addLeadViewControllerCompanyDescriptionTitleColor = "2C3541"
@@ -57,6 +59,7 @@ class ProjectCloseColors {
     static let addLeadViewControllerAddLeadButtonBackgroundColor = "47BB7F"
     static let addLeadViewControllerAddLeadButtonTitleColor = "FFFFFF"
 
+    static let addLeadOpportunityViewControllerTextFieldTintColor = "47BB7F"
     static let addLeadOpportunityViewControllerDescriptionTitleColor = "2C3541"
     static let addLeadOpportunityViewControllerDescriptionTextFieldTitleColor = "47BB7F"
     static let addLeadOpportunityViewControllerExpiryDateTitleColor = "2C3541"
@@ -70,6 +73,7 @@ class ProjectCloseColors {
     static let addLeadOpportunityViewControllerAddLeadOpportunityButtonBackgroundColor = "47BB7F"
     static let addLeadOpportunityViewControllerAddLeadOpportunityButtonTitleColor = "FFFFFF"
 
+    static let addOpportunityViewControllerTextFieldTintColor = "47BB7F"
     static let addOpportunityViewControllerDescriptionTitleColor = "2C3541"
     static let addOpportunityViewControllerDescriptionTextFieldTitleColor = "47BB7F"
     static let addOpportunityViewControllerExpiryDateTitleColor = "2C3541"
@@ -85,6 +89,7 @@ class ProjectCloseColors {
     static let addOpportunityViewControllerAddOpportunityButtonBackgroundColor = "47BB7F"
     static let addOpportunityViewControllerAddOpportunityButtonTitleColor = "FFFFFF"
 
+    static let addLeadTasksViewControllerTextFieldTintColor = "47BB7F"
     static let addLeadTasksViewControllerTaskDescriptionTitleColor = "2C3541"
     static let addLeadTasksViewControllerTaskDescriptionTextFieldTitleColor = "47BB7F"
     static let addLeadTasksViewControllerAssignedToLabelTitleColor = "2C3541"
@@ -97,6 +102,7 @@ class ProjectCloseColors {
     static let addLeadTasksViewControllerAddLeadTaskButtonBackgroundColor = "47BB7F"
     static let addLeadTasksViewControllerAddLeadTaskButtonTitleColor = "FFFFFF"
 
+    static let addLeadContactViewControllerTextFieldTintColor = "47BB7F"
     static let addLeadContactViewControllerNameTitleColor = "2C3541"
     static let addLeadContactViewControllerNameTextFieldTitleColor = "47BB7F"
     static let addLeadContactViewControllerEmailTitleColor = "2C3541"
@@ -129,6 +135,7 @@ class ProjectCloseColors {
     static let settingsViewControllerLogoutButtonBackgroundColor = "47BB7F"
     static let settingsViewControllerLogoutButtonTitleColor = "FFFFFF"
 
+    static let addUserViewControllerTextFieldTintColor = "47BB7F"
     static let addUserViewControllerNameLabelTitleColor = "2C3541"
     static let addUserViewControllerNameTextFieldTitleColor = "47BB7F"
     static let addUserViewControllerNameTextFieldPlaceholderColor = "2C3541"

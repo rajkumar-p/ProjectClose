@@ -89,6 +89,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyNameTextField.autocapitalizationType = .words
         companyNameTextField.autocorrectionType = .no
         companyNameTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyNameTextFieldTitleColor)
+        companyNameTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerTextFieldTintColor)
         companyNameTextField.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerCompanyNameFont, size: 20.0)
         companyNameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_name_placeholder", value: "e.g. Foo Company", comment: "Add Lead VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyNameTitleColor)!,
@@ -126,6 +127,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyDescriptionTextField.autocorrectionType = .no
         companyDescriptionTextField.autocapitalizationType = .none
         companyDescriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyDescriptionTextFieldTitleColor)
+        companyDescriptionTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerTextFieldTintColor)
         companyDescriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerCompanyDescriptionFont, size: 20.0)
         companyDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_description_placeholder", value: "e.g. Awesome Company!!!", comment: "Add Lead VC Company Description Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyDescriptionTitleColor)!,
@@ -163,6 +165,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyAddressTextView.autocorrectionType = .default
         companyAddressTextView.autocapitalizationType = .sentences
         companyAddressTextView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)
+        companyAddressTextView.tintColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerTextFieldTintColor)
         companyAddressTextView.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)
 
         companyAddressTextView.text = companyAddressTextViewPlaceholderString

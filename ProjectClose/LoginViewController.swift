@@ -104,6 +104,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.autocapitalizationType = .none
         emailTextField.autocorrectionType = .no
         emailTextField.textColor = UIColor(hexString: ProjectCloseColors.loginViewControllerEmailTextFieldColor)
+        emailTextField.tintColor = UIColor(hexString: ProjectCloseColors.loginViewControllerTextFieldTintColor)
 
         emailTextField.font = UIFont(name: ProjectCloseFonts.loginViewControllerEmailTextFieldFont, size: 22.0)
         emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_email_placeholder", value: "email", comment: "Login VC email placeholder"),
@@ -127,6 +128,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textColor = UIColor(hexString: ProjectCloseColors.loginViewControllerPasswordTextFieldColor)
+        passwordTextField.tintColor = UIColor(hexString: ProjectCloseColors.loginViewControllerTextFieldTintColor)
 
         passwordTextField.font = UIFont(name: ProjectCloseFonts.loginViewControllerPasswordTextFieldFont, size: 22.0)
         passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_password_placeholder", value: "password", comment: "Login VC password placeholder"),

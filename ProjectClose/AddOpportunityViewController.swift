@@ -118,6 +118,7 @@ class AddOpportunityViewController: UIViewController, UITextFieldDelegate, UserC
         descriptionTextField.keyboardType = .asciiCapable
         descriptionTextField.autocapitalizationType = .words
         descriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerDescriptionTextFieldTitleColor)
+        descriptionTextField.tintColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerTextFieldTintColor)
         descriptionTextField.font = UIFont(name: ProjectCloseFonts.addOpportunityViewControllerDescriptionFont, size: 20.0)
         descriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_opportunity_vc_opportunity_description_placeholder", value: "e.g. Gob's ready to buy a $3000 suit.", comment: "Add Opportunity VC Opportunity Description Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerDescriptionTitleColor)!,
@@ -155,6 +156,7 @@ class AddOpportunityViewController: UIViewController, UITextFieldDelegate, UserC
         expiryDateTextField.autocapitalizationType = .words
         expiryDateTextField.autocorrectionType = .no
         expiryDateTextField.textColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerExpiryDateTextFieldTitleColor)
+        expiryDateTextField.tintColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerTextFieldTintColor)
         expiryDateTextField.font = UIFont(name: ProjectCloseFonts.addOpportunityViewControllerExpiryDateFont, size: 20.0)
         expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_opportunity_vc_opportunity_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Opportunity VC Opportunity Expiry Date Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerExpiryDateTitleColor)!,
@@ -267,6 +269,7 @@ class AddOpportunityViewController: UIViewController, UITextFieldDelegate, UserC
         valueTextField.textAlignment = .right
         valueTextField.keyboardType = .numbersAndPunctuation
         valueTextField.textColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerValueTextFieldTitleColor)
+        valueTextField.tintColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerTextFieldTintColor)
         valueTextField.font = UIFont(name: ProjectCloseFonts.addOpportunityViewControllerValueFont, size: 20.0)
         valueTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_opportunity_vc_opportunity_value_placeholder", value: "e.g. 3,000", comment: "Add Opportunity VC Opportunity Value Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerValueTitleColor)!,
@@ -307,6 +310,7 @@ class AddOpportunityViewController: UIViewController, UITextFieldDelegate, UserC
         confidenceTextField.textAlignment = .right
         confidenceTextField.keyboardType = .numbersAndPunctuation
         confidenceTextField.textColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerConfidenceTextFieldTitleColor)
+        confidenceTextField.tintColor = UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerTextFieldTintColor)
         confidenceTextField.font = UIFont(name: ProjectCloseFonts.addOpportunityViewControllerConfidenceFont, size: 20.0)
         confidenceTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_opportunity_vc_opportunity_confidence_placeholder", value: "e.g. 60", comment: "Add Opportunity VC Opportunity Confidence Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addOpportunityViewControllerConfidenceTitleColor)!,

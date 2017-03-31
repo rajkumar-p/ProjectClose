@@ -96,6 +96,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         taskDescriptionTextField.autocapitalizationType = .words
         taskDescriptionTextField.autocorrectionType = .no
         taskDescriptionTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTextFieldTitleColor)
+        taskDescriptionTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTextFieldTintColor)
         taskDescriptionTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerTaskDescriptionFont, size: 20.0)
         taskDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_company_name_placeholder", value: "e.g. Call Brady", comment: "Add Lead Task VC Company Name Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTaskDescriptionTitleColor)!,
@@ -137,6 +138,7 @@ class AddLeadTaskViewController: UIViewController, UITextFieldDelegate, UserChoo
         expiryDateTextField.autocapitalizationType = .words
         expiryDateTextField.autocorrectionType = .no
         expiryDateTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTextFieldTitleColor)
+        expiryDateTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerTextFieldTintColor)
         expiryDateTextField.font = UIFont(name: ProjectCloseFonts.addLeadTasksViewControllerExpiryDateFont, size: 20.0)
         expiryDateTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_task_vc_expiry_date_placeholder", value: "Format - YYYY/MM/DD. Can be empty.", comment: "Add Lead Task VC Expiry Date Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadTasksViewControllerExpiryDateTitleColor)!,
