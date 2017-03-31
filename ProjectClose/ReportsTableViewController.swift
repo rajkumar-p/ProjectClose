@@ -52,7 +52,7 @@ class ReportsTableViewController: UITableViewController {
 
     func setupTableView() {
         if let tableView = self.tableView {
-            tableView.register(MetricTableViewCell.classForCoder(), forCellReuseIdentifier: reportTableViewCellReuseIdentifier)
+            tableView.register(ReportTableViewCell.classForCoder(), forCellReuseIdentifier: reportTableViewCellReuseIdentifier)
             tableView.showsVerticalScrollIndicator = false
             tableView.separatorStyle = .none
             tableView.rowHeight = 190.0
@@ -162,7 +162,7 @@ class ReportsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reportTableViewCellReuseIdentifier, for: indexPath)
         cell.selectionStyle = .none
 
-        if let metricTableViewCell = cell as? MetricTableViewCell {
+        if let metricTableViewCell = cell as? ReportTableViewCell {
             // Init data
             metricTableViewCell.week1Value = week1
             metricTableViewCell.week2Value = week2
@@ -237,60 +237,6 @@ class ReportsTableViewController: UITableViewController {
         return cell
     }
     
-    func makeReportTableViewCell(low: Int, high: Int, metricTitle: String, metric: String) -> ReportTableViewCell {
-        let reportTableViewCell = ReportTableViewCell(style: .default, reuseIdentifier: reportTableViewCellReuseIdentifier, metricTitle: metricTitle, low: low, high: high, metric: metric)
-        
-        reportTableViewCell.selectionStyle = .none
-        
-        reportTableViewCell.setNeedsLayout()
-        reportTableViewCell.layoutIfNeeded()
-        
-        let radius = CGFloat(min(reportTableViewCell.outerCircle.bounds.width, reportTableViewCell.outerCircle.bounds.height) / 2.0)
-        let centerX = reportTableViewCell.outerCircle.bounds.midX
-        let centerY = reportTableViewCell.outerCircle.bounds.midY
-        
-        let percentage = 100.0 * (Double(low) / Double(high))
-        let degree = Int(percentage * 360.0 / 100.0)
-        
-        let percentageLayer = CAShapeLayer.init()
-        percentageLayer.path = UIBezierPath.init(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: ProjectCloseUtilities.degreeToRadian(degree: CGFloat(degree)), clockwise: true).cgPath
-        percentageLayer.fillColor = UIColor.clear.cgColor
-        percentageLayer.strokeColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
-        percentageLayer.lineWidth = 15.0
-        
-        reportTableViewCell.outerCircle.layer.addSublayer(percentageLayer)
-        
-        return reportTableViewCell
-
-    }
-
-    func makeTasksCompletedReportTableViewCell() -> ReportTableViewCell {
-        let maxTasks = arc4random_uniform(21) + 10
-        let closedTasks = arc4random_uniform(maxTasks)
-
-        let reportTableViewCell = ReportTableViewCell(style: .default, reuseIdentifier: reportTableViewCellReuseIdentifier, metricTitle: "Tasks Completed", low: Int(closedTasks), high: Int(maxTasks), metric: "Tasks")
-
-        reportTableViewCell.setNeedsLayout()
-        reportTableViewCell.layoutIfNeeded()
-
-        let radius = CGFloat(min(reportTableViewCell.outerCircle.bounds.width, reportTableViewCell.outerCircle.bounds.height) / 2.0)
-        let centerX = reportTableViewCell.outerCircle.bounds.midX
-        let centerY = reportTableViewCell.outerCircle.bounds.midY
-
-        let percentage = 100.0 * (Double(closedTasks) / Double(maxTasks))
-        let degree = Int(percentage * 360.0 / 100.0)
-
-        let percentageLayer = CAShapeLayer.init()
-        percentageLayer.path = UIBezierPath.init(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: ProjectCloseUtilities.degreeToRadian(degree: CGFloat(degree)), clockwise: true).cgPath
-        percentageLayer.fillColor = UIColor.clear.cgColor
-        percentageLayer.strokeColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
-        percentageLayer.lineWidth = 15.0
-
-        reportTableViewCell.outerCircle.layer.addSublayer(percentageLayer)
-
-        return reportTableViewCell
-    }
-
     func reloadTableView() {
         self.tableView.reloadData()
     }

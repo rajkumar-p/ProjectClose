@@ -1,8 +1,8 @@
 //
-//  ReportTableViewCell.swift
+//  MetricTableViewCell.swift
 //  ProjectClose
 //
-//  Created by raj on 19/03/17.
+//  Created by raj on 24/03/17.
 //  Copyright © 2017 diskodev. All rights reserved.
 //
 
@@ -10,112 +10,140 @@ import UIKit
 
 class ReportTableViewCell: UITableViewCell {
     var titleView: UIView!
-    var metricTitleLabel: UILabel!
-    var metricStarImageView: UIImageView!
-    var metricView: UIView!
-    var graphView: UIView!
-    var totalView: UIView!
+    var titleLabel: UILabel!
 
-    var lowLabel: UILabel!
-    var highLabel: UILabel!
-    var metricLabel: UILabel!
+    var metricView: UIView!
+    var leftMetricView: UIView!
+    var rightMetricView: UIView!
 
     var outerCircle: UIView!
-
     var percentageLabel: UILabel!
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, metricTitle: String, low: Int, high: Int, metric: String) {
+    var leftFooterView: UIView!
+    var rightFooterView: UIView!
+    var footerView: UIView!
+    var leftMetricTitleLabel: UILabel!
+    var rightMetricTitleLabel: UILabel!
+
+    var week1Value: Int!
+    var week2Value: Int!
+
+    var week1Label: UILabel!
+    var week2Label: UILabel!
+
+    var topBarView: UIView!
+    var bottomBarView: UIView!
+    var topBarLabel: UILabel!
+    var bottomBarLabel: UILabel!
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         titleView = UIView()
         titleView.translatesAutoresizingMaskIntoConstraints = false
 
-        titleView.backgroundColor = .white
-
         contentView.addSubview(titleView)
 
-        metricTitleLabel = UILabel()
-        metricTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        metricTitleLabel.text = metricTitle
-        metricTitleLabel.font = UIFont(name: ProjectCloseFonts.reportTableViewCellReportTitleFont, size: 18.0)
-        metricTitleLabel.textColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellReportTitleColor)
-        metricTitleLabel.sizeToFit()
+        titleLabel.sizeToFit()
 
-        titleView.addSubview(metricTitleLabel)
-
-        metricStarImageView = UIImageView(image: UIImage(named: ProjectCloseStrings.reportTableViewCellStarImageName)?.withRenderingMode(.alwaysTemplate))
-        metricStarImageView.translatesAutoresizingMaskIntoConstraints = false
-
-        metricStarImageView.tintColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellStarImageTintColor)
-
-        titleView.addSubview(metricStarImageView)
+        titleView.addSubview(titleLabel)
 
         metricView = UIView()
         metricView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(metricView)
 
-        graphView = UIView()
-        graphView.translatesAutoresizingMaskIntoConstraints = false
+        footerView = UIView()
+        footerView.translatesAutoresizingMaskIntoConstraints = false
 
-        metricView.addSubview(graphView)
+        contentView.addSubview(footerView)
 
-        totalView = UIView()
-        totalView.translatesAutoresizingMaskIntoConstraints = false
+        leftFooterView = UIView()
+        leftFooterView.translatesAutoresizingMaskIntoConstraints = false
 
-        metricView.addSubview(totalView)
+        footerView.addSubview(leftFooterView)
 
-        lowLabel = UILabel()
-        lowLabel.translatesAutoresizingMaskIntoConstraints = false
+        rightFooterView = UIView()
+        rightFooterView.translatesAutoresizingMaskIntoConstraints = false
 
-        lowLabel.text = String(low) + " /"
-        lowLabel.font = UIFont(name: ProjectCloseFonts.reportTableViewCellLowTitleFont, size: 25.0)
-        lowLabel.textColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellLowTitleColor)
-        lowLabel.sizeToFit()
+        footerView.addSubview(rightFooterView)
 
-        totalView.addSubview(lowLabel)
+        leftMetricView = UIView()
+        leftMetricView.translatesAutoresizingMaskIntoConstraints = false
 
-        highLabel = UILabel()
-        highLabel.translatesAutoresizingMaskIntoConstraints = false
+        metricView.addSubview(leftMetricView)
 
-        highLabel.text = String(high)
-        highLabel.font = UIFont(name: ProjectCloseFonts.reportTableViewCellHighTitleFont, size: 35.0)
-        highLabel.textColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellHighTitleColor)
-        highLabel.sizeToFit()
+        rightMetricView = UIView()
+        rightMetricView.translatesAutoresizingMaskIntoConstraints = false
 
-        totalView.addSubview(highLabel)
-
-        metricLabel = UILabel()
-        metricLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        metricLabel.text = metric
-        metricLabel.font = UIFont(name: ProjectCloseFonts.reportTableViewCellMetricFont, size: 15.0)
-        metricLabel.textColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellMetricColor)
-        metricLabel.sizeToFit()
-
-        totalView.addSubview(metricLabel)
+        metricView.addSubview(rightMetricView)
 
         outerCircle = UIView()
         outerCircle.translatesAutoresizingMaskIntoConstraints = false
 
-        outerCircle.layer.borderWidth = 1.0
-        outerCircle.layer.borderColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
-
-        outerCircle.layer.cornerRadius = 100.0 / 2.0
-        outerCircle.clipsToBounds = true
-
-        graphView.addSubview(outerCircle)
+        leftMetricView.addSubview(outerCircle)
 
         percentageLabel = UILabel()
         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        percentageLabel.text = String(Int(100.0 * (Double(low) / Double(high)))) + "%"
-        percentageLabel.font = UIFont(name: ProjectCloseFonts.reportTableViewCellPercentageTitleFont, size: 20.0)
-        percentageLabel.textColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellPercentageTitleColor)
         percentageLabel.sizeToFit()
 
         outerCircle.addSubview(percentageLabel)
+
+        leftMetricTitleLabel = UILabel()
+        leftMetricTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        leftMetricTitleLabel.sizeToFit()
+
+        leftFooterView.addSubview(leftMetricTitleLabel)
+
+        rightMetricTitleLabel = UILabel()
+        rightMetricTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        rightMetricTitleLabel.sizeToFit()
+
+        rightFooterView.addSubview(rightMetricTitleLabel)
+
+        topBarView = UIView()
+        topBarView.translatesAutoresizingMaskIntoConstraints = false
+
+        rightMetricView.addSubview(topBarView)
+
+        bottomBarView = UIView()
+        bottomBarView.translatesAutoresizingMaskIntoConstraints = false
+
+        rightMetricView.addSubview(bottomBarView)
+
+        topBarLabel = UILabel()
+        topBarLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        topBarLabel.sizeToFit()
+
+        rightMetricView.addSubview(topBarLabel)
+
+        bottomBarLabel = UILabel()
+        bottomBarLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        bottomBarLabel.sizeToFit()
+
+        rightMetricView.addSubview(bottomBarLabel)
+
+        week1Label = UILabel()
+        week1Label.translatesAutoresizingMaskIntoConstraints = false
+
+        week1Label.sizeToFit()
+
+        topBarView.addSubview(week1Label)
+
+        week2Label = UILabel()
+        week2Label.translatesAutoresizingMaskIntoConstraints = false
+
+        week2Label.sizeToFit()
+
+        bottomBarView.addSubview(week2Label)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -130,46 +158,87 @@ class ReportTableViewCell: UITableViewCell {
         super.layoutSubviews()
 
         contentView.addConstraint(titleView.widthAnchor.constraint(equalTo: (titleView.superview?.widthAnchor)!))
-        contentView.addConstraint(titleView.heightAnchor.constraint(equalTo: (titleView.superview?.heightAnchor)!, multiplier: 0.20))
+        contentView.addConstraint(titleView.heightAnchor.constraint(equalTo: (titleView.superview?.heightAnchor)!, multiplier: 0.15))
         contentView.addConstraint(titleView.leftAnchor.constraint(equalTo: (titleView.superview?.leftAnchor)!))
         contentView.addConstraint(titleView.topAnchor.constraint(equalTo: (titleView.superview?.topAnchor)!))
 
-        titleView.addConstraint(metricTitleLabel.leftAnchor.constraint(equalTo: (metricTitleLabel.superview?.leftAnchor)!, constant: 16.0))
-        titleView.addConstraint(metricTitleLabel.centerYAnchor.constraint(equalTo: (metricTitleLabel.superview?.centerYAnchor)!))
-
-        titleView.addConstraint(metricStarImageView.leftAnchor.constraint(equalTo: metricTitleLabel.rightAnchor, constant: 15.0))
-        titleView.addConstraint(metricStarImageView.centerYAnchor.constraint(equalTo: (metricStarImageView.superview?.centerYAnchor)!))
+        titleView.addConstraint(titleLabel.leftAnchor.constraint(equalTo: (titleLabel.superview?.leftAnchor)!, constant: 16.0))
+        titleView.addConstraint(titleLabel.centerYAnchor.constraint(equalTo: (titleLabel.superview?.centerYAnchor)!))
 
         contentView.addConstraint(metricView.widthAnchor.constraint(equalTo: (metricView.superview?.widthAnchor)!))
-        contentView.addConstraint(metricView.heightAnchor.constraint(equalTo: (metricView.superview?.heightAnchor)!, multiplier: 0.80))
+        contentView.addConstraint(metricView.heightAnchor.constraint(equalTo: (metricView.superview?.heightAnchor)!, multiplier: 0.70))
         contentView.addConstraint(metricView.topAnchor.constraint(equalTo: titleView.bottomAnchor))
 
-        metricView.addConstraint(graphView.widthAnchor.constraint(equalTo: (graphView.superview?.widthAnchor)!, multiplier: 0.40))
-        metricView.addConstraint(graphView.heightAnchor.constraint(equalTo: (graphView.superview?.heightAnchor)!))
-        metricView.addConstraint(graphView.topAnchor.constraint(equalTo: (graphView.superview?.topAnchor)!))
-        metricView.addConstraint(graphView.leftAnchor.constraint(equalTo: (graphView.superview?.leftAnchor)!))
+        metricView.addConstraint(leftMetricView.widthAnchor.constraint(equalTo: (leftMetricView.superview?.widthAnchor)!, multiplier: 0.50))
+        metricView.addConstraint(leftMetricView.heightAnchor.constraint(equalTo: (leftMetricView.superview?.heightAnchor)!))
+        metricView.addConstraint(leftMetricView.topAnchor.constraint(equalTo: (leftMetricView.superview?.topAnchor)!))
+        metricView.addConstraint(leftMetricView.leftAnchor.constraint(equalTo: (leftMetricView.superview?.leftAnchor)!))
 
-        metricView.addConstraint(totalView.widthAnchor.constraint(equalTo: (totalView.superview?.widthAnchor)!, multiplier: 0.60))
-        metricView.addConstraint(totalView.heightAnchor.constraint(equalTo: (totalView.superview?.heightAnchor)!))
-        metricView.addConstraint(totalView.topAnchor.constraint(equalTo: (totalView.superview?.topAnchor)!))
-        metricView.addConstraint(totalView.rightAnchor.constraint(equalTo: (totalView.superview?.rightAnchor)!))
-
-        totalView.addConstraint(lowLabel.centerXAnchor.constraint(equalTo: (lowLabel.superview?.centerXAnchor)!))
-        totalView.addConstraint(lowLabel.bottomAnchor.constraint(equalTo: (lowLabel.superview?.centerYAnchor)!))
-
-        totalView.addConstraint(highLabel.rightAnchor.constraint(equalTo: (highLabel.superview?.centerXAnchor)!, constant: -3.0))
-        totalView.addConstraint(highLabel.topAnchor.constraint(equalTo: (highLabel.superview?.centerYAnchor)!))
-
-        totalView.addConstraint(metricLabel.leftAnchor.constraint(equalTo: (metricLabel.superview?.centerXAnchor)!, constant: 3.0))
-        totalView.addConstraint(metricLabel.lastBaselineAnchor.constraint(equalTo: highLabel.lastBaselineAnchor))
-
-        graphView.addConstraint(outerCircle.heightAnchor.constraint(equalToConstant: 100.0))
-        graphView.addConstraint(outerCircle.widthAnchor.constraint(equalToConstant: 100.0))
-        graphView.addConstraint(outerCircle.centerXAnchor.constraint(equalTo: (outerCircle.superview?.centerXAnchor)!))
-        graphView.addConstraint(outerCircle.centerYAnchor.constraint(equalTo: (outerCircle.superview?.centerYAnchor)!))
+        leftMetricView.addConstraint(outerCircle.heightAnchor.constraint(equalToConstant: 100.0))
+        leftMetricView.addConstraint(outerCircle.widthAnchor.constraint(equalToConstant: 100.0))
+        leftMetricView.addConstraint(outerCircle.centerXAnchor.constraint(equalTo: (outerCircle.superview?.centerXAnchor)!))
+        leftMetricView.addConstraint(outerCircle.centerYAnchor.constraint(equalTo: (outerCircle.superview?.centerYAnchor)!))
 
         outerCircle.addConstraint(percentageLabel.centerXAnchor.constraint(equalTo: (percentageLabel.superview?.centerXAnchor)!))
         outerCircle.addConstraint(percentageLabel.centerYAnchor.constraint(equalTo: (percentageLabel.superview?.centerYAnchor)!))
+
+        metricView.addConstraint(rightMetricView.widthAnchor.constraint(equalTo: (rightMetricView.superview?.widthAnchor)!, multiplier: 0.50))
+        metricView.addConstraint(rightMetricView.heightAnchor.constraint(equalTo: (rightMetricView.superview?.heightAnchor)!))
+        metricView.addConstraint(rightMetricView.topAnchor.constraint(equalTo: (rightMetricView.superview?.topAnchor)!))
+        metricView.addConstraint(rightMetricView.rightAnchor.constraint(equalTo: (rightMetricView.superview?.rightAnchor)!))
+
+        rightMetricView.addConstraint(topBarView.heightAnchor.constraint(equalToConstant: 20.0))
+        rightMetricView.addConstraint(topBarView.bottomAnchor.constraint(equalTo: (topBarView.superview?.centerYAnchor)!, constant: -5.0))
+        rightMetricView.addConstraint(topBarView.rightAnchor.constraint(equalTo: (topBarView.superview?.rightAnchor)!, constant: -5.0))
+
+        rightMetricView.addConstraint(topBarLabel.centerYAnchor.constraint(equalTo: topBarView.centerYAnchor))
+        rightMetricView.addConstraint(topBarLabel.rightAnchor.constraint(equalTo: topBarView.leftAnchor, constant: -3.0))
+
+        rightMetricView.addConstraint(bottomBarView.heightAnchor.constraint(equalToConstant: 20.0))
+        rightMetricView.addConstraint(bottomBarView.topAnchor.constraint(equalTo: (bottomBarView.superview?.centerYAnchor)!, constant: 5.0))
+        rightMetricView.addConstraint(bottomBarView.rightAnchor.constraint(equalTo: (bottomBarView.superview?.rightAnchor)!, constant: -5.0))
+        
+        if week1Value == week2Value {
+            rightMetricView.addConstraint(topBarView.widthAnchor.constraint(equalTo: (topBarView.superview?.widthAnchor)!, multiplier: 0.90))
+            rightMetricView.addConstraint(bottomBarView.widthAnchor.constraint(equalTo: (bottomBarView.superview?.widthAnchor)!, multiplier: 0.90))
+        } else if week1Value < week2Value {
+            rightMetricView.addConstraint(bottomBarView.widthAnchor.constraint(equalTo: (bottomBarView.superview?.widthAnchor)!, multiplier: 0.90))
+            rightMetricView.addConstraint(topBarView.widthAnchor.constraint(equalTo: (topBarView.superview?.widthAnchor)!, multiplier: 0.90 * (CGFloat(week1Value) / CGFloat(week2Value))))
+        } else {
+            rightMetricView.addConstraint(topBarView.widthAnchor.constraint(equalTo: (topBarView.superview?.widthAnchor)!, multiplier: 0.90))
+            rightMetricView.addConstraint(bottomBarView.widthAnchor.constraint(equalTo: (bottomBarView.superview?.widthAnchor)!, multiplier: 0.90 * (CGFloat(week2Value) / CGFloat(week1Value))))
+        }
+
+        rightMetricView.addConstraint(bottomBarLabel.centerYAnchor.constraint(equalTo: bottomBarView.centerYAnchor))
+        rightMetricView.addConstraint(bottomBarLabel.rightAnchor.constraint(equalTo: bottomBarView.leftAnchor, constant: -3.0))
+
+        topBarView.addConstraint(week1Label.rightAnchor.constraint(equalTo: (week1Label.superview?.rightAnchor)!))
+        topBarView.addConstraint(week1Label.bottomAnchor.constraint(equalTo: (week1Label.superview?.topAnchor)!))
+//        topBarView.addConstraint(week1Label.centerYAnchor.constraint(equalTo: (week1Label.superview?.centerYAnchor)!))
+
+        bottomBarView.addConstraint(week2Label.rightAnchor.constraint(equalTo: (week2Label.superview?.rightAnchor)!))
+        bottomBarView.addConstraint(week2Label.topAnchor.constraint(equalTo: (week2Label.superview?.bottomAnchor)!))
+//        bottomBarView.addConstraint(week2Label.centerYAnchor.constraint(equalTo: (week2Label.superview?.centerYAnchor)!))
+
+        contentView.addConstraint(footerView.widthAnchor.constraint(equalTo: (footerView.superview?.widthAnchor)!))
+        contentView.addConstraint(footerView.heightAnchor.constraint(equalTo: (footerView.superview?.heightAnchor)!, multiplier: 0.15))
+        contentView.addConstraint(footerView.topAnchor.constraint(equalTo: metricView.bottomAnchor))
+
+        footerView.addConstraint(leftFooterView.widthAnchor.constraint(equalTo: (leftFooterView.superview?.widthAnchor)!, multiplier: 0.50))
+        footerView.addConstraint(leftFooterView.heightAnchor.constraint(equalTo: (leftFooterView.superview?.heightAnchor)!))
+        footerView.addConstraint(leftFooterView.leftAnchor.constraint(equalTo: (leftFooterView.superview?.leftAnchor)!))
+        footerView.addConstraint(leftFooterView.topAnchor.constraint(equalTo: (leftFooterView.superview?.topAnchor)!))
+
+        footerView.addConstraint(rightFooterView.widthAnchor.constraint(equalTo: (rightFooterView.superview?.widthAnchor)!, multiplier: 0.50))
+        footerView.addConstraint(rightFooterView.heightAnchor.constraint(equalTo: (rightFooterView.superview?.heightAnchor)!))
+        footerView.addConstraint(rightFooterView.rightAnchor.constraint(equalTo: (rightFooterView.superview?.rightAnchor)!))
+        footerView.addConstraint(rightFooterView.topAnchor.constraint(equalTo: (rightFooterView.superview?.topAnchor)!))
+
+        leftFooterView.addConstraint(leftMetricTitleLabel.centerXAnchor.constraint(equalTo: (leftMetricTitleLabel.superview?.centerXAnchor)!))
+        leftFooterView.addConstraint(leftMetricTitleLabel.centerYAnchor.constraint(equalTo: (leftMetricTitleLabel.superview?.centerYAnchor)!))
+
+        rightFooterView.addConstraint(rightMetricTitleLabel.centerXAnchor.constraint(equalTo: (rightMetricTitleLabel.superview?.centerXAnchor)!))
+        rightFooterView.addConstraint(rightMetricTitleLabel.centerYAnchor.constraint(equalTo: (rightMetricTitleLabel.superview?.centerYAnchor)!))
     }
 
     override func awakeFromNib() {

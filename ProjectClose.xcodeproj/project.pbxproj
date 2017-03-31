@@ -13,7 +13,6 @@
 		35081D3D1E59DC52008E251D /* DoneInboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */; };
 		35081D3F1E5ACDF5008E251D /* InboxTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */; };
 		350B1B171E7D8C1E00CC1205 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B1B161E7D8C1E00CC1205 /* ReportsTableViewController.swift */; };
-		351F640A1E7ED27600A574EA /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F64091E7ED27600A574EA /* ReportTableViewCell.swift */; };
 		352867DF1E653DC8005E7CA5 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */; };
 		352867E11E6D1F03005E7CA5 /* AddLeadOpportunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867E01E6D1F03005E7CA5 /* AddLeadOpportunityViewController.swift */; };
 		352867E31E6E92EE005E7CA5 /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867E21E6E92EE005E7CA5 /* Opportunity.swift */; };
@@ -47,7 +46,7 @@
 		358185EE1E1FA7C10092BAEA /* LeadsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */; };
 		358185F01E1FA7D70092BAEA /* ReportsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */; };
 		358185F21E1FA7F00092BAEA /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */; };
-		35860F831E853F0A00BFFDEC /* MetricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35860F821E853F0A00BFFDEC /* MetricTableViewCell.swift */; };
+		35860F831E853F0A00BFFDEC /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35860F821E853F0A00BFFDEC /* ReportTableViewCell.swift */; };
 		3586C0F71E24C50600BDB146 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F61E24C50600BDB146 /* Task.swift */; };
 		3586C0F91E24CBCA00BDB146 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0F81E24CBCA00BDB146 /* User.swift */; };
 		3586C0FB1E24CC8900BDB146 /* Lead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FA1E24CC8900BDB146 /* Lead.swift */; };
@@ -119,7 +118,6 @@
 		35081D3C1E59DC52008E251D /* DoneInboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneInboxTableViewController.swift; sourceTree = "<group>"; };
 		35081D3E1E5ACDF5008E251D /* InboxTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTaskTableViewCell.swift; sourceTree = "<group>"; };
 		350B1B161E7D8C1E00CC1205 /* ReportsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
-		351F64091E7ED27600A574EA /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		352867E01E6D1F03005E7CA5 /* AddLeadOpportunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadOpportunityViewController.swift; sourceTree = "<group>"; };
 		352867E21E6E92EE005E7CA5 /* Opportunity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opportunity.swift; sourceTree = "<group>"; };
@@ -153,7 +151,7 @@
 		358185ED1E1FA7C10092BAEA /* LeadsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadsNavigationController.swift; sourceTree = "<group>"; };
 		358185EF1E1FA7D70092BAEA /* ReportsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsNavigationController.swift; sourceTree = "<group>"; };
 		358185F11E1FA7F00092BAEA /* SettingsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
-		35860F821E853F0A00BFFDEC /* MetricTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricTableViewCell.swift; sourceTree = "<group>"; };
+		35860F821E853F0A00BFFDEC /* ReportTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
 		3586C0F61E24C50600BDB146 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3586C0F81E24CBCA00BDB146 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3586C0FA1E24CC8900BDB146 /* Lead.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lead.swift; sourceTree = "<group>"; };
@@ -316,8 +314,7 @@
 				352867DE1E653DC8005E7CA5 /* UserProfileTableViewCell.swift */,
 				352867E41E6E9C70005E7CA5 /* LeadOpportunityTableViewCell.swift */,
 				356D1D1A1E7135D8003EF117 /* OpportunityTableViewCell.swift */,
-				351F64091E7ED27600A574EA /* ReportTableViewCell.swift */,
-				35860F821E853F0A00BFFDEC /* MetricTableViewCell.swift */,
+				35860F821E853F0A00BFFDEC /* ReportTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -855,10 +852,9 @@
 				35081D391E59DAD3008E251D /* AllInboxTableViewController.swift in Sources */,
 				356D1D1D1E7192A0003EF117 /* AddOpportunityDelegate.swift in Sources */,
 				35EB2F101E36FAF800C4EB19 /* AddLeadDelegate.swift in Sources */,
-				351F640A1E7ED27600A574EA /* ReportTableViewCell.swift in Sources */,
 				358185EC1E1FA7AC0092BAEA /* OpportunitiesNavigationController.swift in Sources */,
 				35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */,
-				35860F831E853F0A00BFFDEC /* MetricTableViewCell.swift in Sources */,
+				35860F831E853F0A00BFFDEC /* ReportTableViewCell.swift in Sources */,
 				35EB2F0A1E35C4A200C4EB19 /* LeadMessagesTableViewController.swift in Sources */,
 				35EB2F141E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift in Sources */,
 				354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */,
