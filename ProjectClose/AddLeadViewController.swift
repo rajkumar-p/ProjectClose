@@ -162,13 +162,9 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         companyAddressTextView.keyboardType = .asciiCapable
         companyAddressTextView.autocorrectionType = .default
         companyAddressTextView.autocapitalizationType = .sentences
-        companyAddressTextView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTextFieldTitleColor)
+        companyAddressTextView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)
         companyAddressTextView.font = UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)
-//        companyDescriptionTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("add_lead_vc_company_address_placeholder", value: "e.g. 48/7, Awesome Street,\n Awesome City, \n Awesome State.", comment: "Add Lead VC Company Address Placeholder"),
-//                attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)!,
-//                             NSFontAttributeName : UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)!])
 
-        
         companyAddressTextView.text = companyAddressTextViewPlaceholderString
         companyAddressTextView.delegate = self
 
@@ -238,12 +234,6 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
         addDelegate.didFinishAddingLead(sender: self)
 
-//        let leadDetailsPagingMenuViewController = makeLeadDetailsPagingViewController(leadId: newLead.leadId)
-////        let leadDetailsPagingMenuViewController = LeadDetailsPagingMenuViewController(options: PagingMenuOptions(), leadId: newLead.leadId)
-//        leadDetailsPagingMenuViewController.changeDelegate = changeDelegate
-////        self.present(leadDetailsPagingMenuViewController, animated: true)
-//        self.navigationController?.pushViewController(leadDetailsPagingMenuViewController, animated: true)
-
         let leadDetailsContainerViewController = LeadDetailsContainerViewController(leadId: newLead.leadId)
         leadDetailsContainerViewController.changeDelegate = changeDelegate
 
@@ -266,6 +256,7 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if !companyAddressTextViewEdited {
             textView.text = nil
             textView.font? = UIFont(name: ProjectCloseFonts.addLeadViewControllerCompanyAddressFont, size: 20.0)!
+            textView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTextFieldTitleColor)
         }
     }
 
@@ -273,7 +264,17 @@ class AddLeadViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if textView.text.isEmpty {
             textView.text = companyAddressTextViewPlaceholderString
             textView.font? = UIFont(name: ProjectCloseFonts.addLeadViewControllerTextFieldPlaceholderFont, size: 20.0)!
+            textView.textColor = UIColor(hexString: ProjectCloseColors.addLeadViewControllerCompanyAddressTitleColor)
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {
