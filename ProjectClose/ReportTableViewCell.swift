@@ -17,6 +17,7 @@ class ReportTableViewCell: UITableViewCell {
     var rightMetricView: UIView!
 
     var outerCircle: UIView!
+    var percentageLayer: CAShapeLayer!
     var percentageLabel: UILabel!
 
     var leftFooterView: UIView!
@@ -92,6 +93,13 @@ class ReportTableViewCell: UITableViewCell {
         percentageLabel.sizeToFit()
 
         outerCircle.addSubview(percentageLabel)
+
+        percentageLayer = CAShapeLayer.init()
+        percentageLayer.fillColor = UIColor.clear.cgColor
+        percentageLayer.strokeColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
+        percentageLayer.lineWidth = 15.0
+
+        outerCircle.layer.addSublayer(percentageLayer)
 
         leftMetricTitleLabel = UILabel()
         leftMetricTitleLabel.translatesAutoresizingMaskIntoConstraints = false

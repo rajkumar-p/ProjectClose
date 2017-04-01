@@ -225,13 +225,7 @@ class ReportsTableViewController: UITableViewController {
             let percentage = 100.0 * (Double(low) / Double(high))
             let degree = round(percentage * 360.0 / 100.0)
 
-            let percentageLayer = CAShapeLayer.init()
-            percentageLayer.path = UIBezierPath.init(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: ProjectCloseUtilities.degreeToRadian(degree: CGFloat(degree)), clockwise: true).cgPath
-            percentageLayer.fillColor = UIColor.clear.cgColor
-            percentageLayer.strokeColor = UIColor(hexString: ProjectCloseColors.reportTableViewCellGraphColor)?.cgColor
-            percentageLayer.lineWidth = 15.0
-
-            metricTableViewCell.outerCircle.layer.addSublayer(percentageLayer)
+            metricTableViewCell.percentageLayer.path = UIBezierPath.init(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: ProjectCloseUtilities.degreeToRadian(degree: CGFloat(degree)), clockwise: true).cgPath
         }
 
         return cell
