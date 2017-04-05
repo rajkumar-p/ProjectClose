@@ -20,10 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupRealm()
         printRealmFileUrl()
 
-        let loginViewController = LoginViewController()
+//        let loginViewController = LoginViewController()
+        let welcomeViewController = WelcomeViewController()
 
         window = UIWindow()
-        window?.rootViewController = loginViewController
+        window?.rootViewController = welcomeViewController
         window?.makeKeyAndVisible()
 
         styleTabBarTitleTextAttributes()

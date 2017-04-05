@@ -7,27 +7,39 @@
 //
 
 class ProjectCloseColors {
-    static let loginViewControllerImageOverlayBackgroundColor = "2C3541"
+    static let welcomeViewControllerImageOverlayBackgroundColor = "FFFFFF"
+    static let welcomeViewControllerLogoTitleColor = "2C3541"
+    static let welcomeViewControllerLogoBorderColor = "2C3541"
+    static let welcomeViewControllerHustleTitleColor = "47BB7F"
+    static let welcomeViewControllerCloseMoreTitleColor = "47BB7F"
+    static let welcomeViewControllerSalesTitleColor = "47BB7F"
+    static let welcomeViewControllerRegisterViewColor = "47BB7F"
+    static let welcomeViewControllerLoginViewColor = "47BB7F"
+    static let welcomeViewControllerNewUserTitleColor = "FFFFFF"
+    static let welcomeViewControllerExistingUserTitleColor = "FFFFFF"
+    static let welcomeViewControllerRegisterTitleColor = "FFFFFF"
+    static let welcomeViewControllerLoginTitleColor = "FFFFFF"
+    static let welcomeViewControllerWebsiteTitleColor = "2C3541"
+    static let welcomeViewControllerHelpTitleColor = "2C3541"
+    static let welcomeViewControllerSeperatorViewColor = "FFFFFF"
+    static let welcomeViewControllerOrTitleColor = "47BB7F"
+    static let welcomeViewControllerOrBackgroundColor = "FFFFFF"
 
-    static let loginViewControllerLogoTitleColor = "FFFFFF"
-    static let loginViewControllerLogoBorderColor = "FFFFFF"
-
-    static let loginViewControllerTextFieldTintColor = "FFFFFF"
-    static let loginViewControllerEmailTextFieldColor = "FFFFFF"
-    static let loginViewControllerEmailTextFieldPlaceholderColor = "FFFFFF"
-    static let loginViewControllerPasswordTextFieldColor = "FFFFFF"
-    static let loginViewControllerPasswordTextFieldPlaceholderColor = "FFFFFF"
-
-    static let loginViewControllerEmailTextFieldBackgroundColor = "2C3541"
-    static let loginViewControllerPasswordTextFieldBackgroundColor = "2C3541"
-
+    static let loginViewControllerImageOverlayBackgroundColor = "FFFFFF"
+    static let loginViewControllerLogoTitleColor = "2C3541"
+    static let loginViewControllerLogoBorderColor = "2C3541"
+    static let loginViewControllerTextFieldTintColor = "47BB7F"
+    static let loginViewControllerEmailTextFieldColor = "47BB7F"
+    static let loginViewControllerEmailTextFieldPlaceholderColor = "2C3541"
+    static let loginViewControllerPasswordTextFieldColor = "47BB7F"
+    static let loginViewControllerPasswordTextFieldPlaceholderColor = "2C3541"
+    static let loginViewControllerEmailTextFieldBackgroundColor = "FFFFFF"
+    static let loginViewControllerPasswordTextFieldBackgroundColor = "FFFFFF"
     static let loginViewControllerLoginButtonTitleColor = "FFFFFF"
     static let loginViewControllerLoginButtonBackgroundColor = "47BB7F"
-
-    static let loginViewControllerForgotPasswordButtonTitleColor = "47BB7F"
-
-    static let loginViewControllerSignupButtonTitleColor = "47BB7F"
-    static let loginViewControllerHelpButtonTitleColor = "47BB7F"
+    static let loginViewControllerForgotPasswordButtonTitleColor = "2C3541"
+    static let loginViewControllerSignupButtonTitleColor = "2C3541"
+    static let loginViewControllerHelpButtonTitleColor = "2C3541"
 
     static let allViewControllersNavigationBarBackgroundColor = "2C3541"
     static let allViewControllersNavigationBarTitleColor = "FFFFFF"

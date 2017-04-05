@@ -7,6 +7,20 @@
 //
 
 class ProjectCloseFonts {
+    static let welcomeViewControllerLogoFont = "Lato-Bold"
+    static let welcomeViewControllerHustleTitleFont = "Lato-Regular"
+    static let welcomeViewControllerCloseMoreTitleFont = "Lato-Regular"
+    static let welcomeViewControllerSalesTitleFont = "Lato-Regular"
+    static let welcomeViewControllerRegisterViewFont = "Lato-Regular"
+    static let welcomeViewControllerLoginViewFont = "Lato-Regular"
+    static let welcomeViewControllerNewUserTitleFont = "Lato-Regular"
+    static let welcomeViewControllerExistingUserTitleFont = "Lato-Regular"
+    static let welcomeViewControllerRegisterTitleFont = "Lato-Regular"
+    static let welcomeViewControllerLoginTitleFont = "Lato-Regular"
+    static let welcomeViewControllerWebsiteTitleFont = "Lato-Bold"
+    static let welcomeViewControllerHelpTitleFont = "Lato-Bold"
+    static let welcomeViewControllerOrTitleFont = "Lato-Regular"
+
     static let loginViewControllerLogoFont = "Lato-Bold"
 
     static let loginViewControllerEmailTextFieldFont = "Lato-Regular"

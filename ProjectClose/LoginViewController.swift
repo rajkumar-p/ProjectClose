@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var backgroundImageView: UIImageView!
     var backgroundImageOverlayView: UIView!
 
+    var logoImageView: UIView!
     var logoLabel: UILabel!
 
     var emailTextField: UIOffsetUITextField!
@@ -28,19 +29,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var signupButton: UIButton!
     var helpButton: UIButton!
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
-        setupBackgroundImage()
-        setupBackgroundImageOverlayView()
         setupView()
 
-        setupLogo()
+        setupBackgroundImage()
+        setupBackgroundImageOverlayView()
+
+        setupLogoImageView()
+        setupLogoLabel()
+
         setupEmailTextField()
         setupPasswordTextField()
         setupLoginButton()
@@ -51,10 +55,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func setupView() {
+        self.view.backgroundColor = .white
     }
 
     func setupBackgroundImage() {
-        backgroundImageView = UIImageView(image: UIImage(named: "close-background.jpg"))
+        backgroundImageView = UIImageView(image: UIImage(named: ProjectCloseStrings.loginViewControllerBackgroundImageName))
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
 
         backgroundImageView.contentMode = .scaleAspectFill
@@ -69,8 +74,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         backgroundImageOverlayView = UIView()
         backgroundImageOverlayView.translatesAutoresizingMaskIntoConstraints = false
 
-        backgroundImageOverlayView.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor, withAlpha: 0.9)
-//        backgroundImageOverlayView.backgroundColor = UIColor(hexString: "FFFFFF", withAlpha: 0.6)
+        backgroundImageOverlayView.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerImageOverlayBackgroundColor, withAlpha: 0.4)
 
         backgroundImageView.addSubview(backgroundImageOverlayView)
 
@@ -78,12 +82,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         backgroundImageView.addConstraint(backgroundImageOverlayView.widthAnchor.constraint(equalTo: (backgroundImageOverlayView.superview?.widthAnchor)!))
     }
 
-    func setupLogo() {
+    func setupLogoImageView() {
+        logoImageView = UIImageView(image: UIImage(named: ProjectCloseStrings.welcomeViewControllerLogoImageName))
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        logoImageView.contentMode = .scaleAspectFill
+
+        self.view.addSubview(logoImageView)
+
+        self.view.addConstraint(logoImageView.heightAnchor.constraint(equalToConstant: 50.0))
+        self.view.addConstraint(logoImageView.widthAnchor.constraint(equalToConstant: 50.0))
+        self.view.addConstraint(logoImageView.leftAnchor.constraint(equalTo: (logoImageView.superview?.leftAnchor)!, constant: 20.0))
+        self.view.addConstraint(logoImageView.topAnchor.constraint(equalTo: (logoImageView.superview?.topAnchor)!, constant: 50.0))
+    }
+
+    func setupLogoLabel() {
         logoLabel = UILabel()
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
 
         logoLabel.font = UIFont(name: ProjectCloseFonts.loginViewControllerLogoFont, size: 36.0)
-        logoLabel.text = NSLocalizedString("login_vc_logo_title", value: "Close.io", comment: "Login VC logo title")
+        logoLabel.text = NSLocalizedString("login_vc_logo_title", value: "Close.io", comment: "Login VC Logo Title")
         logoLabel.textColor = UIColor(hexString: ProjectCloseColors.loginViewControllerLogoTitleColor)
         logoLabel.textAlignment = .center
 
@@ -92,8 +110,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.view.addSubview(logoLabel)
 
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[logoLabel(>=100)]-80-|", metrics: nil, views: ["logoLabel" : logoLabel]))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-100-[logoLabel(==50)]", metrics: nil, views: ["logoLabel" : logoLabel]))
+        self.view.addConstraint(logoLabel.widthAnchor.constraint(equalToConstant: 200.0))
+        self.view.addConstraint(logoLabel.heightAnchor.constraint(equalToConstant: 50.0))
+        self.view.addConstraint(logoLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 20.0))
+        self.view.addConstraint(logoLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor))
     }
 
     func setupEmailTextField() {
@@ -107,11 +127,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.tintColor = UIColor(hexString: ProjectCloseColors.loginViewControllerTextFieldTintColor)
 
         emailTextField.font = UIFont(name: ProjectCloseFonts.loginViewControllerEmailTextFieldFont, size: 22.0)
-        emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_email_placeholder", value: "email", comment: "Login VC email placeholder"),
+        emailTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_email_placeholder", value: "email", comment: "Login VC Email Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.loginViewControllerEmailTextFieldPlaceholderColor)!,
                 NSFontAttributeName : UIFont(name: ProjectCloseFonts.loginViewControllerEmailTextFieldPlaceholderFont, size: 20.0)!])
         emailTextField.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerEmailTextFieldBackgroundColor)
-        emailTextField.alpha = 0.75
 
         emailTextField.delegate = self
 
@@ -131,11 +150,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.tintColor = UIColor(hexString: ProjectCloseColors.loginViewControllerTextFieldTintColor)
 
         passwordTextField.font = UIFont(name: ProjectCloseFonts.loginViewControllerPasswordTextFieldFont, size: 22.0)
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_password_placeholder", value: "password", comment: "Login VC password placeholder"),
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("login_vc_password_placeholder", value: "password", comment: "Login VC Password Placeholder"),
                 attributes: [NSForegroundColorAttributeName : UIColor(hexString: ProjectCloseColors.loginViewControllerPasswordTextFieldPlaceholderColor)!,
                              NSFontAttributeName : UIFont(name: ProjectCloseFonts.loginViewControllerPasswordTextFieldPlaceholderFont, size: 20.0)!])
         passwordTextField.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerPasswordTextFieldBackgroundColor)
-        passwordTextField.alpha = 0.75
 
         passwordTextField.delegate = self
 
@@ -150,7 +168,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton = UIButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
 
-        loginButton.setTitle(NSLocalizedString("login_vc_login_button_title", value: "LOG IN",comment: "Login VC login button title"), for: .normal)
+        loginButton.setTitle(NSLocalizedString("login_vc_login_button_title", value: "LOG IN",comment: "Login VC Login Button Title"), for: .normal)
         loginButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerLoginButtonTitleColor), for: .normal)
         loginButton.backgroundColor = UIColor(hexString: ProjectCloseColors.loginViewControllerLoginButtonBackgroundColor)
 
@@ -169,7 +187,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
 
         forgotPasswordButton.sizeToFit()
-        forgotPasswordButton.setTitle(NSLocalizedString("login_vc_forgot_password_button_title", value: "Forgot Password?",comment: "Login VC forgot password button title"), for: .normal)
+        forgotPasswordButton.setTitle(NSLocalizedString("login_vc_forgot_password_button_title", value: "Forgot Password?",comment: "Login VC Forgot Password Button Title"), for: .normal)
         forgotPasswordButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerForgotPasswordButtonTitleColor), for: .normal)
 
         forgotPasswordButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.loginViewControllerForgotPasswordButtonTitleFont, size: 18.0)
@@ -186,7 +204,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         signupButton.translatesAutoresizingMaskIntoConstraints = false
 
         signupButton.sizeToFit()
-        signupButton.setTitle(NSLocalizedString("login_vc_signup_button_title", value: "SIGN UP", comment: "Login VC signup button title"), for: .normal)
+        signupButton.setTitle(NSLocalizedString("login_vc_signup_button_title", value: "SIGN UP", comment: "Login VC Signup Button Title"), for: .normal)
         signupButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerSignupButtonTitleColor), for: .normal)
 
         signupButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.loginViewControllerSignupButtonTitleFont, size: 18.0)
@@ -202,7 +220,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         helpButton.translatesAutoresizingMaskIntoConstraints = false
 
         helpButton.sizeToFit()
-        helpButton.setTitle(NSLocalizedString("login_vc_help_button_title", value: "HELP", comment: "Login VC help button title"), for: .normal)
+        helpButton.setTitle(NSLocalizedString("login_vc_help_button_title", value: "HELP", comment: "Login VC Help Button Title"), for: .normal)
         helpButton.setTitleColor(UIColor(hexString: ProjectCloseColors.loginViewControllerHelpButtonTitleColor), for: .normal)
 
         helpButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.loginViewControllerHelpButtonTitleFont, size: 18.0)
