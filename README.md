@@ -7,8 +7,8 @@ This is a demo iOS app for [close.io](https://close.io). The iOS app mirrors mos
 macOS  
 Xcode 8.0 or later  
 Swift 3.0 or later  
-[CocoaPods] (https://cocoapods.org/)  
-[git] (https://git-scm.com/)
+CocoaPods (<https://cocoapods.org/>)  
+git (<https://git-scm.com/>)
 
 ## Devices and Orientations supported
 iPhone [Potrait]
