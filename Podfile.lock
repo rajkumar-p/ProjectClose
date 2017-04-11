@@ -10,18 +10,9 @@ PODS:
     - Realm (= 2.4.3)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - PagingMenuController
+  - ChameleonFramework/Swift (= 2.1.0)
+  - PagingMenuController (= 2.1.1)
   - RealmSwift (= 2.4.3)
-
-EXTERNAL SOURCES:
-  ChameleonFramework:
-    :git: https://github.com/ViccAlexander/Chameleon.git
-
-CHECKOUT OPTIONS:
-  ChameleonFramework:
-    :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
-    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
@@ -29,6 +20,6 @@ SPEC CHECKSUMS:
   Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
   RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
 
-PODFILE CHECKSUM: 82971d91e0a81ac4a8d0d42d27ad11c8ae422a94
+PODFILE CHECKSUM: 100465d0e8f7404f1685479dccba0e59baaa69b9
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

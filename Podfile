@@ -5,8 +5,8 @@ target 'ProjectClose' do
 
   # Pods for ProjectClose
   pod 'RealmSwift', '2.4.3'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'PagingMenuController'
+  pod 'ChameleonFramework/Swift', '2.1.0'
+  pod 'PagingMenuController', '2.1.1'
 
   target 'ProjectCloseTests' do
     inherit! :search_paths
@@ -17,5 +17,4 @@ target 'ProjectClose' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end
