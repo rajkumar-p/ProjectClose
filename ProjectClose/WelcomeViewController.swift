@@ -140,7 +140,9 @@ class WelcomeViewController: UIViewController {
 
         hustleLabel.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerHustleTitleFont, size: 70.0)
         hustleLabel.text = NSLocalizedString("welcome_vc_hustle_title", value: "hustle.", comment: "Welcome VC Hustle Title")
-        hustleLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerHustleTitleColor)
+//        hustleLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerHustleTitleColor)
+        hustleLabel.textColor = UIColor(hexString: "FFFFFF")
+        hustleLabel.backgroundColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerHustleTitleColor)
         hustleLabel.textAlignment = .left
         hustleLabel.sizeToFit()
 
@@ -156,7 +158,9 @@ class WelcomeViewController: UIViewController {
 
         closeMoreLabel.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerCloseMoreTitleFont, size: 70.0)
         closeMoreLabel.text = NSLocalizedString("welcome_vc_close_more_title", value: "close more", comment: "Welcome VC Close More Title")
-        closeMoreLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerCloseMoreTitleColor)
+//        closeMoreLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerCloseMoreTitleColor)
+        closeMoreLabel.textColor = UIColor(hexString: "FFFFFF")
+        closeMoreLabel.backgroundColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerCloseMoreTitleColor)
         closeMoreLabel.textAlignment = .left
         closeMoreLabel.sizeToFit()
 
@@ -172,7 +176,9 @@ class WelcomeViewController: UIViewController {
 
         dealsLabel.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerSalesTitleFont, size: 70.0)
         dealsLabel.text = NSLocalizedString("welcome_vc_deals_title", value: "deals.", comment: "Welcome VC Deals Title")
-        dealsLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerSalesTitleColor)
+//        dealsLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerSalesTitleColor)
+        dealsLabel.textColor = UIColor(hexString: "FFFFFF")
+        dealsLabel.backgroundColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerSalesTitleColor)
         dealsLabel.textAlignment = .left
         dealsLabel.sizeToFit()
 
@@ -242,6 +248,46 @@ class WelcomeViewController: UIViewController {
         loginView.addConstraint(existingUserLabel.topAnchor.constraint(equalTo: (existingUserLabel.superview?.topAnchor)!, constant: 5.0))
     }
 
+//    func setupRegisterButton() {
+//        registerButton = UIButton()
+//        registerButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        registerButton.setTitle(NSLocalizedString("welcome_vc_register_title", value: "REGISTER", comment: "Welcome VC Register Title"), for: .normal)
+//        registerButton.setTitleColor(UIColor(hexString: ProjectCloseColors.welcomeViewControllerRegisterTitleColor), for: .normal)
+//        registerButton.backgroundColor = UIColor(hexString: "47BB7F")
+//        registerButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerRegisterTitleFont, size: 25.0)
+//        registerButton.sizeToFit()
+//
+//        registerButton.addTarget(self, action: #selector(WelcomeViewController.registerButtonPressed(_:)), for: .touchUpInside)
+//
+//        self.view.addSubview(registerButton)
+//
+//        self.view.addConstraint(registerButton.heightAnchor.constraint(equalToConstant: 40.0))
+//        self.view.addConstraint(registerButton.widthAnchor.constraint(equalTo: (registerButton.superview?.widthAnchor)!, multiplier: 0.495))
+//        self.view.addConstraint(registerButton.topAnchor.constraint(equalTo: dealsLabel.bottomAnchor, constant: 50.0))
+//        self.view.addConstraint(registerButton.leftAnchor.constraint(equalTo: (registerButton.superview?.leftAnchor)!))
+//    }
+//
+//    func setupLoginButton() {
+//        loginButton = UIButton()
+//        loginButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        loginButton.setTitle(NSLocalizedString("welcome_vc_login_title", value: "LOG IN", comment: "Welcome VC Login Title"), for: .normal)
+//        loginButton.setTitleColor(UIColor(hexString: ProjectCloseColors.welcomeViewControllerLoginTitleColor), for: .normal)
+//        loginButton.backgroundColor = UIColor(hexString: "47BB7F")
+//        loginButton.titleLabel?.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerLoginTitleFont, size: 25.0)
+//        loginButton.sizeToFit()
+//
+//        loginButton.addTarget(self, action: #selector(WelcomeViewController.loginButtonPressed(_:)), for: .touchUpInside)
+//
+//        self.view.addSubview(loginButton)
+//
+//        self.view.addConstraint(loginButton.heightAnchor.constraint(equalToConstant: 40.0))
+//        self.view.addConstraint(loginButton.widthAnchor.constraint(equalTo: (loginButton.superview?.widthAnchor)!, multiplier: 0.495))
+//        self.view.addConstraint(loginButton.topAnchor.constraint(equalTo: dealsLabel.bottomAnchor, constant: 50.0))
+//        self.view.addConstraint(loginButton.rightAnchor.constraint(equalTo: (loginButton.superview?.rightAnchor)!))
+//    }
+
     func setupRegisterButton() {
         registerButton = UIButton()
         registerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -280,6 +326,20 @@ class WelcomeViewController: UIViewController {
         loginView.addConstraint(loginButton.topAnchor.constraint(equalTo: existingUserLabel.bottomAnchor, constant: 2.0))
     }
 
+//    func setupSeperatorView() {
+//        seperatorView = UIView()
+//        seperatorView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        seperatorView.backgroundColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerSeperatorViewColor)
+//
+//        self.view.addSubview(seperatorView)
+//
+//        self.view.addConstraint(seperatorView.heightAnchor.constraint(equalToConstant: 40.0))
+//        self.view.addConstraint(seperatorView.widthAnchor.constraint(equalToConstant: 1.0))
+//        self.view.addConstraint(seperatorView.topAnchor.constraint(equalTo: registerButton.topAnchor))
+//        self.view.addConstraint(seperatorView.leftAnchor.constraint(equalTo: registerButton.rightAnchor))
+//    }
+
     func setupSeperatorView() {
         seperatorView = UIView()
         seperatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -293,6 +353,28 @@ class WelcomeViewController: UIViewController {
         self.view.addConstraint(seperatorView.topAnchor.constraint(equalTo: registerView.topAnchor))
         self.view.addConstraint(seperatorView.leftAnchor.constraint(equalTo: registerView.rightAnchor))
     }
+
+//    func setupOrLabel() {
+//        orLabel = UILabel()
+//        orLabel.translatesAutoresizingMaskIntoConstraints = false
+//
+//        orLabel.font = UIFont(name: ProjectCloseFonts.welcomeViewControllerOrTitleFont, size: 20.0)
+//        orLabel.text = NSLocalizedString("welcome_vc_or_title", value: "or", comment: "Welcome VC Or Title")
+//        orLabel.textColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerOrTitleColor)
+//        orLabel.backgroundColor = UIColor(hexString: ProjectCloseColors.welcomeViewControllerOrBackgroundColor)
+//        orLabel.textAlignment = .center
+//
+//        orLabel.layer.cornerRadius = 40.0 / 2.0
+//        orLabel.clipsToBounds = true
+//
+//        self.view.addSubview(orLabel)
+//
+//        self.view.addConstraint(orLabel.widthAnchor.constraint(equalToConstant: 40.0))
+//        self.view.addConstraint(orLabel.heightAnchor.constraint(equalToConstant: 40.0))
+//        self.view.addConstraint(orLabel.centerXAnchor.constraint(equalTo: seperatorView.centerXAnchor))
+//        self.view.addConstraint(orLabel.centerYAnchor.constraint(equalTo: seperatorView.centerYAnchor))
+//
+//    }
 
     func setupOrLabel() {
         orLabel = UILabel()

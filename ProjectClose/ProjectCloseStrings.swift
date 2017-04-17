@@ -7,10 +7,11 @@
 //
 
 class ProjectCloseStrings {
-    static let welcomeViewControllerBackgroundImageName = "Close-Background.jpg"
+    static let welcomeViewControllerBackgroundImageName = "Close_Background.jpg"
     static let welcomeViewControllerLogoImageName = "MainLogo"
 
-    static let loginViewControllerBackgroundImageName = "Close-Background.jpg"
+    static let loginViewControllerBackgroundImageName = "Close_Background.jpg"
+    static let loginViewControllerLogoImageName = "MainLogo"
 
     static let inboxNavigationControllerInboxImageName = "Inbox"
     static let opportunitiesNavigationControllerOpportunitiesImageName = "Opportunities"

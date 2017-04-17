@@ -22,7 +22,7 @@ class ProjectCloseFonts {
     static let welcomeViewControllerOrTitleFont = "Lato-Regular"
 
     static let loginViewControllerLogoFont = "Lato-Bold"
-
+    static let loginViewControllerDescriptionFont = "Lato-Bold"
     static let loginViewControllerEmailTextFieldFont = "Lato-Regular"
     static let loginViewControllerEmailTextFieldPlaceholderFont = "Lato-Hairline"
     static let loginViewControllerPasswordTextFieldFont = "Lato-Regular"

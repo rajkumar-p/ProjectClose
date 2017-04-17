@@ -19,6 +19,8 @@
 		352867E51E6E9C70005E7CA5 /* LeadOpportunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867E41E6E9C70005E7CA5 /* LeadOpportunityTableViewCell.swift */; };
 		352867E71E6EED70005E7CA5 /* AddLeadOpportunityDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352867E61E6EED70005E7CA5 /* AddLeadOpportunityDelegate.swift */; };
 		352BC1851E5188470015B572 /* EmailConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BC1841E5188470015B572 /* EmailConversation.swift */; };
+		354AAB781EA3CEF80039386B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AAB771EA3CEF80039386B /* LoginViewController.swift */; };
+		354AAB851EA3CFF00039386B /* Close_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 354AAB791EA3CFF00039386B /* Close_Background.jpg */; };
 		354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AD1E481BCD00D34DD0 /* Contact.swift */; };
 		354F31B01E4824B300D34DD0 /* AddLeadContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */; };
 		354F31B21E483A4F00D34DD0 /* AddLeadContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */; };
@@ -52,7 +54,6 @@
 		3586C0FD1E24FA0200BDB146 /* OverridenPagingMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */; };
 		358D749C1E4456DE0093CC70 /* AddLeadTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */; };
 		35984BC81E936FCE000D4CA0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35984BC71E936FCE000D4CA0 /* WelcomeViewController.swift */; };
-		35984BD91E93AB34000D4CA0 /* Close-Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35984BD31E93AB34000D4CA0 /* Close-Background.jpg */; };
 		359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9DF1E1B78E900083309 /* Lato-Black.ttf */; };
 		359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E01E1B78E900083309 /* Lato-Bold.ttf */; };
 		359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */; };
@@ -72,7 +73,7 @@
 		35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35CEC2AF1E1A26C8007CE4CD /* LaunchScreen.storyboard */; };
 		35CEC2BC1E1A26C8007CE4CD /* ProjectCloseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2BB1E1A26C8007CE4CD /* ProjectCloseTests.swift */; };
 		35CEC2C71E1A26C8007CE4CD /* ProjectCloseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2C61E1A26C8007CE4CD /* ProjectCloseUITests.swift */; };
-		35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */; };
+		35CEC2D61E1A2719007CE4CD /* LoginViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEC2D51E1A2719007CE4CD /* LoginViewControllerOld.swift */; };
 		35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */; };
 		35EB2EEF1E2C882800C4EB19 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */; };
 		35EB2EFC1E2D168800C4EB19 /* AddUserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */; };
@@ -125,6 +126,8 @@
 		352867E41E6E9C70005E7CA5 /* LeadOpportunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadOpportunityTableViewCell.swift; sourceTree = "<group>"; };
 		352867E61E6EED70005E7CA5 /* AddLeadOpportunityDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadOpportunityDelegate.swift; sourceTree = "<group>"; };
 		352BC1841E5188470015B572 /* EmailConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConversation.swift; sourceTree = "<group>"; };
+		354AAB771EA3CEF80039386B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		354AAB791EA3CFF00039386B /* Close_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Close_Background.jpg; sourceTree = "<group>"; };
 		354F31AD1E481BCD00D34DD0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		354F31AF1E4824B300D34DD0 /* AddLeadContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactViewController.swift; sourceTree = "<group>"; };
 		354F31B11E483A4F00D34DD0 /* AddLeadContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadContactDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +161,6 @@
 		3586C0FC1E24FA0200BDB146 /* OverridenPagingMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverridenPagingMenuController.swift; sourceTree = "<group>"; };
 		358D749B1E4456DE0093CC70 /* AddLeadTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLeadTaskDelegate.swift; sourceTree = "<group>"; };
 		35984BC71E936FCE000D4CA0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		35984BD31E93AB34000D4CA0 /* Close-Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Close-Background.jpg"; sourceTree = "<group>"; };
 		359EC9DF1E1B78E900083309 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		359EC9E01E1B78E900083309 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		359EC9E11E1B78E900083309 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -184,7 +186,7 @@
 		35CEC2C21E1A26C8007CE4CD /* ProjectCloseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectCloseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CEC2C61E1A26C8007CE4CD /* ProjectCloseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCloseUITests.swift; sourceTree = "<group>"; };
 		35CEC2C81E1A26C8007CE4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		35CEC2D51E1A2719007CE4CD /* LoginViewControllerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerOld.swift; sourceTree = "<group>"; };
 		35EB2EEC1E2BAC0300C4EB19 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		35EB2EEE1E2C882800C4EB19 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		35EB2EFB1E2D168800C4EB19 /* AddUserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserDelegate.swift; sourceTree = "<group>"; };
@@ -252,7 +254,7 @@
 		358185B11E1E06C40092BAEA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				35984BD31E93AB34000D4CA0 /* Close-Background.jpg */,
+				354AAB791EA3CFF00039386B /* Close_Background.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -474,7 +476,8 @@
 		35EB2EF51E2C890400C4EB19 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				35CEC2D51E1A2719007CE4CD /* LoginViewController.swift */,
+				35CEC2D51E1A2719007CE4CD /* LoginViewControllerOld.swift */,
+				354AAB771EA3CEF80039386B /* LoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -646,12 +649,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				35CEC2B11E1A26C8007CE4CD /* LaunchScreen.storyboard in Resources */,
+				354AAB851EA3CFF00039386B /* Close_Background.jpg in Resources */,
 				359EC9E61E1B78E900083309 /* Lato-Hairline.ttf in Resources */,
 				359EC9E41E1B78E900083309 /* Lato-Black.ttf in Resources */,
 				359EC9E71E1B78E900083309 /* Lato-Light.ttf in Resources */,
 				359EC9E81E1B78E900083309 /* Lato-Regular.ttf in Resources */,
 				35CEC2AE1E1A26C8007CE4CD /* Assets.xcassets in Resources */,
-				35984BD91E93AB34000D4CA0 /* Close-Background.jpg in Resources */,
 				359EC9E51E1B78E900083309 /* Lato-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +831,7 @@
 				355F07321E5D8C36009BEF3E /* AddTaskDelegate.swift in Sources */,
 				352BC1851E5188470015B572 /* EmailConversation.swift in Sources */,
 				35EB2F021E31FC5400C4EB19 /* AddLeadViewController.swift in Sources */,
+				354AAB781EA3CEF80039386B /* LoginViewController.swift in Sources */,
 				355F07301E5D803C009BEF3E /* LeadChoosenDelegate.swift in Sources */,
 				356FCAE21E4B203400CEFD5F /* Message.swift in Sources */,
 				358185E41E1FA7440092BAEA /* OpportunitiesViewController.swift in Sources */,
@@ -870,7 +874,7 @@
 				35EB2F0A1E35C4A200C4EB19 /* LeadMessagesTableViewController.swift in Sources */,
 				35EB2F141E38682100C4EB19 /* MakeLeadDetailsPagingMenuViewController.swift in Sources */,
 				354F31AE1E481BCD00D34DD0 /* Contact.swift in Sources */,
-				35CEC2D61E1A2719007CE4CD /* LoginViewController.swift in Sources */,
+				35CEC2D61E1A2719007CE4CD /* LoginViewControllerOld.swift in Sources */,
 				359EC9F11E1B7B1700083309 /* ProjectCloseStrings.swift in Sources */,
 				35EB2EED1E2BAC0300C4EB19 /* AddUserViewController.swift in Sources */,
 				352867DF1E653DC8005E7CA5 /* UserProfileTableViewCell.swift in Sources */,

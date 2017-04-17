@@ -25,8 +25,11 @@ class ProjectCloseColors {
     static let welcomeViewControllerOrTitleColor = "47BB7F"
     static let welcomeViewControllerOrBackgroundColor = "FFFFFF"
 
+    static let loginViewControllerImageOverlayBackgroundColor1 = "000C40"
+    static let loginViewControllerImageOverlayBackgroundColor2 = "E0EAFC"
     static let loginViewControllerImageOverlayBackgroundColor = "FFFFFF"
-    static let loginViewControllerLogoTitleColor = "2C3541"
+    static let loginViewControllerLogoTitleColor = "FFFFFF"
+    static let loginViewControllerDescriptionTitleColor = "FFFFFF"
     static let loginViewControllerLogoBorderColor = "2C3541"
     static let loginViewControllerTextFieldTintColor = "47BB7F"
     static let loginViewControllerEmailTextFieldColor = "47BB7F"
