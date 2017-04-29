@@ -139,4 +139,18 @@ class LeadMessagesTableViewController: UITableViewController {
         return messageCell
     }
 
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let replyAction = UITableViewRowAction(style: .normal, title: "Reply", handler: { action, indexPath in
+
+        })
+        replyAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadMessagesTableViewControllerReplyActionBackgroundColor)
+
+        let replyAllAction = UITableViewRowAction(style: .normal, title: "Reply All", handler: { action, indexPath in
+
+        })
+        replyAllAction.backgroundColor = UIColor(hexString: ProjectCloseColors.leadMessagesTableViewControllerReplyAllActionBackgroundColor)
+
+        return [replyAction, replyAllAction]
+    }
+
 }

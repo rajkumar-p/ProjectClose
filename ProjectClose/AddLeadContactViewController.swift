@@ -165,7 +165,7 @@ class AddLeadContactViewController: UIViewController, UITextFieldDelegate {
         phoneTextField = UIOffsetUITextField()
         phoneTextField.translatesAutoresizingMaskIntoConstraints = false
 
-        phoneTextField.keyboardType = .phonePad
+        phoneTextField.keyboardType = .default
         phoneTextField.textColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerPhoneTextFieldTitleColor)
         phoneTextField.tintColor = UIColor(hexString: ProjectCloseColors.addLeadContactViewControllerTextFieldTintColor)
         phoneTextField.font = UIFont(name: ProjectCloseFonts.addLeadContactViewControllerPhoneFont, size: 20.0)

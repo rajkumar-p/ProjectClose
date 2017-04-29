@@ -292,12 +292,6 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UserChoosenD
         self.navigationController?.pushViewController(chooseUserTableViewController, animated: true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        print("Memory warning : AddTaskWithLeadViewController")
-    }
-
     func didChooseUser(sender: ChooseUserTableViewController, selectedUser: User) {
         self.selectedUser = selectedUser
         assignedToUserLabel.text = self.selectedUser.name
@@ -306,6 +300,17 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate, UserChoosenD
     func didChooseLead(sender: ChooseLeadTableViewController, selectedLead: Lead) {
         self.selectedLead = selectedLead
         assignedToLeadLabel.text = self.selectedLead.companyName
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        print("Memory warning : AddTaskWithLeadViewController")
     }
 
     /*

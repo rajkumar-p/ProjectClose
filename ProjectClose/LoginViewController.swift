@@ -201,7 +201,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         self.view.addSubview(forgotPasswordButton)
 
-        self.view.addConstraint(forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10.0))
+        self.view.addConstraint(forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 3.0))
         self.view.addConstraint(forgotPasswordButton.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor))
     }
 

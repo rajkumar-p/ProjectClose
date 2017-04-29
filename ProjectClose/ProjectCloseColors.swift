@@ -40,9 +40,9 @@ class ProjectCloseColors {
     static let loginViewControllerPasswordTextFieldBackgroundColor = "FFFFFF"
     static let loginViewControllerLoginButtonTitleColor = "FFFFFF"
     static let loginViewControllerLoginButtonBackgroundColor = "47BB7F"
-    static let loginViewControllerForgotPasswordButtonTitleColor = "2C3541"
-    static let loginViewControllerSignupButtonTitleColor = "2C3541"
-    static let loginViewControllerHelpButtonTitleColor = "2C3541"
+    static let loginViewControllerForgotPasswordButtonTitleColor = "47BB7F"
+    static let loginViewControllerSignupButtonTitleColor = "47BB7F"
+    static let loginViewControllerHelpButtonTitleColor = "47BB7F"
 
     static let allViewControllersNavigationBarBackgroundColor = "2C3541"
     static let allViewControllersNavigationBarTitleColor = "FFFFFF"
@@ -200,6 +200,8 @@ class ProjectCloseColors {
     static let leadMessagesTableViewControllerImageViewBackgroundColor = "47BB7F"
     static let leadMessagesTableViewControllerImageViewTintColor = "47BB7F"
     static let leadMessagesTableViewControllerCommsOptionsTintColor = "47BB7F"
+    static let leadMessagesTableViewControllerReplyActionBackgroundColor = "2C3541"
+    static let leadMessagesTableViewControllerReplyAllActionBackgroundColor = "47BB7F"
 
     static let leadStatusTableViewControllerTitleColor = "2C3541"
     static let leadStatusTableViewControllerSelectedTitleColor = "47BB7F"
