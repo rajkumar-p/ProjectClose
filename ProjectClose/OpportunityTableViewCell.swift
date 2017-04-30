@@ -20,7 +20,8 @@ class OpportunityTableViewCell: UITableViewCell {
     var userLabel: UILabel!
 
     var confidenceView: UIView!
-    var confidenceInPrecentageView: UIView!
+    var confidenceInPercentageView: UIView!
+    var confidenceInPercentageViewWidthConstraint: NSLayoutConstraint!
 
     var confidencePercentage: Double!
     var confidencePercentageLabel: UILabel!
@@ -78,10 +79,10 @@ class OpportunityTableViewCell: UITableViewCell {
 
         rightView.addSubview(confidenceView)
 
-        confidenceInPrecentageView = UIView()
-        confidenceInPrecentageView.translatesAutoresizingMaskIntoConstraints = false
+        confidenceInPercentageView = UIView()
+        confidenceInPercentageView.translatesAutoresizingMaskIntoConstraints = false
 
-        confidenceView.addSubview(confidenceInPrecentageView)
+        confidenceView.addSubview(confidenceInPercentageView)
 
         confidencePercentageLabel = UILabel()
         confidencePercentageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -145,10 +146,16 @@ class OpportunityTableViewCell: UITableViewCell {
         rightView.addConstraint(statusLabel.centerXAnchor.constraint(equalTo: (statusLabel.superview?.centerXAnchor)!))
         rightView.addConstraint(statusLabel.topAnchor.constraint(equalTo: (statusLabel.superview?.centerYAnchor)!, constant: 3.0))
 
-        confidenceView.addConstraint(confidenceInPrecentageView.widthAnchor.constraint(equalTo: (confidenceInPrecentageView.superview?.widthAnchor)!, multiplier: CGFloat(confidencePercentage! / 100.0)))
-        confidenceView.addConstraint(confidenceInPrecentageView.heightAnchor.constraint(equalTo: (confidenceInPrecentageView.superview?.heightAnchor)!))
-        confidenceView.addConstraint(confidenceInPrecentageView.leftAnchor.constraint(equalTo: (confidenceInPrecentageView.superview?.leftAnchor)!))
-        confidenceView.addConstraint(confidenceInPrecentageView.topAnchor.constraint(equalTo: (confidenceInPrecentageView.superview?.topAnchor)!))
+        if let dynamicWidthConstraint = confidenceInPercentageViewWidthConstraint {
+            confidenceView.removeConstraint(dynamicWidthConstraint)
+        }
+
+        confidenceInPercentageViewWidthConstraint = confidenceInPercentageView.widthAnchor.constraint(equalTo: (confidenceInPercentageView.superview?.widthAnchor)!, multiplier: CGFloat(confidencePercentage! / 100.0))
+        confidenceView.addConstraint(confidenceInPercentageViewWidthConstraint)
+
+        confidenceView.addConstraint(confidenceInPercentageView.heightAnchor.constraint(equalTo: (confidenceInPercentageView.superview?.heightAnchor)!))
+        confidenceView.addConstraint(confidenceInPercentageView.leftAnchor.constraint(equalTo: (confidenceInPercentageView.superview?.leftAnchor)!))
+        confidenceView.addConstraint(confidenceInPercentageView.topAnchor.constraint(equalTo: (confidenceInPercentageView.superview?.topAnchor)!))
 
         confidenceView.addConstraint(confidencePercentageLabel.centerXAnchor.constraint(equalTo: (confidencePercentageLabel.superview?.centerXAnchor)!))
         confidenceView.addConstraint(confidencePercentageLabel.centerYAnchor.constraint(equalTo: (confidencePercentageLabel.superview?.centerYAnchor)!))

@@ -151,7 +151,7 @@ class OpportunitiesTableViewController: UITableViewController, AddOpportunityDel
         opportunityCell.confidenceView.layer.borderColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageViewBorderColor)?.cgColor
         opportunityCell.confidenceView.layer.borderWidth = 1.5
 
-        opportunityCell.confidenceInPrecentageView.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageColor)
+        opportunityCell.confidenceInPercentageView.backgroundColor = UIColor(hexString: ProjectCloseColors.opportunityTableViewCellPercentageColor)
 
         return opportunityCell
     }
