@@ -20,5 +20,11 @@ iPhone [Potrait]
 3) Open the .xcworkspace using Xcode. Clean and build the project (keyboard shortcuts - ⇧⌘K & ⌘B).  
 4) Run the project by choosing the iPhone simulators or an actual iPhone. (Note: Only iPhone is supported for now).
 
+## Running Instructions
+For now, when running the app, follow the below sequence,   
+1) Create users (settings -> users)  
+2) Create leads  
+3) Create opportunities & tasks  
+
 ## Contact
 Send me an email on <raj@diskodev.com>
