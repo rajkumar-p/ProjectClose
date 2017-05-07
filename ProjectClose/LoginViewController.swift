@@ -363,14 +363,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func InsertSuUserOntoRealm() {
         let realm = try! Realm()
 
-        let suUser = User()
-        suUser.name = "Rajkumar P"
-        suUser.email = "raj@diskodev.com"
-        suUser.createdOn = NSDate()
+        guard realm.object(ofType: User.self, forPrimaryKey: "raj@diskodev.com") != nil else {
+            let suUser = User()
+            suUser.name = "Rajkumar P"
+            suUser.email = "raj@diskodev.com"
+            suUser.createdOn = NSDate()
 
-        try! realm.write {
-            realm.add(suUser, update: true)
+            try! realm.write {
+                realm.add(suUser, update: true)
+            }
+
+            return
         }
+
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
