@@ -8,6 +8,7 @@
 
 import UIKit
 import PagingMenuController
+import RealmSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     var backgroundImageView: UIImageView!
@@ -354,7 +355,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let mainTabBarController = MainTabBarController()
         mainTabBarController.viewControllers = [inboxNavigationController, opportunitiesNavigationController, leadsNavigationController, reportsNavigationController, settingsNavigationController]
 
+        InsertSuUserOntoRealm()
+
         self.present(mainTabBarController, animated: true)
+    }
+
+    func InsertSuUserOntoRealm() {
+        let realm = try! Realm()
+
+        let suUser = User()
+        suUser.name = "Rajkumar P"
+        suUser.email = "raj@diskodev.com"
+        suUser.createdOn = NSDate()
+
+        try! realm.write {
+            realm.add(suUser, update: true)
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
